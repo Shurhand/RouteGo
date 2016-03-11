@@ -12,64 +12,53 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Comment extends DomainEntity {
-	
-	public Comment(){
+
+	public Comment() {
 		super();
 	}
-	
+
 	private Date moment;
-	private Double rating;
 	private String text;
-	
+	private String user;
+
 	@NotNull
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return moment;
 	}
-	
+
 	public void setMoment(Date moment) {
 		this.moment = moment;
 	}
-	@Range(min = 0, max = 5)
-	public Double getRating() {
-		return rating;
-	}
-	
-	public void setRating(Double rating) {
-		this.rating = rating;
-	}
-	
+
 	@NotEmpty
 	@Max(200)
 	public String getText() {
 		return text;
 	}
-	
+
 	public void setText(String text) {
 		this.text = text;
 	}
-	
+
+	@NotEmpty
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 	// // =============== Relaciones ==============
-	
-	private Customer customer;
+
 	private Route route;
-
-	@NotNull
-	@ManyToOne(optional = false)
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 
 	@NotNull
 	@ManyToOne(optional = false)
@@ -80,8 +69,5 @@ public class Comment extends DomainEntity {
 	public void setRoute(Route route) {
 		this.route = route;
 	}
-	
-	
-	
 
 }

@@ -2,103 +2,91 @@ package domain;
 
 import java.net.URL;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Activity extends DomainEntity {
 
-	public Activity(){
+	public Activity() {
 		super();
 	}
-	
+
 	private String name;
 	private String description;
 	private Double cost;
 	private String postalAddress;
 	private URL picture;
 	private Double duration;
-	private Date schedule;
-	
+
 	@NotEmpty
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@NotEmpty
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	@NotNull
 	public Double getCost() {
 		return cost;
 	}
-	
+
 	public void setCost(Double cost) {
 		this.cost = cost;
 	}
+
 	@NotEmpty
 	public String getPostalAddress() {
 		return postalAddress;
 	}
-	
+
 	public void setPostalAddress(String postalAddress) {
 		this.postalAddress = postalAddress;
 	}
-	
+
 	public URL getPicture() {
 		return picture;
 	}
-	
+
 	public void setPicture(URL picture) {
 		this.picture = picture;
 	}
-	
+
 	@NotNull
 	public Double getDuration() {
 		return duration;
 	}
-	
+
 	public void setDuration(Double duration) {
 		this.duration = duration;
 	}
-	
-	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date getSchedule() {
-		return schedule;
-	}
-	
-	public void setSchedule(Date schedule) {
-		this.schedule = schedule;
-	}
-	
-	//================ Relaciones ==================
-	
+
+	// ================ Relaciones ==================
+
 	private Company company;
 	private Collection<Category> categories;
+	private Route route;
+	private Collection<Schedule> schedules;
 
 	@NotNull
 	@ManyToOne(optional = false)
@@ -119,9 +107,27 @@ public class Activity extends DomainEntity {
 	public void setCategories(Collection<Category> categories) {
 		this.categories = categories;
 	}
-	
-	
-	
-	
-	
+
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	public Route getRoute() {
+		return route;
+	}
+
+	public void setRoute(Route route) {
+		this.route = route;
+	}
+
+	@Valid
+	@NotNull
+	@OneToMany(mappedBy = "activity")
+	public Collection<Schedule> getSchedules() {
+		return schedules;
+	}
+
+	public void setSchedules(Collection<Schedule> schedules) {
+		this.schedules = schedules;
+	}
+
 }
