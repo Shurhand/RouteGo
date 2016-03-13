@@ -34,7 +34,7 @@ public class Route extends DomainEntity {
 	private Double rating;
 
 	@NotEmpty
-	@Column(unique = true)
+	
 	public String getName() {
 		return name;
 	}

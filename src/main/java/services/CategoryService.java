@@ -69,4 +69,10 @@ public class CategoryService {
 
 	// ========== Other Business Methods =============
 
+	public Category getCategoryByName(String s){
+		
+		Category res = categoryRepository.getCategoryByName(s);
+		
+		return res;
+	}
 }

@@ -18,6 +18,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+
 <p>
 	<spring:message code="welcome.greeting.prefix" />
 	${name}
@@ -28,3 +29,5 @@
 	<spring:message code="welcome.greeting.current.time" />
 	${moment}
 </p>
+
+<a href="/RouteGo/route/create.do" id="button-1" data-rel="external" class="ui-btn ui-icon-arrow-d-l ui-btn-icon-left ui-btn-inline ui-corner-all ui-btn-a">Create Route</a>

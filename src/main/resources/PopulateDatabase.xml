@@ -23,7 +23,32 @@
 			</list>
 		</property>
 	</bean>
+	
+	
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="customer1" />
+		<property name="password" value="ffbc4675f864e0e9aab8bdf7a0437010" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 
+		
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="company1" />
+		<property name="password" value="df655f976f7c9d3263815bd981225cd9" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="COMPANY" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 	
 	<!-- Other domain beans come here -->
 
@@ -35,5 +60,159 @@
 		<property name="phone" value="673923829" />
 		<property name="userAccount" ref="userAccount1" />
 	</bean>
-
+	
+	<!-- Customers -->
+	
+	<bean id="customer1" class="domain.Customer">
+		<property name="name" value="Aitor" />
+		<property name="surname" value="Tilla" />
+		<property name="email" value="aitortilladepatatas@gmail.com" />
+		<property name="phone" value="673923829" />
+		<property name="userAccount" ref="userAccount2" />
+	</bean>
+	
+	<!-- Companies -->
+	
+	<bean id="company1" class="domain.Company">
+		<property name="name" value="Aitor" />
+		<property name="surname" value="Tilla" />
+		<property name="email" value="aitortilladepatatas@gmail.com" />
+		<property name="phone" value="673923829" />
+		<property name="CIF" value="A58818501" />
+		<property name="userAccount" ref="userAccount3" />	
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Routes -->
+	
+	<bean id="route1" class="domain.Route">
+		<property name="name" value="Aitor" />
+		<property name="startingDate" value="10/10/2016 10:00" />
+		<property name="endDate" value="12/10/2016 13:00" />
+		<property name="description" value="673923829" />
+		<property name="rating" value="4" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- Activities -->
+	
+	<bean id="visitaCatedral" class="domain.Activity">
+		<property name="name" value="Visita Catedral Sevilla" />
+		<property name="description" value="Visita cultural por toda la catedral con guía, etc." />
+		<property name="cost" value="25" />
+		<property name="postalAddress" value="Av. de la Constitución, s/n, 41004 Sevilla" />
+		<property name="picture" value="http://histmag.org/grafika/articles2015/katedry/sewilla.jpg" />
+		<property name="duration" value="120" />
+		<property name="company" ref="company1" />
+		<property name="route" ref="route1" />
+		<property name="schedules" >
+			<list>
+				<ref bean="schedule1"/>
+				<ref bean="schedule2"/>		
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>	
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="torreDelOro" class="domain.Activity">
+		<property name="name" value="Visita la Torre del Oro" />
+		<property name="description" value="Visita a la Torre del Oro" />
+		<property name="cost" value="5" />
+		<property name="postalAddress" value="Paseo de Cristóbal Colón, s/n, 41001 Sevilla" />
+		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Torre_del_Oro_flag_Seville_Spain.jpg/245px-Torre_del_Oro_flag_Seville_Spain.jpg" />
+		<property name="duration" value="10" />
+		<property name="company" ref="company1" />
+		<property name="route" ref="route1" />
+		<property name="schedules" >
+			<list>
+				<ref bean="schedule1"/>
+				<ref bean="schedule2"/>		
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>	
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="parqueMariaLuisa" class="domain.Activity">
+		<property name="name" value="Parque María Luisa" />
+		<property name="description" value="Parque María Luisa" />
+		<property name="cost" value="0" />
+		<property name="postalAddress" value="Av. de María Luisa, s/n, 41013 Sevilla" />
+		<property name="picture" value="http://spainattractions.es/wp-content/uploads/2014/03/maria-luisa-park.jpg" />
+		<property name="duration" value="10" />
+		<property name="company" ref="company1" />
+		<property name="route" ref="route1" />
+		<property name="schedules" >
+			<list>
+				<ref bean="schedule1"/>
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>	
+			</list>
+		</property>
+	</bean>
+		
+	<!-- Schedules -->
+	
+	<bean id="schedule1" class="domain.Schedule">
+		<property name="openingDate" value="10/10/2016 10:00" />
+		<property name="closingDate" value="10/10/2016 18:00" />	
+		<property name="activity" ref="visitaCatedral" />	
+	</bean>
+	
+	<bean id="schedule2" class="domain.Schedule">
+		<property name="openingDate" value="14/10/2016 10:00" />
+		<property name="closingDate" value="14/10/2016 22:00" />	
+		<property name="activity" ref="parqueMariaLuisa" />	
+	</bean>	
+	
+	<!-- Categories -->
+	
+	<bean id="Churches" class="domain.Category">
+		<property name="name" value="Churches" />
+		<property name="route" ref="route1" />	
+		<property name="activity" ref="visitaCatedral" />	
+	</bean>
+	
+	<bean id="Museums" class="domain.Category">
+		<property name="name" value="Museums" />
+		<property name="route" ref="route1" />	
+		<property name="activity" ref="visitaCatedral" />	
+	</bean>
+	
+	<bean id="Restaurants" class="domain.Category">
+		<property name="name" value="Restaurants" />
+		<property name="route" ref="route1" />	
+		<property name="activity" ref="visitaCatedral" />	
+	</bean>
+	
+	<bean id="Cultural" class="domain.Category">
+		<property name="name" value="Cultural " />
+		<property name="route" ref="route1" />	
+		<property name="activity" ref="visitaCatedral" />	
+	</bean>
+			
 </beans>

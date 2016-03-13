@@ -20,7 +20,7 @@ public class Customer extends Actor {
 	// ==============Atributos==============
 	private CreditCard creditCard;
 
-	@NotNull
+	
 	@Valid
 	public CreditCard getCreditCard() {
 		return creditCard;
