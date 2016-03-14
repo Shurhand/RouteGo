@@ -41,6 +41,8 @@
 			access="permitAll" />
 		<security:intercept-url pattern="/security/loginFailure.do"
 			access="permitAll" />
+			
+		<security:intercept-url pattern="/customer/register.do" access="permitAll" />
 
 		<security:intercept-url pattern="/welcome/index.do"
 			access="permitAll" />

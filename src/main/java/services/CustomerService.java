@@ -3,12 +3,15 @@ package services;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Customer;
 import repositories.CustomerRepository;
+import security.Authority;
+import security.UserAccount;
 
 @Service
 @Transactional
@@ -23,6 +26,9 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
 
+	@Autowired
+	private Md5PasswordEncoder encoder;
+
 	// ========== Supporting services ================
 
 	// ========== Simple CRUD Methods ================
@@ -30,8 +36,12 @@ public class CustomerService {
 	public Customer create() {
 
 		Customer result;
+		UserAccount userAccount;
 
 		result = new Customer();
+		userAccount = createCustomerAccount();
+
+		result.setUserAccount(userAccount);
 
 		return result;
 	}
@@ -58,6 +68,11 @@ public class CustomerService {
 	public void save(Customer customer) {
 		Assert.notNull(customer);
 
+		String password;
+		password = customer.getUserAccount().getPassword();
+		password = encoder.encodePassword(password, null);
+		customer.getUserAccount().setPassword(password);
+
 		customerRepository.save(customer);
 	}
 
@@ -68,5 +83,25 @@ public class CustomerService {
 	}
 
 	// ========== Other Business Methods =============
+
+	public UserAccount createCustomerAccount() {
+		UserAccount result;
+		// Collection<Authority> authorities;
+		Authority authority;
+
+		result = new UserAccount();
+		// result.setUsername("");
+		// result.setPassword("");
+
+		authority = new Authority();
+		authority.setAuthority("CUSTOMER");
+		// authorities = new ArrayList<Authority>();
+		// authorities.add(authority);
+
+		// result.setAuthorities(authorities);
+		result.addAuthority(authority);
+
+		return result;
+	}
 
 }

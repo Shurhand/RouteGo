@@ -12,7 +12,11 @@
 	">
 
 	<util:list id="converters">
-
+		<bean class="converters.CustomerToStringConverter" />
+		<bean class="converters.StringToCustomerConverter" />
+		
+		<bean class="converters.AuthorityToStringConverter" />
+		<bean class="converters.StringToAuthorityConverter" />
 
 		
 	</util:list>

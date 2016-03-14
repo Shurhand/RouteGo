@@ -18,6 +18,7 @@
 		<value>/views/security/messages</value>
 		<value>/views/welcome/messages</value>
 		<value>/views/route/messages</value>
+		<value>/views/customer/messages</value>
 
 	</util:list>
 

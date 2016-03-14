@@ -8,17 +8,16 @@ import security.Authority;
 
 @Component
 @Transactional
-public class AuthorityToStringConverter implements Converter<Authority, String>{
+public class AuthorityToStringConverter implements Converter<Authority,String>{
 	
 	@Override
 	public String convert(Authority authority) {
 		String result;
-
-		if (authority == null)
+		if (authority == null){
 			result = null;
-		else
-			result=String.valueOf(authority.getAuthority());
-
+		}else{
+			result = authority.getAuthority();
+		}
 		return result;
 	}
 

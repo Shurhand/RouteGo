@@ -39,6 +39,7 @@
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="/RouteGo/"><spring:message code="master.page.home" /></a></li>
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
+			<li><a class="fNiv" href="customer/create.do"><spring:message code="master.page.register" /></a></li>
 			<li><a class="fNiv" href="about"><spring:message code="master.page.about" /></a></li>
 			<li><a class="fNiv" href="contact"><spring:message code="master.page.contact" /></a></li>
 			<li><a class="fNiv" href="routes"><spring:message code="master.page.routes" /></a></li>
