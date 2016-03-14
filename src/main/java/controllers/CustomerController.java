@@ -19,6 +19,8 @@ import services.CustomerService;
 @RequestMapping("/customer")
 public class CustomerController extends AbstractController {
 
+	// =============== Services =======
+	
 	@Autowired
 	private CustomerService customerService;
 
@@ -55,7 +57,7 @@ public class CustomerController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			result = createEditModelAndView(customer,binding.toString());
+			result = createEditModelAndView(customer);
 		} else {
 			try {
 				customerService.save(customer);
