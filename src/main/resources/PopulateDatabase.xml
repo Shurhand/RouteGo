@@ -178,12 +178,14 @@
 	<!-- Schedules -->
 	
 	<bean id="schedule1" class="domain.Schedule">
+		<property name="dayOfWeek" value="MONDAY" />
 		<property name="openingDate" value="10/10/2016 10:00" />
 		<property name="closingDate" value="10/10/2016 18:00" />	
 		<property name="activity" ref="visitaCatedral" />	
 	</bean>
 	
 	<bean id="schedule2" class="domain.Schedule">
+		<property name="dayOfWeek" value="TUESDAY" />
 		<property name="openingDate" value="14/10/2016 10:00" />
 		<property name="closingDate" value="14/10/2016 22:00" />	
 		<property name="activity" ref="parqueMariaLuisa" />	

@@ -1,5 +1,6 @@
 package domain;
 
+import java.time.DayOfWeek;
 import java.util.Date;
 
 import javax.persistence.Access;
@@ -20,6 +21,7 @@ public class Schedule extends DomainEntity {
 		super();
 	}
 
+	private DayOfWeek dayOfWeek;
 	private Date openingDate;
 	private Date closingDate;
 
@@ -43,6 +45,15 @@ public class Schedule extends DomainEntity {
 
 	public void setClosingDate(Date closingDate) {
 		this.closingDate = closingDate;
+	}
+	
+	@NotNull
+	public DayOfWeek getDayOfWeek() {
+		return dayOfWeek;
+	}
+
+	public void setDayOfWeek(DayOfWeek dayOfWeek) {
+		this.dayOfWeek = dayOfWeek;
 	}
 
 	// ========================= Relationships ======================
