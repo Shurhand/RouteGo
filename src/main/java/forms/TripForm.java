@@ -20,8 +20,6 @@ public class TripForm {
 		super();
 	}
 	
-	private Integer id;
-	private Integer version;
 	private Date startingDate;
 	private Date endDate;
 	private Double cost;
@@ -30,22 +28,11 @@ public class TripForm {
 	private Boolean checkMuseumsCategory;
 	private Boolean checkChurchesCategory;
 	private Boolean checkRestaurantsCategory;
+	private Boolean checkDrinksCategory;
+	private Boolean checkPaintingsCategory;
+	private Boolean checkMusicCategory;
+	private Boolean checkMonumentsCategory;
 	
-	@NotNull
-	@Id
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	@NotNull
-	public Integer getVersion() {
-		return version;
-	}
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
 	
 	@NotNull
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -106,6 +93,30 @@ public class TripForm {
 	}
 	public void setCheckRestaurantsCategory(Boolean checkRestaurantsCategory) {
 		this.checkRestaurantsCategory = checkRestaurantsCategory;
+	}
+	public Boolean getCheckDrinksCategory() {
+		return checkDrinksCategory;
+	}
+	public void setCheckDrinksCategory(Boolean checkDrinksCategory) {
+		this.checkDrinksCategory = checkDrinksCategory;
+	}
+	public Boolean getCheckPaintingsCategory() {
+		return checkPaintingsCategory;
+	}
+	public void setCheckPaintingsCategory(Boolean checkPaintingsCategory) {
+		this.checkPaintingsCategory = checkPaintingsCategory;
+	}
+	public Boolean getCheckMusicCategory() {
+		return checkMusicCategory;
+	}
+	public void setCheckMusicCategory(Boolean checkMusicCategory) {
+		this.checkMusicCategory = checkMusicCategory;
+	}
+	public Boolean getCheckMonumentsCategory() {
+		return checkMonumentsCategory;
+	}
+	public void setCheckMonumentsCategory(Boolean checkMonumentsCategory) {
+		this.checkMonumentsCategory = checkMonumentsCategory;
 	}
 	
 	

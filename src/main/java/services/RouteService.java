@@ -80,6 +80,8 @@ public class RouteService {
 	public Route reconstruct(TripForm tripForm){
 		
 		Route res = new Route();
+		res.setId(0);
+		res.setVersion(0);
 		res.setDescription("Descripción de prueba");
 		res.setEndDate(tripForm.getEndDate());
 		res.setStartingDate(tripForm.getStartingDate());
@@ -92,18 +94,18 @@ public class RouteService {
 		
 		Collection<Category> categories = new ArrayList<>();
 		
-		if(tripForm.getCheckCulturalCategory() == true){
-			categories.add(categoryService.getCategoryByName("Cultural"));
-		}
-		if(tripForm.getCheckChurchesCategory() == true){
-			categories.add(categoryService.getCategoryByName("Churches"));
-		}
-		if(tripForm.getCheckRestaurantsCategory() == true){
-			categories.add(categoryService.getCategoryByName("Restaurants"));
-		}
-		if(tripForm.getCheckMuseumsCategory() == true){
-			categories.add(categoryService.getCategoryByName("Museums"));
-		}
+//		if(tripForm.getCheckCulturalCategory() == true){
+//			categories.add(categoryService.getCategoryByName("Cultural"));
+//		}
+//		if(tripForm.getCheckChurchesCategory() == true){
+//			categories.add(categoryService.getCategoryByName("Churches"));
+//		}
+//		if(tripForm.getCheckRestaurantsCategory() == true){
+//			categories.add(categoryService.getCategoryByName("Restaurants"));
+//		}
+//		if(tripForm.getCheckMuseumsCategory() == true){
+//			categories.add(categoryService.getCategoryByName("Museums"));
+//		}
 		
 		res.setCategories(categories);
 		

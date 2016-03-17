@@ -11,12 +11,17 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -33,24 +38,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="styles/common.css" type="text/css">
+<link rel="stylesheet" href="styles/carousel.css" type="text/css">
+<link rel="stylesheet" href="styles/navbar-static-top.css" type="text/css">
 <link rel="stylesheet" href="styles/jmenu.css" media="screen"
 	type="text/css" />
 <link rel="stylesheet" href="styles/displaytag.css" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#jMenu").jMenu();
-	});
-
-	function askSubmission(msg, form) {
-		if (confirm(msg))
-			form.submit();
-	}
-</script>
 
 </head>
 
@@ -60,14 +56,7 @@
 		<tiles:insertAttribute name="header" />
 	</div>
 	<div>
-		<h1>
-			<tiles:insertAttribute name="title" />
-		</h1>
 		<tiles:insertAttribute name="body" />
-		<jstl:if test="${message != null}">
-			<br />
-			<span class="message"><spring:message code="${message}" /></span>
-		</jstl:if>
 	</div>
 	<div>
 		<tiles:insertAttribute name="footer" />

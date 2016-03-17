@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import domain.Route;
 import forms.TripForm;
+import security.Credentials;
 import services.RouteService;
 
 @Controller
@@ -37,6 +38,7 @@ public class RouteController extends AbstractController {
 		SimpleDateFormat formatter;
 		String startingDate;
 		String endDate;
+		Credentials credentials = new Credentials();
 		
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		startingDate = formatter.format(route.getStartingDate());
@@ -46,6 +48,7 @@ public class RouteController extends AbstractController {
 		res.addObject("route", route);
 		res.addObject("startingDate", startingDate);
 		res.addObject("endDate", endDate);
+		res.addObject("credentials", credentials);
 		
 		return res;
 	}
@@ -57,14 +60,11 @@ public class RouteController extends AbstractController {
 	public ModelAndView create(){
 		ModelAndView res;
 		
-		TripForm customerForm = new TripForm();
+		TripForm tripForm = new TripForm();
 		
 
-		customerForm.setId(0);
-		customerForm.setVersion(0);
-
 		
-		res = createEditModelAndView(customerForm);
+		res = createEditModelAndView(tripForm);
 		return res;
 	}
 	
@@ -74,6 +74,7 @@ public class RouteController extends AbstractController {
 	@RequestMapping(value = "/create" , method = RequestMethod.POST, params="create")
 	public ModelAndView save(@Valid TripForm tripForm, BindingResult binding){
 		ModelAndView res;
+		Credentials credentials = new Credentials();
 				
 		if (binding.hasErrors()) {
 			for(ObjectError a : binding.getAllErrors()){
@@ -86,6 +87,8 @@ public class RouteController extends AbstractController {
 				ROUTE_CREATED = route;
 			//	routeService.save(route);
 				res = new ModelAndView("redirect:/route/list.do");
+				res.addObject("credentials", credentials);
+				
 
 		}
 	return res;
@@ -103,10 +106,12 @@ public class RouteController extends AbstractController {
 	
 	protected ModelAndView createEditModelAndView(TripForm tripForm, String message){
 		ModelAndView res;
+		Credentials credentials = new Credentials();
 			
 		res = new ModelAndView("route/create");
 		res.addObject("tripForm", tripForm);
 		res.addObject("message", message);
+		res.addObject("credentials", credentials);
 	
 		
 		return res;

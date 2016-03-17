@@ -10,8 +10,9 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-
-
+<h3 class="text-center">
+<spring:message code="customer.register" />
+</h3>
 <form:form action="customer/edit.do" modelAttribute="customer" class="form-horizontal">
 
 	<form:hidden path="id" />
@@ -20,7 +21,7 @@
 	
 	<div class="form-group" >
 	
-	<form:label path="name" class="col-sm-2 control-label">
+	<form:label path="name" class="col-sm-5 control-label">
 		<spring:message code="customer.name" />:
 	</form:label>
 	
@@ -34,7 +35,7 @@
 	
 
 	
-	<form:label path="surname" class="col-sm-2 control-label">
+	<form:label path="surname" class="col-sm-5 control-label">
 		<spring:message code="customer.surname" />:
 	</form:label>
 	<div class="col-xs-2">
@@ -46,7 +47,7 @@
 	</div>
 		<div class="form-group">
 	
-	<form:label path="email" class="col-sm-2 control-label">
+	<form:label path="email" class="col-sm-5 control-label">
 		<spring:message code="customer.email" />:
 	</form:label>
 	<div class="col-xs-2">
@@ -57,7 +58,7 @@
 		<div class="form-group">
 	
 	
-	<form:label path="phone" class="col-sm-2 control-label">
+	<form:label path="phone" class="col-sm-5 control-label">
 		<spring:message code="customer.phoneNumber" />:
 	</form:label>
 	<div class="col-xs-2">
@@ -68,7 +69,7 @@
 		<div class="form-group">
 	
 	
-	<form:label path="postalAddress" class="col-sm-2 control-label">
+	<form:label path="postalAddress" class="col-sm-5 control-label">
 		<spring:message code="customer.address" />:
 	</form:label>
 	<div class="col-xs-2">
@@ -79,7 +80,7 @@
 	
 		<div class="form-group">
 	
-	<form:label path="picture" class="col-sm-2 control-label">
+	<form:label path="picture" class="col-sm-5 control-label">
 		<spring:message code="customer.picture" />:
 	</form:label>
 	<div class="col-xs-2">
@@ -90,7 +91,7 @@
 		<div class="form-group">
 	
 	
-	<form:label path="userAccount.username" class="col-sm-2 control-label">
+	<form:label path="userAccount.username" class="col-sm-5 control-label">
 		<spring:message code="customer.username" />:  
 	</form:label>
 	<div class="col-xs-2">
@@ -101,7 +102,7 @@
 		
 	<div class="form-group">
 
-	<form:label path="userAccount.password" class="col-sm-2 control-label">
+	<form:label path="userAccount.password" class="col-sm-5 control-label">
 		<spring:message code="customer.password" />:  
 	</form:label>
 	<div class="col-xs-2">
@@ -111,7 +112,7 @@
 </div>
 
 <div class="form-group">
-<div class="col-xs-2"></div>
+<div class="col-xs-5"></div>
 
 	<input type="submit" name="save" class="btn btn-primary"
 		value="<spring:message code="customer.register" />" />

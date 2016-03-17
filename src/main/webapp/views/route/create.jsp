@@ -10,10 +10,116 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+   <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+       <form:form class="contact_form" action="route/create.do" modelAttribute="tripForm">
+        <h2 align="center">Please complete this form with your preferences to calculate a route:</h2>
+          <br><br>
+          <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker6'>
+                        <form:input path="startingDate" class="form-control" placeholder="Enter date..." />
+						<form:errors cssClass="error" path="startingDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker7'>
+                        <form:input path="endDate" class="form-control" placeholder="Enter date..." />
+						<form:errors cssClass="error" path="endDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-2'>
+              <div class="input-group">
+                <form:input path="cost" class="form-control" placeholder="Budget..." />
+				<form:errors cssClass="error" path="cost" />
+                 <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-euro"></span>
+                 </span>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row" >
+            <div class="col-md-2"> 
+            </div> 
+              <div class="col-md-5">        
+                 <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="">
+                      Museums
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="">
+                      Churchs
+                   </label>
+                  </div>
+                  <div class="checkbox">
+                   <label>
+                     <input type="checkbox" value="">
+                     Restaurants
+                   </label>
+                  </div>
+                  <div class="checkbox">
+                   <label>
+                     <input type="checkbox" value="">
+                     Drinks
+                   </label>
+                  </div>
+              </div>
+              <div class="col-md-5">
+                  <div class="checkbox">
+                   <label>
+                     <input type="checkbox" value="">
+                     Monuments
+                   </label>
+                  </div>
+                  <div class="checkbox">
+                   <label>
+                      <input type="checkbox" value="">
+                      Paintings
+                   </label>
+                  </div>
+                  <div class="checkbox">
+                   <label>
+                     <input type="checkbox" value="">
+                     Music
+                   </label>
+                  </div>
+                  <div class="checkbox">
+                   <label>
+                     <input type="checkbox" value="">
+                     Trekking
+                   </label>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <p align="right">
+          	<input class="btn btn-lg btn-primary" type="submit" name="create"
+					value="<spring:message code="route.createTrip" />" />&nbsp; 
+            </p>
+       </form:form>
+      </div>
+      </div> <!-- /container -->
+
+
+<!--  
 <form:form action="route/create.do" modelAttribute="tripForm">
 
-	<form:hidden path="id" />
-	<form:hidden path="version" />
 
 	<form:label path="startingDate">
 		<spring:message code="route.startingDate" />:
@@ -70,3 +176,5 @@
 
 
 </form:form>
+
+-->

@@ -12,6 +12,14 @@
 	font-weight: bolder;
 }
 
+.error2 {
+	color: red;
+	font-weight: bolder;
+	position: fixed;
+	top: 38px;
+	right: 29%;
+}
+
 .message {
 	color: red;
 	font-weight: bolder;

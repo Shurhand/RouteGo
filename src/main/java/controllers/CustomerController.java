@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import domain.Customer;
+import security.Credentials;
 import services.CustomerService;
 
 @Controller
@@ -96,10 +97,12 @@ public class CustomerController extends AbstractController {
 
 	protected ModelAndView createEditModelAndView(Customer customer, String message) {
 		ModelAndView res;
-
+		Credentials credentials = new Credentials();
+		
 		res = new ModelAndView("customer/edit");
 		res.addObject("customer", customer);
 		res.addObject("message", message);
+		res.addObject("credentials", credentials);
 
 		return res;
 	}
