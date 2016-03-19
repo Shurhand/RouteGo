@@ -26,6 +26,8 @@ public class Activity extends DomainEntity {
 	private String description;
 	private Double cost;
 	private String postalAddress;
+	private double latitude;
+	private double longitude;
 	private URL picture;
 	private Double duration;
 
@@ -80,6 +82,24 @@ public class Activity extends DomainEntity {
 
 	public void setDuration(Double duration) {
 		this.duration = duration;
+	}
+
+	@NotNull
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	@NotNull
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
 
 	// ================ Relaciones ==================

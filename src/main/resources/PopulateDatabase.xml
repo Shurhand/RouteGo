@@ -113,6 +113,8 @@
 	<bean id="visitaCatedral" class="domain.Activity">
 		<property name="name" value="Visita Catedral Sevilla" />
 		<property name="description" value="Visita cultural por toda la catedral con guía, etc." />
+		<property name="latitude" value="37.3769" />
+		<property name="longitude" value="-5.9867" />
 		<property name="cost" value="25" />
 		<property name="postalAddress" value="Av. de la Constitución, s/n, 41004 Sevilla" />
 		<property name="picture" value="http://histmag.org/grafika/articles2015/katedry/sewilla.jpg" />
@@ -135,6 +137,8 @@
 	<bean id="torreDelOro" class="domain.Activity">
 		<property name="name" value="Visita la Torre del Oro" />
 		<property name="description" value="Visita a la Torre del Oro" />
+		<property name="latitude" value="37.3824" />
+		<property name="longitude" value="-5.9965" />
 		<property name="cost" value="5" />
 		<property name="postalAddress" value="Paseo de Cristóbal Colón, s/n, 41001 Sevilla" />
 		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Torre_del_Oro_flag_Seville_Spain.jpg/245px-Torre_del_Oro_flag_Seville_Spain.jpg" />
@@ -157,6 +161,8 @@
 	<bean id="parqueMariaLuisa" class="domain.Activity">
 		<property name="name" value="Parque María Luisa" />
 		<property name="description" value="Parque María Luisa" />
+		<property name="latitude" value="37.3747" />
+		<property name="longitude" value="-5.9882" />
 		<property name="cost" value="0" />
 		<property name="postalAddress" value="Av. de María Luisa, s/n, 41013 Sevilla" />
 		<property name="picture" value="http://spainattractions.es/wp-content/uploads/2014/03/maria-luisa-park.jpg" />
