@@ -9,10 +9,12 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
-
+  
 <h3 class="text-center">
 <spring:message code="customer.register" />
 </h3>
+
+
 <form:form action="customer/edit.do" modelAttribute="customer" class="form-horizontal">
 
 	<form:hidden path="id" />

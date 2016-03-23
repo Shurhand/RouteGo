@@ -10,6 +10,26 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+       <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datepicker({
+           	     format: "dd/mm/yyyy",
+           	     clearBtn: true,
+           	     todayHighlight: true,
+           	     daysOfWeekHighlighted: "0",
+                })});
+       </script>
+       
+       <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datepicker({
+           	     format: "dd/mm/yyyy",
+           	     clearBtn: true,
+           	     todayHighlight: true,
+           	     daysOfWeekHighlighted: "0",
+                })});
+       </script>
+
    <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
@@ -20,7 +40,7 @@
           <div class="container">
             <div class='col-md-5'>
                 <div class="form-group">
-                    <div class='input-group date' id='datetimepicker6'>
+                    <div class='input-group date' id='datetimepicker1'>
                         <form:input path="startingDate" class="form-control" placeholder="Enter date..." />
 						<form:errors cssClass="error" path="startingDate" />
                         <span class="input-group-addon">
@@ -31,7 +51,7 @@
             </div>
             <div class='col-md-5'>
                 <div class="form-group">
-                    <div class='input-group date' id='datetimepicker7'>
+                    <div class='input-group date' id='datetimepicker2'>
                         <form:input path="endDate" class="form-control" placeholder="Enter date..." />
 						<form:errors cssClass="error" path="endDate" />
                         <span class="input-group-addon">
