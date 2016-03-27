@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
 
@@ -28,41 +29,83 @@
 	<jstl:out value="Start Date:${startingDate}"/><br>
 	<jstl:out value="End Date:${endDate}"/><br>
 	<br><br>
-
 		<jstl:forEach var="activity" items="${route.activities}">
-			<jstl:out value="${activity.cost} Euros ${activity.name}" /><br>
+			<img var="p" height="100" width="150" src="${activity.picture}"/>
+			<jstl:out value="${p}  ${activity.cost} Euros ${activity.name}" /><br>
 			
 		</jstl:forEach>
 </center>
 
-<div id="map" style="width: 500px; height: 400px;"></div>
 
-  <script type="text/javascript">	
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      center: new google.maps.LatLng(37.3824, -5.9965),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    <c:forEach items="${route.activities}" var="n"> 
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng("${n.latitude}", "${n.longitude}"),
-        map: map
-      });
-      
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent("${n.name}");
-          infowindow.open(map, marker);
+    window.onload = function () {
+        var mapOptions = {
+            center: new google.maps.LatLng(37.3824, -5.9965),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        var infoWindow = new google.maps.InfoWindow();
+        var lat_lng = new Array();
+        var aux = [];
+        var latlngbounds = new google.maps.LatLngBounds();
+     	
+        
+        <c:forEach items="${route.activities}" var="n"> 
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng("${n.latitude}", "${n.longitude}"),
+          map: map
+        });
+        aux.push(marker);
+        lat_lng.push(new google.maps.LatLng("${n.latitude}", "${n.longitude}"));
+     	 
+         
+     	google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+            return function() {
+              infowindow.setContent("${n.name}");
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+     	</c:forEach>
+  
+        //***********ROUTING****************//
+ 
+        //Initialize the Path Array
+        var path = new google.maps.MVCArray();
+ 
+        //Initialize the Direction Service
+        var service = new google.maps.DirectionsService();
+ 
+        //Set the Path Stroke Color
+        var poly = new google.maps.Polyline({ map: map, strokeColor: '#4986E7' });
+ 
+        //Loop and Draw Path Route between the Points on MAP
+        for (var i = 0; i < lat_lng.length; i++) {
+            if ((i + 1) < lat_lng.length) {
+                var src = lat_lng[i];
+                var des = lat_lng[i + 1];
+                path.push(src);
+                poly.setPath(path);
+                service.route({
+                    origin: src,
+                    destination: des,
+                    travelMode: google.maps.DirectionsTravelMode.WALKING
+                }, function (result, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                            path.push(result.routes[0].overview_path[i]);
+                        }
+                    }
+                });
+            }
         }
-      })(marker, i));
-      </c:forEach>
-  </script>
+    }
+</script>
+<div id="dvMap" style="width: 500px; height: 400px">
+</div>
+
 
 </body>
 </html>

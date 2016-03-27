@@ -1,9 +1,12 @@
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -32,10 +35,10 @@ public class Category extends DomainEntity {
 	//=============== Relaciones ==============
 	
 	private Route route;
-	private Activity activity;
+	private Collection<Activity> activities;
 
-	@NotNull
-	@ManyToOne(optional = false)
+	
+	@ManyToOne(optional = true)
 	public Route getRoute() {
 		return route;
 	}
@@ -44,14 +47,14 @@ public class Category extends DomainEntity {
 		this.route = route;
 	}
 
-	@NotNull
-	@ManyToOne(optional = false)
-	public Activity getActivity() {
-		return activity;
+	
+	@ManyToMany
+	public Collection<Activity> getActivities() {
+		return activities;
 	}
 
-	public void setActivity(Activity activity) {
-		this.activity = activity;
+	public void setActivities(Collection<Activity> activities) {
+		this.activities = activities;
 	}
 	
 	

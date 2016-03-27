@@ -10,6 +10,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import domain.Activity;
 import domain.Category;
@@ -32,6 +33,7 @@ public class TripForm {
 	private Boolean checkPaintingsCategory;
 	private Boolean checkMusicCategory;
 	private Boolean checkMonumentsCategory;
+	
 	
 	
 	@NotNull

@@ -94,20 +94,33 @@ public class RouteService {
 		
 		Collection<Category> categories = new ArrayList<>();
 		
-//		if(tripForm.getCheckCulturalCategory() == true){
-//			categories.add(categoryService.getCategoryByName("Cultural"));
-//		}
-//		if(tripForm.getCheckChurchesCategory() == true){
-//			categories.add(categoryService.getCategoryByName("Churches"));
-//		}
-//		if(tripForm.getCheckRestaurantsCategory() == true){
-//			categories.add(categoryService.getCategoryByName("Restaurants"));
-//		}
-//		if(tripForm.getCheckMuseumsCategory() == true){
-//			categories.add(categoryService.getCategoryByName("Museums"));
-//		}
+		if(tripForm.getCheckCulturalCategory() == true){
+			categories.add(categoryService.getCategoryByName("Cultural"));
+		}
+		if(tripForm.getCheckChurchesCategory() == true){
+			categories.add(categoryService.getCategoryByName("Churches"));
+		}
+		if(tripForm.getCheckRestaurantsCategory() == true){
+			categories.add(categoryService.getCategoryByName("Restaurants"));
+		}
+		if(tripForm.getCheckMuseumsCategory() == true){
+			categories.add(categoryService.getCategoryByName("Museums"));
+		}
+		if(tripForm.getCheckDrinksCategory() == true){
+			categories.add(categoryService.getCategoryByName("Drinks"));
+		}
+		if(tripForm.getCheckPaintingsCategory() == true){
+			categories.add(categoryService.getCategoryByName("Paintings"));
+		}
+		if(tripForm.getCheckMusicCategory() == true){
+			categories.add(categoryService.getCategoryByName("Music"));
+		}
+		if(tripForm.getCheckMonumentsCategory() == true){
+			categories.add(categoryService.getCategoryByName("Monuments"));
+		}
 		
 		res.setCategories(categories);
+		System.out.println(res.getCategories());
 		
 		//Activities
 		

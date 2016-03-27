@@ -2,6 +2,7 @@ package controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
@@ -47,11 +48,37 @@ public class RouteController extends AbstractController {
 		startingDate = formatter.format(route.getStartingDate());
 		endDate = formatter.format(route.getEndDate());
 
+		
+		double[][] array = new double[route.getActivities().size()][2];
+
+		Activity[] ar = new Activity[route.getActivities().size()];
+		
+		Activity[] arrays = route.getActivities().toArray(ar);
+		
+		for(int i = 0;i < route.getActivities().size();i++){
+			for(int j = 0;j < 2;j++){
+				if(j == 0){
+				array[i][j] = arrays[i].getLatitude();
+				
+			} else { 
+				array[i][j] = arrays[i].getLongitude();
+			}
+		}
+	}
+		
+		
+//		System.out.println(Arrays.toString(arrays));
+//		System.out.println(Arrays.toString(array[0]));
+//		System.out.println(Arrays.toString(array[1]));
+//		System.out.println(Arrays.toString(array[2]));
+//		
+		
 		res = new ModelAndView("route/list");
 		res.addObject("route", route);
 		res.addObject("startingDate", startingDate);
 		res.addObject("endDate", endDate);
 		res.addObject("credentials", credentials);
+		res.addObject("arrays", arrays);
 		
 		return res;
 	}
@@ -88,7 +115,7 @@ public class RouteController extends AbstractController {
 		else {
 				Route route = routeService.reconstruct(tripForm);
 				ROUTE_CREATED = route;
-			//	routeService.save(route);
+				
 				res = new ModelAndView("redirect:/route/list.do");
 				res.addObject("credentials", credentials);
 				

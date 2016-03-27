@@ -10,10 +10,12 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
   
-<h3 class="text-center">
+<div class="container">
+  <div class="jumbotron">
+  
+<h2 class="text-center">
 <spring:message code="customer.register" />
-</h3>
-
+</h2>
 
 <form:form action="customer/edit.do" modelAttribute="customer" class="form-horizontal">
 
@@ -126,3 +128,5 @@
 	
 	</div>
 </form:form>
+</div>
+</div>

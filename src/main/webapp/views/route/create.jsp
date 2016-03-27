@@ -77,52 +77,52 @@
               <div class="col-md-5">        
                  <div class="checkbox">
                     <label>
-                      <input type="checkbox" value="">
-                      Museums
+                      <form:checkbox path="checkCulturalCategory"/>
+                      <spring:message code="route.checkCultural" />
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" value="">
-                      Churchs
+                      <form:checkbox path="checkMuseumsCategory"/>
+                      <spring:message code="route.checkMuseums" />
                    </label>
                   </div>
                   <div class="checkbox">
                    <label>
-                     <input type="checkbox" value="">
-                     Restaurants
+                      <form:checkbox path="checkChurchesCategory"/>
+                      <spring:message code="route.checkChurches" />
                    </label>
                   </div>
                   <div class="checkbox">
                    <label>
-                     <input type="checkbox" value="">
-                     Drinks
+                      <form:checkbox path="checkRestaurantsCategory"/>
+                      <spring:message code="route.checkRestaurants" />
                    </label>
                   </div>
               </div>
               <div class="col-md-5">
                   <div class="checkbox">
                    <label>
-                     <input type="checkbox" value="">
-                     Monuments
+ 					  <form:checkbox path="checkDrinksCategory"/>
+                      <spring:message code="route.checkDrinks" />
                    </label>
                   </div>
                   <div class="checkbox">
                    <label>
-                      <input type="checkbox" value="">
-                      Paintings
+  					  <form:checkbox path="checkPaintingsCategory"/>
+                      <spring:message code="route.checkPaintings" />
                    </label>
                   </div>
                   <div class="checkbox">
                    <label>
-                     <input type="checkbox" value="">
-                     Music
+  					  <form:checkbox path="checkMusicCategory"/>
+                      <spring:message code="route.checkMusic" />
                    </label>
                   </div>
                   <div class="checkbox">
                    <label>
-                     <input type="checkbox" value="">
-                     Trekking
+					  <form:checkbox path="checkMonumentsCategory"/>
+                      <spring:message code="route.checkMonuments" />
                    </label>
                   </div>
               </div>

@@ -103,6 +103,8 @@
 		<property name="categories" >
 			<list>
 				<ref bean="Cultural"/>
+				<ref bean="Paintings"/>	
+				<ref bean="Churches"/>
 			</list>
 		</property>
 	</bean>
@@ -129,7 +131,9 @@
 		</property>
 		<property name="categories" >
 			<list>
-				<ref bean="Cultural"/>	
+				<ref bean="Cultural"/>
+				<ref bean="Paintings"/>	
+				<ref bean="Churches"/>
 			</list>
 		</property>
 	</bean>
@@ -176,7 +180,9 @@
 		</property>
 		<property name="categories" >
 			<list>
-				<ref bean="Cultural"/>	
+				<ref bean="Cultural"/>
+				<ref bean="Paintings"/>	
+				<ref bean="Churches"/>
 			</list>
 		</property>
 	</bean>
@@ -201,26 +207,65 @@
 	
 	<bean id="Churches" class="domain.Category">
 		<property name="name" value="Churches" />
-		<property name="route" ref="route1" />	
-		<property name="activity" ref="visitaCatedral" />	
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>	
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="Museums" class="domain.Category">
 		<property name="name" value="Museums" />
-		<property name="route" ref="route1" />	
-		<property name="activity" ref="visitaCatedral" />	
+		<property name="activities" >
+			<list>
+					
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="Restaurants" class="domain.Category">
 		<property name="name" value="Restaurants" />
-		<property name="route" ref="route1" />	
-		<property name="activity" ref="visitaCatedral" />	
+		<property name="activities" >
+			<list>
+					
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="Cultural" class="domain.Category">
-		<property name="name" value="Cultural " />
-		<property name="route" ref="route1" />	
-		<property name="activity" ref="visitaCatedral" />	
+		<property name="name" value="Cultural" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>	
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Paintings" class="domain.Category">
+		<property name="name" value="Paintings" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>	
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Music" class="domain.Category">
+		<property name="name" value="Music" />
+		<property name="activities" >
+			<list>
+					
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Drinks" class="domain.Category">
+		<property name="name" value="Drinks" />
+		<property name="activities" >
+			<list>
+				
+			</list>
+		</property>
 	</bean>
 			
 </beans>
