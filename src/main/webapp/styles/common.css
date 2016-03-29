@@ -20,6 +20,14 @@
 	right: 29%;
 }
 
+.error2 {
+	color: red;
+	font-weight: bolder;
+	position: fixed;
+	
+	
+}
+
 .message {
 	color: red;
 	font-weight: bolder;

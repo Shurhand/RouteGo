@@ -120,7 +120,7 @@ public class RouteService {
 		}
 		
 		res.setCategories(categories);
-		System.out.println(res.getCategories());
+
 		
 		//Activities
 		

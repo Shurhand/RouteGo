@@ -42,22 +42,22 @@
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
                         <form:input path="startingDate" class="form-control" placeholder="Enter date..." />
-						<form:errors cssClass="error" path="startingDate" />
-                        <span class="input-group-addon">
+					    <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
+                    <form:errors cssClass="error" path="startingDate" />
                 </div>
             </div>
             <div class='col-md-5'>
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker2'>
                         <form:input path="endDate" class="form-control" placeholder="Enter date..." />
-						<form:errors cssClass="error" path="endDate" />
-                        <span class="input-group-addon">
+						<span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
+                    <form:errors cssClass="error" path="endDate" />
                 </div>
             </div>
             <div class='col-md-2'>

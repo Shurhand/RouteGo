@@ -49,22 +49,22 @@ public class RouteController extends AbstractController {
 		endDate = formatter.format(route.getEndDate());
 
 		
-		double[][] array = new double[route.getActivities().size()][2];
-
-		Activity[] ar = new Activity[route.getActivities().size()];
-		
-		Activity[] arrays = route.getActivities().toArray(ar);
-		
-		for(int i = 0;i < route.getActivities().size();i++){
-			for(int j = 0;j < 2;j++){
-				if(j == 0){
-				array[i][j] = arrays[i].getLatitude();
-				
-			} else { 
-				array[i][j] = arrays[i].getLongitude();
-			}
-		}
-	}
+//		double[][] array = new double[route.getActivities().size()][2];
+//
+//		Activity[] ar = new Activity[route.getActivities().size()];
+//		
+//		Activity[] arrays = route.getActivities().toArray(ar);
+//		
+//		for(int i = 0;i < route.getActivities().size();i++){
+//			for(int j = 0;j < 2;j++){
+//				if(j == 0){
+//				array[i][j] = arrays[i].getLatitude();
+//				
+//			} else { 
+//				array[i][j] = arrays[i].getLongitude();
+//			}
+//		}
+//	}
 		
 		
 //		System.out.println(Arrays.toString(arrays));
@@ -78,7 +78,7 @@ public class RouteController extends AbstractController {
 		res.addObject("startingDate", startingDate);
 		res.addObject("endDate", endDate);
 		res.addObject("credentials", credentials);
-		res.addObject("arrays", arrays);
+//		res.addObject("arrays", arrays);
 		
 		return res;
 	}
