@@ -1,11 +1,15 @@
 package services;
 
+import java.util.Collection;
+
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import domain.Activity;
 import utilities.AbstractTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -17,18 +21,57 @@ import utilities.AbstractTest;
 
 public class ActivityServiceTest extends AbstractTest{
 
-	//Service under test-------------
-	@Autowired
 	/** variable local */
-	private ActivityServiceTest activityServiceTest;
+	@Autowired
+	
+	private ActivityService activityService;
 	
 	
 	
-	//Tests -------------------------
+	/** Ahora vamos a probar todos los metodos */
+	/** TODO */
+//	@Test
+//	public void createTest(){
+//		
+//		Activity activity;
+//		
+//	}
 	
-	//@Test
+	/** TODO */
+	@Test
+	public void findAllTest(){
+		
+		Collection<Activity> result;
+		result = activityService.findAll();
+		for(Activity actividad : result){
+			System.out.println(actividad.getName());
+		}
+		
+	}
 	
+	/** TODO */
+	@Test
+	public void findOneTest(){
+		
+		Activity activity;
+		
+	}
 	
+	/** TODO */
+	@Test
+	public void saveTest(){
+		
+		Activity activity;
+		
+	}
+	
+	/** TODO */
+	@Test
+	public void deleteTest(){
+		
+		Activity activity;
+		
+	}
 	
 	
 }
