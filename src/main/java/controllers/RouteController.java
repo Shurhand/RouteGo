@@ -91,9 +91,7 @@ public class RouteController extends AbstractController {
 		ModelAndView res;
 		
 		TripForm tripForm = new TripForm();
-		
-
-		
+				
 		res = createEditModelAndView(tripForm);
 		return res;
 	}
@@ -102,7 +100,7 @@ public class RouteController extends AbstractController {
 //	=========== Show created trip ===========
 	
 	@RequestMapping(value = "/create" , method = RequestMethod.POST, params="create")
-	public ModelAndView save(@Valid TripForm tripForm, BindingResult binding){
+	public ModelAndView create(@Valid TripForm tripForm, BindingResult binding){
 		ModelAndView res;
 		Credentials credentials = new Credentials();
 				
@@ -118,12 +116,17 @@ public class RouteController extends AbstractController {
 				
 				res = new ModelAndView("redirect:/route/list.do");
 				res.addObject("credentials", credentials);
-				
-
 		}
 	return res;
 	}
 	
+	// 	Save Route
+	@RequestMapping(value = "/list" , method = RequestMethod.POST, params="save")
+	public void save(@Valid Route route, BindingResult binding){
+		
+		routeService.save(route);
+		
+	}
 	
 //	===========  Ancillary Methods  ===========
 	protected ModelAndView createEditModelAndView(TripForm tripForm){
@@ -140,6 +143,28 @@ public class RouteController extends AbstractController {
 			
 		res = new ModelAndView("route/create");
 		res.addObject("tripForm", tripForm);
+		res.addObject("message", message);
+		res.addObject("credentials", credentials);
+	
+		
+		return res;
+	}
+	
+//	===========  Ancillary Methods  ===========
+	protected ModelAndView createEditModelAndView2(Route route){
+		ModelAndView res;
+		
+		res = createEditModelAndView2(route, null);
+		
+		return res;
+	}
+	
+	protected ModelAndView createEditModelAndView2(Route route, String message){
+		ModelAndView res;
+		Credentials credentials = new Credentials();
+			
+		res = new ModelAndView("route/create");
+		res.addObject("route", route);
 		res.addObject("message", message);
 		res.addObject("credentials", credentials);
 	

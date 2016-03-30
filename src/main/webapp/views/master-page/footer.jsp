@@ -19,3 +19,4 @@
 
 <p class="text-center strong">Copyright &copy; <fmt:formatDate value="${date}" pattern="yyyy" />
 	RouteGo Co., Inc.</p>
+

@@ -19,25 +19,76 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
 
-<script src="http://maps.google.com/maps/api/js?sensor=false" 
-          type="text/javascript"></script>
-          
+<script src="http://maps.google.com/maps/api/js?sensor=false"
+	type="text/javascript"></script>
+
 </head>
+<div class="container-fluid">
+	<div class="jumbotron">
+		<div class="row">
+			<br>
+			<br>
+			<br>
 
+			<p align="center">${route.name}<br><br>
 
-<center>${route.name}<br>
+				<jstl:out value="Start Date:${startingDate}" />
+				<br>
+				<jstl:out value="End Date:${endDate}" />
+				<br> <br>
+				<br>
+			</p>
 
-	<jstl:out value="Start Date:${startingDate}"/><br>
-	<jstl:out value="End Date:${endDate}"/><br>
-	<br><br>
-		<jstl:forEach var="activity" items="${route.activities}">
-			<img var="p" height="100" width="150" src="${activity.picture}"/>
-			<jstl:out value="${p}  ${activity.cost} Euros ${activity.name}" /><br>
-			
-		</jstl:forEach>
-</center>
-<div id="map" style="width: 500px; height: 400px;"></div>
+			<div class='col-md-6'>
+				<div id="map" style="width: 400px; height: 400px;"></div>
+			</div>
 
+			<div class='col-md-6'>
+				<jstl:forEach var="activity" items="${route.activities}">
+					<img var="p" height="80" width="120" src="${activity.picture}" />
+					<jstl:out value="${p} ${activity.name} ${activity.cost} Euros " />
+					<br>
+				</jstl:forEach>
+			</div>
+
+		</div>
+		
+	<br>
+	<!-- Formulario para guardar la ruta en la base de datos -->
+		
+	<form:form action="route/list.do" modelAttribute="route">
+	
+	<form:hidden path="id" />
+	<form:hidden path="version" />
+	       
+	<div class="form-group">
+		<div class="col-xs-5"></div>
+
+	<security:authorize access="isAnonymous()">
+	<button type="button" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?" class="btn btn-primary"
+		><spring:message code="route.save" /></button>
+		&nbsp;
+	</security:authorize>	
+		
+	<input type="button" name="cancel" class="btn btn-primary"
+		value="<spring:message code="route.renew" />"
+		onclick="reload()" /> 
+	</div>
+	</form:form>
+	
+	</div>
+</div>
+<script type="text/javascript">
+function reload() {
+	window.location.reload(true);
+}
+</script>
+
+<script type="text/javascript"> 
+$(function() {
+	$('#test').popover();
+   });
+ </script>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
@@ -110,7 +161,7 @@
               });
       }
         
-       	// ============= Unión del último punto y el primero. (NO SIEMPRE FUNCIONA) ================
+       	// ============= UniÃ³n del Ãºltimo punto y el primero. (NO SIEMPRE FUNCIONA) ================
         service.route({
       	  origin: markersArrayPositions[0],
       	  destination: markersArrayPositions[markersArray.length - 1],
