@@ -26,18 +26,15 @@ public class AdminServiceTest extends AbstractTest{
 	@Autowired
 	private AdminService adminService;
 				
-				
-				
 	/** Vamos a implementar los metodos de Test */
 	
-	/** TODO */
+	/** TODO: Verificar que es correcto */
 	@Test
 	public void createTest() {
 
 		adminService = new AdminService();
 	}
 
-	/** TODO */
 	@Test
 	public void findAllTest() {
 
@@ -50,17 +47,14 @@ public class AdminServiceTest extends AbstractTest{
 		}
 	}
 
-	/** TODO */
 	@Test
 	public void findOneTest() {
 		
 		int adminId = 10;
 		Assert.notNull(adminId);
 		adminService.findOne(adminId);
-
 	}
 
-	/** TODO */
 	@Test
 	public void saveTest() {
 		
@@ -69,7 +63,6 @@ public class AdminServiceTest extends AbstractTest{
 		adminService.save(admin);
 	}
 
-	/** TODO */
 	@Test
 	public void deleteTest() {
 		Admin admin = new Admin();
