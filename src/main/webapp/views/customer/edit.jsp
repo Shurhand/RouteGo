@@ -10,10 +10,10 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
   
-  <br><br><br><br><br><br><br><br>
+  
 <div class="container">
   <div class="jumbotron">
-  
+  <br><br><br>
 <h2 class="text-center">
 <spring:message code="customer.register" />
 </h2>

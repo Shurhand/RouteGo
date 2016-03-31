@@ -29,12 +29,12 @@
            	     daysOfWeekHighlighted: "0",
                 })});
        </script>
-<br><br><br><br><br><br><br><br>
+<br><br>
    <div class="container">
 	
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-      
+      <br><br>
        <form:form class="contact_form" action="route/create.do" modelAttribute="tripForm">
         <h2 align="center"><spring:message code="route.title_form"/></h2>
           <br><br><spring:message code="route.cost" var="cost"/>
@@ -147,67 +147,4 @@
        </form:form>
        </div>
      
-      </div> <!-- /container -->
-
-
-<!--  
-<form:form action="route/create.do" modelAttribute="tripForm">
-
-
-	<form:label path="startingDate">
-		<spring:message code="route.startingDate" />:
-	</form:label>
-	<form:input path="startingDate" />
-	<form:errors cssClass="error" path="startingDate" />
-	<br />
-	
-	<form:label path="endDate">
-		<spring:message code="route.endDate" />:
-	</form:label>
-	<form:input path="endDate" />
-	<form:errors cssClass="error" path="endDate" />
-	<br />
-	
-	<form:label path="cost">
-		<spring:message code="route.cost" />:
-	</form:label>
-	<form:input path="cost" />
-	<form:errors cssClass="error" path="cost" />
-	<br/>
-
-	<form:label path="checkCulturalCategory">
-		<spring:message code="route.checkCultural" />
-	</form:label>
-	<form:checkbox path="checkCulturalCategory"/>
-	<form:errors class="error" path="checkCulturalCategory" />
-	<br />
-	
-	<form:label path="checkMuseumsCategory">
-		<spring:message code="route.checkMuseums" />
-		</form:label>
-	<form:checkbox path="checkMuseumsCategory"/>
-	<form:errors class="error" path="checkMuseumsCategory" />
-	<br />
-	
-	<form:label path="checkRestaurantsCategory">
-		<spring:message code="route.checkRestaurants" />
-	</form:label>
-	<form:checkbox path="checkRestaurantsCategory"/>
-	<form:errors class="error" path="checkRestaurantsCategory" />
-	<br />
-	
-	<form:label path="checkChurchesCategory">
-		<spring:message code="route.checkChurches" />
-	</form:label>
-	<form:checkbox path="checkChurchesCategory"/>
-	<form:errors class="error" path="checkChurchesCategory" />
-	<br />
-
-
-	<input type="submit" name="create"
-		value="<spring:message code="route.createTrip" />" />&nbsp; 
-
-
-</form:form>
-
--->
+      </div>
