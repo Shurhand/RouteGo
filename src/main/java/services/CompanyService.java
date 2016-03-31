@@ -26,8 +26,6 @@ public class CompanyService {
 	@Autowired
 	private CompanyRepository companyRepository;
 
-	@Autowired
-	private Md5PasswordEncoder encoder;
 
 	// ========== Supporting services ================
 
@@ -67,7 +65,7 @@ public class CompanyService {
 
 	public void save(Company company) {
 		Assert.notNull(company);
-
+		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 		String password;
 
 		password = company.getUserAccount().getPassword();
