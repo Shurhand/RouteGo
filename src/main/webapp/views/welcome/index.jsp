@@ -22,9 +22,9 @@
           <div class="container">
             <div class="carousel-caption">
               <div class="carousel-p">
-                <h1>Enjoy with our new activities.</h1>
-                <p>Multicultural activities for all ages in Seville.</p>
-                <p><a class="btn btn-lg btn-primary" href="customer/create.do" role="button">Sign up today</a></p>
+                <h1><spring:message code="index.banner1_1"/></h1>
+                <p><spring:message code="index.banner1_2"/></p>
+                <p><a class="btn btn-lg btn-primary" href="customer/create.do" role="button"><spring:message code="index.button_banner1"/></a></p>
               </div>
             </div>
           </div>
@@ -34,21 +34,21 @@
           <div class="container">
             <div class="carousel-caption">
               <div class="carousel-p">
-                <h1>Visit Seville.</h1>
-                <p>Enjoy every corner of the city with our Routes.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                <h1><spring:message code="index.banner2_1"/></h1>
+                <p><spring:message code="index.banner2_2"/></p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button"><spring:message code="index.button_banner2"/></a></p>
               </div>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="images/Plaza-España.jpg" alt="Third slide">
+          <img class="third-slide" src="images/Banner7.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <div class="carousel-p">
-                <h1>Do you know our custom routes?</h1>
-                <p>routes created by people who know the city</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                <h1><spring:message code="index.banner3_1"/></h1>
+                <p><spring:message code="index.banner3_2"/></p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button"><spring:message code="index.button_banner3"/></a></p>
               </div>
             </div>
           </div>
@@ -68,8 +68,8 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1 align="center">Do you like to travel to Seville ?</h1>
-        <p align="center">Make your next holiday awesome! Build your own day-by-day trip plan in just minutes</p>
+        <h1 align="center"><spring:message code="index.message_trip"/></h1>
+        <p align="center"><spring:message code="index.message_trip2"/></p>
       
 		<p align="center">
          <a class="btn btn-lg btn-primary " href="route/create.do" role="button"><spring:message code="index.trip"/></a>

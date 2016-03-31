@@ -10,6 +10,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
   
+  <br><br><br><br><br><br><br><br>
 <div class="container">
   <div class="jumbotron">
   
@@ -18,18 +19,20 @@
 </h2>
 
 <form:form action="customer/edit.do" modelAttribute="customer" class="form-horizontal">
-
+ <br>
+  
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	<form:hidden path="userAccount.authorities" />
 	
+  <div class='col-md-6'>
 	<div class="form-group" >
 	
 	<form:label path="name" class="col-sm-5 control-label">
 		<spring:message code="customer.name" />:
 	</form:label>
 	
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:input path="name" class="form-control" />
 	<form:errors cssClass="error" path="name" />
 		</div>
@@ -42,7 +45,7 @@
 	<form:label path="surname" class="col-sm-5 control-label">
 		<spring:message code="customer.surname" />:
 	</form:label>
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:input path="surname" class="form-control"/>
 	<form:errors cssClass="error" path="surname" />
 	
@@ -54,7 +57,7 @@
 	<form:label path="email" class="col-sm-5 control-label">
 		<spring:message code="customer.email" />:
 	</form:label>
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:input path="email" class="form-control"/>
 	<form:errors cssClass="error" path="email" />
 			</div>
@@ -65,18 +68,21 @@
 	<form:label path="phone" class="col-sm-5 control-label">
 		<spring:message code="customer.phoneNumber" />:
 	</form:label>
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:input path="phone" class="form-control"/>
 	<form:errors cssClass="error" path="phone" />
 			</div>
 	</div>
+  </div>
+  
+  <div class='col-md-6'>
 		<div class="form-group">
 	
 	
 	<form:label path="postalAddress" class="col-sm-5 control-label">
 		<spring:message code="customer.address" />:
 	</form:label>
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:input path="postalAddress" class="form-control"/>
 	<form:errors cssClass="error" path="postalAddress" />
 			</div>
@@ -87,7 +93,7 @@
 	<form:label path="picture" class="col-sm-5 control-label">
 		<spring:message code="customer.picture" />:
 	</form:label>
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:input path="picture" class="form-control"/>
 	<form:errors cssClass="error" path="picture" />
 			</div>
@@ -98,7 +104,7 @@
 	<form:label path="userAccount.username" class="col-sm-5 control-label">
 		<spring:message code="customer.username" />:  
 	</form:label>
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:input path="userAccount.username" class="form-control" />
 	<form:errors cssClass="error" path="userAccount.username" />
 			</div>
@@ -109,12 +115,13 @@
 	<form:label path="userAccount.password" class="col-sm-5 control-label">
 		<spring:message code="customer.password" />:  
 	</form:label>
-	<div class="col-xs-2">
+	<div class="col-xs-6">
 	<form:password path="userAccount.password" class="form-control" />
 	<form:errors cssClass="error" path="userAccount.password" />
 			</div>
-</div>
-
+    </div>
+  </div>
+<br>
 <div class="form-group">
 <div class="col-xs-5"></div>
 
