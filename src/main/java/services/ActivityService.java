@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -75,13 +76,16 @@ public class ActivityService {
 		Assert.notNull(endingDate);
 
 		Collection<Activity> res;
+		Collection<Activity> all;
 
-		//res = activityRepository.findInDateRange(startingDate, endingDate);
-		res = activityRepository.findAll();
+		res = new ArrayList<>();
 
-		for (Activity a : res) {
-			if (a.getStartingDate().after(startingDate) || a.getEndingDate().before(endingDate)) {
-				res.remove(a);
+		// res = activityRepository.findInDateRange(startingDate, endingDate);
+		all = activityRepository.findAll();
+
+		for (Activity a : all) {
+			if (a.getStartingDate().before(startingDate) && a.getEndingDate().after(endingDate)) {
+				res.add(a);
 			}
 		}
 
