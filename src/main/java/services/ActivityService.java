@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,5 +69,23 @@ public class ActivityService {
 	}
 
 	// ========== Other Business Methods =============
+
+	public Collection<Activity> findInDateRange(Date startingDate, Date endingDate) {
+		Assert.notNull(startingDate);
+		Assert.notNull(endingDate);
+
+		Collection<Activity> res;
+
+		//res = activityRepository.findInDateRange(startingDate, endingDate);
+		res = activityRepository.findAll();
+
+		for (Activity a : res) {
+			if (a.getStartingDate().after(startingDate) || a.getEndingDate().before(endingDate)) {
+				res.remove(a);
+			}
+		}
+
+		return res;
+	}
 
 }

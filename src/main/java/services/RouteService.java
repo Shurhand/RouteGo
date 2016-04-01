@@ -1,13 +1,17 @@
 package services;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Activity;
 import domain.Category;
 import domain.Route;
 import forms.TripForm;
@@ -73,12 +77,11 @@ public class RouteService {
 
 		routeRepository.delete(route);
 	}
-	
+
 	// ========== Other Business Methods =============
 
-	
-	public Route reconstruct(TripForm tripForm){
-		
+	public Route reconstruct(TripForm tripForm) {
+
 		Route res = new Route();
 		res.setId(0);
 		res.setVersion(0);
@@ -89,45 +92,51 @@ public class RouteService {
 		res.setCustomer(null);
 		res.setRating(null);
 		res.setComments(null);
-		
-		//Categories
-		
+
+		// Categories
+
 		Collection<Category> categories = new ArrayList<>();
-		
-		if(tripForm.getCheckCulturalCategory() == true){
+
+		if (tripForm.getCheckCulturalCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Cultural"));
 		}
-		if(tripForm.getCheckChurchesCategory() == true){
+		if (tripForm.getCheckChurchesCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Churches"));
 		}
-		if(tripForm.getCheckRestaurantsCategory() == true){
+		if (tripForm.getCheckRestaurantsCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Restaurants"));
 		}
-		if(tripForm.getCheckMuseumsCategory() == true){
+		if (tripForm.getCheckMuseumsCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Museums"));
 		}
-		if(tripForm.getCheckDrinksCategory() == true){
+		if (tripForm.getCheckDrinksCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Drinks"));
 		}
-		if(tripForm.getCheckPaintingsCategory() == true){
+		if (tripForm.getCheckPaintingsCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Paintings"));
 		}
-		if(tripForm.getCheckMusicCategory() == true){
+		if (tripForm.getCheckMusicCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Music"));
 		}
-		if(tripForm.getCheckMonumentsCategory() == true){
+		if (tripForm.getCheckMonumentsCategory() == true) {
 			categories.add(categoryService.getCategoryByName("Monuments"));
 		}
-		
+
 		res.setCategories(categories);
 
-		
-		//Activities
-		
-		res.setActivities(activityService.findAll());
-		
+		// Activities
+
+		Collection<Activity> activities;
+
+		Date startingDate = tripForm.getStartingDate();
+		Date endingDate = tripForm.getEndDate();
+
+		activities = activityService.findInDateRange(startingDate, endingDate);
+
+		res.setActivities(activities);
+		//res.setActivities(activityService.findAll());
+
 		return res;
-		
+
 	}
 }
-
