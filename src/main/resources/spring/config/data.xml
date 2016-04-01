@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd                           
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 	">
 
 	<!-- Repository packages -->
@@ -28,6 +28,20 @@
 		<property name="user" value="acme-user" />
 		<property name="password" value="ACME-Us3r-P@ssw0rd" />
 	</bean>
+	
+		<!-- Configuración de base de datos de Heroku 	
+	
+		<bean class="java.net.URI" id="dbUrl">
+    <constructor-arg value="#{systemEnvironment['CLEARDB_DATABASE_URL']}"/>
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	    <property name="url" value="#{ 'jdbc:mysql://' + @dbUrl.getHost() + @dbUrl.getPath() }"/>
+	    <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+	    <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+	</bean>
+	
+	-->
 
 	<!-- JPA -->
 
