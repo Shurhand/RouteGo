@@ -2,6 +2,7 @@ package domain;
 
 import java.net.URL;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -10,10 +11,13 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -31,6 +35,8 @@ public class Activity extends DomainEntity {
 	private double longitude;
 	private URL picture;
 	private Double duration;
+	private Date startingDate;
+	private Date endingDate;
 
 	@NotEmpty
 	public String getName() {
@@ -103,6 +109,28 @@ public class Activity extends DomainEntity {
 		this.longitude = longitude;
 	}
 
+	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getStartingDate() {
+		return startingDate;
+	}
+
+	public void setStartingDate(Date startingDate) {
+		this.startingDate = startingDate;
+	}
+
+	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getEndingDate() {
+		return endingDate;
+	}
+
+	public void setEndingDate(Date endingDate) {
+		this.endingDate = endingDate;
+	}
+
 	// ================ Relaciones ==================
 
 	private Company company;
@@ -110,8 +138,7 @@ public class Activity extends DomainEntity {
 	private Route route;
 	private Collection<Schedule> schedules;
 
-	@NotNull
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Company getCompany() {
 		return company;
 	}
@@ -131,8 +158,7 @@ public class Activity extends DomainEntity {
 	}
 
 	@Valid
-	@NotNull
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Route getRoute() {
 		return route;
 	}

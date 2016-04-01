@@ -123,6 +123,8 @@
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016 10:00" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule1"/>
@@ -149,6 +151,8 @@
 		<property name="duration" value="10" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016 10:00" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule1"/>
@@ -173,6 +177,8 @@
 		<property name="duration" value="10" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016 10:00" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule1"/>
