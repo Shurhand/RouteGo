@@ -1,6 +1,7 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Activity;
+import domain.Schedule;
 import repositories.ActivityRepository;
 
 @Service
@@ -76,16 +78,36 @@ public class ActivityService {
 		Assert.notNull(endingDate);
 
 		Collection<Activity> res;
+		Collection<Activity> r1;
 		Collection<Activity> all;
 
+		r1 = new ArrayList<>();
 		res = new ArrayList<>();
 
 		// res = activityRepository.findInDateRange(startingDate, endingDate);
 		all = activityRepository.findAll();
 
+		Calendar c = Calendar.getInstance();
+		c.setTime(startingDate);
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+
+		System.out.println(dayOfWeek);
+
+		
+		// Primero filtra por fecha.
 		for (Activity a : all) {
 			if (a.getStartingDate().before(startingDate) && a.getEndingDate().after(endingDate)) {
-				res.add(a);
+				r1.add(a);
+			}
+		}
+
+		// Luego comprueba el dia de la semana.
+		for (Activity ac : r1) {
+			Collection<Schedule> schedules = ac.getSchedules();
+			for (Schedule s : schedules) {
+				if ((s.getDayOfWeek().getValue()+1) == dayOfWeek) {
+					res.add(ac);
+				}
 			}
 		}
 

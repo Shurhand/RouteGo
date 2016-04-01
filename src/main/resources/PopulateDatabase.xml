@@ -127,8 +127,8 @@
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule1"/>
-				<ref bean="schedule2"/>		
+				<ref bean="scheduleCatedral1"/>
+				<ref bean="scheduleCatedral2"/>		
 			</list>
 		</property>
 		<property name="categories" >
@@ -155,8 +155,8 @@
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule1"/>
-				<ref bean="schedule2"/>		
+				<ref bean="scheduleTorreDelOro1"/>
+				<ref bean="scheduleTorreDelOro2"/>		
 			</list>
 		</property>
 		<property name="categories" >
@@ -181,7 +181,7 @@
 		<property name="endingDate" value="09/09/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule1"/>
+				<ref bean="scheduleparqueMariaLuisa1"/>
 			</list>
 		</property>
 		<property name="categories" >
@@ -195,19 +195,44 @@
 		
 	<!-- Schedules -->
 	
-	<bean id="schedule1" class="domain.Schedule">
+	<bean id="scheduleCatedral1" class="domain.Schedule">
 		<property name="dayOfWeek" value="MONDAY" />
-		<property name="openingDate" value="10/10/2016 10:00" />
-		<property name="closingDate" value="10/10/2016 18:00" />	
-		<property name="activity" ref="visitaCatedral" />	
+		<property name="openingDate" value="11/10/2016 10:00" />
+		<property name="closingDate" value="11/10/2016 18:00" />	
+		<property name="activity" ref="visitaCatedral" />
+			
 	</bean>
 	
-	<bean id="schedule2" class="domain.Schedule">
+	<bean id="scheduleCatedral2" class="domain.Schedule">
 		<property name="dayOfWeek" value="TUESDAY" />
-		<property name="openingDate" value="14/10/2016 10:00" />
-		<property name="closingDate" value="14/10/2016 22:00" />	
+		<property name="openingDate" value="12/10/2016 10:00" />
+		<property name="closingDate" value="12/10/2016 18:00" />	
+		<property name="activity" ref="visitaCatedral" />
+			
+	</bean>
+	
+	<bean id="scheduleTorreDelOro1" class="domain.Schedule">
+		<property name="dayOfWeek" value="MONDAY" />
+		<property name="openingDate" value="11/10/2016 10:00" />
+		<property name="closingDate" value="11/10/2016 22:00" />	
+		<property name="activity" ref="torreDelOro" />	
+	</bean>
+	
+	<bean id="scheduleTorreDelOro2" class="domain.Schedule">
+		<property name="dayOfWeek" value="TUESDAY" />
+		<property name="openingDate" value="12/10/2016 10:00" />
+		<property name="closingDate" value="12/10/2016 22:00" />	
+		<property name="activity" ref="torreDelOro" />	
+	</bean>
+	
+	<bean id="scheduleparqueMariaLuisa1" class="domain.Schedule">
+		<property name="dayOfWeek" value="MONDAY" />
+		<property name="openingDate" value="11/10/2016 10:00" />
+		<property name="closingDate" value="11/10/2016 22:00" />	
 		<property name="activity" ref="parqueMariaLuisa" />	
-	</bean>	
+	</bean>
+	
+	
 	
 	<!-- Categories -->
 	
