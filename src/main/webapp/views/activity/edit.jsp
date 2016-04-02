@@ -15,10 +15,10 @@
   <div class="jumbotron">
   <br><br><br>
 <h2 class="text-center">
-<spring:message code="customer.register" />
+<spring:message code="activity.create" />
 </h2>
 
-<form:form action="activity/customer/edit.do" modelAttribute="activity" class="form-horizontal">
+<form:form action="activity/edit.do" modelAttribute="activity" class="form-horizontal">
  <br>
   
 	<form:hidden path="id" />
@@ -178,7 +178,7 @@
 <div class="col-xs-4"></div>
 
 	<input type="submit" name="save" class="btn btn-primary"
-		value="<spring:message code="activity.register" />" />
+		value="<spring:message code="activity.save" />" />
 		&nbsp;
 		
 	<input type="button" name="cancel" class="btn btn-primary"

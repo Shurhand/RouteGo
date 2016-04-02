@@ -20,8 +20,8 @@ import services.ActivityService;
 import services.CategoryService;
 
 @Controller
-@RequestMapping("/activity/customer")
-public class ActivityCustomerConverter extends AbstractController {
+@RequestMapping("/activity")
+public class ActivityController extends AbstractController {
 
 	// =============== Services ===================
 

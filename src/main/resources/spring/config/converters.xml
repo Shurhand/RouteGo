@@ -35,6 +35,9 @@
 		
 		<bean class="converters.RouteToStringConverter" />
 		<bean class="converters.StringToRouteConverter" />
+		
+		<bean class="converters.DayOfWeekToStringConverter" />
+		<bean class="converters.StringToDayOfWeekConverter" />
 
 		
 	</util:list>

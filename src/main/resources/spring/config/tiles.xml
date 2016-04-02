@@ -21,6 +21,7 @@
 		<value>/views/customer/tiles.xml</value>
 		<value>/views/company/tiles.xml</value>
 		<value>/views/activity/tiles.xml</value>
+		<value>/views/schedule/tiles.xml</value>
 	</util:list>
 
 </beans>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Activity;
 import domain.Schedule;
 import repositories.ScheduleRepository;
 
@@ -24,6 +25,9 @@ public class ScheduleService {
 	private ScheduleRepository scheduleRepository;
 
 	// ========== Supporting services ================
+
+	@Autowired
+	private ActivityService activityService;
 
 	// ========== Simple CRUD Methods ================
 
@@ -59,6 +63,15 @@ public class ScheduleService {
 		Assert.notNull(schedule);
 
 		scheduleRepository.save(schedule);
+
+		Activity activity;
+		Collection<Schedule> schedules;
+
+		activity = schedule.getActivity();
+		schedules = activity.getSchedules();
+		schedules.add(schedule);
+
+		activityService.save(activity);
 	}
 
 	public void delete(Schedule schedule) {
