@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Activity;
+import domain.Category;
 import domain.Schedule;
 import repositories.ActivityRepository;
 
@@ -28,6 +29,9 @@ public class ActivityService {
 	private ActivityRepository activityRepository;
 
 	// ========== Supporting services ================
+
+	@Autowired
+	private CategoryService categoryService;
 
 	// ========== Simple CRUD Methods ================
 
@@ -63,6 +67,15 @@ public class ActivityService {
 		Assert.notNull(activity);
 
 		activityRepository.save(activity);
+
+		Collection<Category> categories;
+
+		categories = activity.getCategories();
+
+		for (Category c : categories) {
+			c.getActivities().add(activity);
+			categoryService.save(c);
+		}
 	}
 
 	public void delete(Activity activity) {
@@ -93,7 +106,6 @@ public class ActivityService {
 
 		System.out.println(dayOfWeek);
 
-		
 		// Primero filtra por fecha.
 		for (Activity a : all) {
 			if (a.getStartingDate().before(startingDate) && a.getEndingDate().after(endingDate)) {
@@ -105,7 +117,7 @@ public class ActivityService {
 		for (Activity ac : r1) {
 			Collection<Schedule> schedules = ac.getSchedules();
 			for (Schedule s : schedules) {
-				if ((s.getDayOfWeek().getValue()+1) == dayOfWeek) {
+				if ((s.getDayOfWeek().getValue() + 1) == dayOfWeek) {
 					res.add(ac);
 				}
 			}

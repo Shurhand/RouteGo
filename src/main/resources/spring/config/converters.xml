@@ -23,6 +23,18 @@
 		
 		<bean class="converters.AdminToStringConverter" />
 		<bean class="converters.StringToAdminConverter" />
+		
+		<bean class="converters.ActivityToStringConverter" />
+		<bean class="converters.StringToActivityConverter" />
+		
+		<bean class="converters.CategoryToStringConverter" />
+		<bean class="converters.StringToCategoryConverter" />
+		
+		<bean class="converters.ScheduleToStringConverter" />
+		<bean class="converters.StringToScheduleConverter" />
+		
+		<bean class="converters.RouteToStringConverter" />
+		<bean class="converters.StringToRouteConverter" />
 
 		
 	</util:list>

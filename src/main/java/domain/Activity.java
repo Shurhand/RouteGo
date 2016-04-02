@@ -167,7 +167,6 @@ public class Activity extends DomainEntity {
 	}
 
 	@Valid
-	@NotNull
 	@OneToMany(mappedBy = "activity")
 	public Collection<Schedule> getSchedules() {
 		return schedules;
