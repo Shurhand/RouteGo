@@ -31,6 +31,24 @@ public class ActivityController extends AbstractController {
 	@Autowired
 	private CategoryService categoryService;
 
+	// Listing ---------------------------------------------------------
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView list() {
+
+		ModelAndView result;
+		Collection<Activity> activities;
+
+		activities = activityService.findAll();
+
+		result = new ModelAndView("activity/list");
+		result.addObject("activities", activities);
+		result.addObject("requestURI", "activity/list.do");
+
+		return result;
+
+	}
+
 	// =============== Creation ===================
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
@@ -64,7 +82,7 @@ public class ActivityController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			result = createEditModelAndView(activity,binding.toString());
+			result = createEditModelAndView(activity, binding.toString());
 		} else {
 			try {
 				activityService.save(activity);

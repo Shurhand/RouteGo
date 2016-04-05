@@ -12,6 +12,10 @@ import domain.Activity;
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, Integer> {
 
-	@Query("select a.name from Activity a where a.startingDate < ?1 and a.endingDate > ?2")
+	@Query("select a from Activity a where a.startingDate < ?1 and a.endingDate > ?2")
 	Collection<Activity> findInDateRange(Date startingDate, Date endingDate);
+
+	@Query("select a from Activity a where a.company.id = ?1")
+	Collection<Activity> findByCompanyId(int companyId);
+	
 }

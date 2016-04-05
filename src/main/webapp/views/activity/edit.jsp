@@ -181,6 +181,13 @@
 		value="<spring:message code="activity.save" />" />
 		&nbsp;
 		
+	<jstl:if test="${activity.id != 0}">
+		<input type="submit" name="delete" class="btn btn-primary"
+			value="<spring:message code="activity.delete"/>"
+			onclick="return confirm('<spring:message code="activity.confirm.delete" />')" />
+		&nbsp
+	</jstl:if>
+	
 	<input type="button" name="cancel" class="btn btn-primary"
 		value="<spring:message code="activity.cancel" />"
 		onclick="javascript: window.location.replace('security/login.do');" /> 

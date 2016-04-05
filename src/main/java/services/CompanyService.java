@@ -11,6 +11,7 @@ import org.springframework.util.Assert;
 import domain.Company;
 import repositories.CompanyRepository;
 import security.Authority;
+import security.LoginService;
 import security.UserAccount;
 
 @Service
@@ -82,6 +83,29 @@ public class CompanyService {
 	}
 
 	// ========== Other Business Methods =============
+	
+	public Company findByPrincipal() {
+		Company result;
+		UserAccount userAccount;
+
+		userAccount = LoginService.getPrincipal();
+		result = findByUserAccount(userAccount);
+
+		Assert.notNull(result);
+
+		return result;
+	}
+	
+	public Company findByUserAccount(UserAccount userAccount) {
+		assert userAccount != null;
+
+		Company result;
+
+		result = companyRepository.findByUserAccountId(userAccount.getId());
+		assert result != null;
+
+		return result;
+	}
 
 	public UserAccount createCompanyAccount() {
 		UserAccount result;

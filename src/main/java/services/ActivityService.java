@@ -126,4 +126,13 @@ public class ActivityService {
 		return res;
 	}
 
+	public Collection<Activity> findByCompanyId(int companyId) {
+
+		Collection<Activity> res;
+
+		res = activityRepository.findByCompanyId(companyId);
+
+		return res;
+	}
+
 }
