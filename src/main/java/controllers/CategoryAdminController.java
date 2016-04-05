@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import domain.Company;
-import services.CompanyService;
+import domain.Category;
+import services.CategoryService;
 
 @Controller
-@RequestMapping("/company/admin")
-public class CompanyAdminController extends AbstractController {
+@RequestMapping("/category/admin")
+public class CategoryAdminController extends AbstractController {
 
 	// =============== Services ===================
 
 	@Autowired
-	private CompanyService companyService;
+	private CategoryService categoryService;
 
 	// =============== Creation ===================
 
@@ -30,40 +30,40 @@ public class CompanyAdminController extends AbstractController {
 	public ModelAndView create() {
 		ModelAndView res;
 
-		Company company = companyService.create();
+		Category category = categoryService.create();
 
-		res = createEditModelAndView(company);
+		res = createEditModelAndView(category);
 		return res;
 	}
 
 	// =============== Edition ====================
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam int companyId) {
+	public ModelAndView edit(@RequestParam int categoryId) {
 
 		ModelAndView result;
-		Company company;
+		Category category;
 
-		company = companyService.findOne(companyId);
-		Assert.notNull(company);
-		result = createEditModelAndView(company);
+		category = categoryService.findOne(categoryId);
+		Assert.notNull(category);
+		result = createEditModelAndView(category);
 
 		return result;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid @ModelAttribute Company company, BindingResult binding) {
+	public ModelAndView save(@Valid @ModelAttribute Category category, BindingResult binding) {
 
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			result = createEditModelAndView(company);
+			result = createEditModelAndView(category);
 		} else {
 			try {
-				companyService.save(company);
+				categoryService.save(category);
 				result = new ModelAndView("redirect:/");
 			} catch (Throwable oops) {
-				result = createEditModelAndView(company, "company.commit.error");
+				result = createEditModelAndView(category, "category.commit.error");
 			}
 		}
 		return result;
@@ -71,15 +71,15 @@ public class CompanyAdminController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(Company company, BindingResult binding) {
+	public ModelAndView delete(Category category, BindingResult binding) {
 
 		ModelAndView result;
 
 		try {
-			companyService.delete(company);
+			categoryService.delete(category);
 			result = new ModelAndView("redirect:list.do");
 		} catch (Throwable oops) {
-			result = createEditModelAndView(company, "company.commit.error");
+			result = createEditModelAndView(category, "category.commit.error");
 		}
 		return result;
 
@@ -87,19 +87,19 @@ public class CompanyAdminController extends AbstractController {
 
 	// =============== Ancillary Methods ==========
 
-	protected ModelAndView createEditModelAndView(Company company) {
+	protected ModelAndView createEditModelAndView(Category category) {
 		ModelAndView res;
 
-		res = createEditModelAndView(company, null);
+		res = createEditModelAndView(category, null);
 
 		return res;
 	}
 
-	protected ModelAndView createEditModelAndView(Company company, String message) {
+	protected ModelAndView createEditModelAndView(Category category, String message) {
 		ModelAndView res;
 
-		res = new ModelAndView("company/edit");
-		res.addObject("company", company);
+		res = new ModelAndView("category/edit");
+		res.addObject("category", category);
 		res.addObject("message", message);
 
 		return res;

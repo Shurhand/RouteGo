@@ -45,6 +45,7 @@
 		<security:intercept-url pattern="/customer/create.do" access="permitAll" />
 		
 		<security:intercept-url pattern="/company/admin/**" access="hasAuthority('ADMIN')" />
+		<security:intercept-url pattern="/category/admin/**" access="hasAuthority('ADMIN')" />
 		
 		<security:intercept-url pattern="/activity/**" access="hasAnyAuthority('CUSTOMER','COMPANY')" />
 		<security:intercept-url pattern="/activity/company/**" access="hasAuthority('COMPANY')" />

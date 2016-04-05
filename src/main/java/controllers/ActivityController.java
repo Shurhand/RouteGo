@@ -82,7 +82,7 @@ public class ActivityController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			result = createEditModelAndView(activity, binding.toString());
+			result = createEditModelAndView(activity);
 		} else {
 			try {
 				activityService.save(activity);
