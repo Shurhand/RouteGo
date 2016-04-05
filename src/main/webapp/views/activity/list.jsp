@@ -12,17 +12,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:useBean id="date" class="java.util.Date" />
 
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
-
-</head>
-
+<br><br><br><br><br><br><br>
+<div class="container"><table class="table">
 <display:table name="activities" id="row" requestURI="${RequestURI}"
-	pagesize="5" class="displaytag">
+	pagesize="3" class="displaytag">
 	
 	<spring:message code="activity.name" var="nameHeader"/>
 	<display:column property="name" title="${nameHeader}" sortable="true"/>
@@ -60,12 +53,12 @@
 	<display:column> <a href="activity/deleteCategory.do?activityId=<jstl:out value="${row.id}"/>"><spring:message code="activity.delete"/></a></display:column>
 	
 </display:table>
-
+</table>
 	<div>
 		<a href="activity/create.do"> <spring:message
 				code="activity.create" />
 		</a>
 	</div>
 
-
+</div>
 
