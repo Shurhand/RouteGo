@@ -15,7 +15,7 @@
 <br><br><br><br><br><br><br>
 <div class="container"><table class="table">
 <display:table name="activities" id="row" requestURI="${RequestURI}"
-	pagesize="3" class="displaytag">
+	pagesize="3" class="table">
 	
 	<spring:message code="activity.name" var="nameHeader"/>
 	<display:column property="name" title="${nameHeader}" sortable="true"/>
@@ -36,7 +36,8 @@
 	<display:column property="longitude" title="${longitudeHeader}" sortable="false"/>
 	
 	<spring:message code="activity.picture" var="pictureHeader"/>
-	<display:column property="picture" title="${pictureHeader}" sortable="false"/>
+	<display:column property="picture" title="${pictureHeader}" sortable="false"><img src="${row.picture }" alt="${row.name }" height="80">
+	</display:column>
 	
 	<spring:message code="activity.duration" var="durationHeader"/>
 	<display:column property="duration" title="${durationHeader}" sortable="false"/>
