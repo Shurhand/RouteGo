@@ -9,6 +9,14 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+  
+  
+<div class="container">
+  <div class="jumbotron">
+  <br><br><br>
+<h2 class="text-center">
+<spring:message code="activity.create" />
+</h2>
 
 <form:form action="company/admin/edit.do" modelAttribute="company">
 

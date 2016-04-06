@@ -33,16 +33,60 @@
             <li><a href="#"><spring:message code="master.page.home"/></a></li>
             <li><a href="#about"><spring:message code="master.page.about"/></a></li>
             <li><a href="#contact"><spring:message code="master.page.contact"/></a></li>
+            
+            <security:authorize access="hasAuthority('CUSTOMER')">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.visits"/><span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.activities"/><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><spring:message code="master.page.activities"/></a></li>
-                <li><a href="#"><spring:message code="master.page.routes"/></a></li>
-                <li><a href="#"><spring:message code="master.page.custom_routes"/></a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#"><spring:message code="master.page.companies"/></a></li>
+                <li><a href="activity/create.do"><spring:message code="master.page.activity.create"/></a></li>
+                <li><a href="schedule/create.do"><spring:message code="master.page.schedule.create"/></a></li>
+                <li><a href="activity/list.do"><spring:message code="master.page.activity.list"/></a></li>
               </ul>
             </li>
+            </security:authorize>
+            
+            <security:authorize access="hasAuthority('COMPANY')">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.activities"/><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="activity/create.do"><spring:message code="master.page.activity.create"/></a></li>
+                <li><a href="schedule/create.do"><spring:message code="master.page.schedule.create"/></a></li>
+                <li><a href="activity/company/list.do"><spring:message code="master.page.activity.list"/></a></li>
+              </ul>
+            </li>
+            </security:authorize>
+            
+            <security:authorize access="hasAuthority('CUSTOMER')">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.routes"/><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><spring:message code="master.page.custom.route.create"/></a></li>
+                <li><a href="activity/list.do"><spring:message code="master.page.route.list"/></a></li>
+              </ul>
+            </li>
+            </security:authorize>
+            
+            <security:authorize access="hasAuthority('ADMIN')">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.companies"/><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="company/admin/create.do"><spring:message code="master.page.company.register"/></a></li>
+                <li><a href="#"><spring:message code="master.page.company.list"/></a></li>
+              </ul>
+            </li>
+            </security:authorize>
+            
+            <security:authorize access="hasAuthority('ADMIN')">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.category"/><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="category/admin/create.do"><spring:message code="master.page.category.create"/></a></li>
+                <li><a href="category/admin/list.do"><spring:message code="master.page.category.list"/></a></li>
+              </ul>
+            </li>
+            </security:authorize>
+            
+            
           </ul>
           <security:authorize access="isAnonymous()">
           <div id="navbar" class="navbar-collapse collapse">
