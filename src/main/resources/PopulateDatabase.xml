@@ -204,10 +204,11 @@
 		<property name="duration" value="45" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule4"/>
-				<ref bean="schedule2"/>		
+				<ref bean="schedule4"/>		
 			</list>
 		</property>
 		<property name="categories" >
@@ -229,9 +230,10 @@
 		<property name="duration" value="30" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule1"/>
 				<ref bean="schedule5"/>		
 			</list>
 		</property>
@@ -255,6 +257,8 @@
 		<property name="duration" value="35" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="scheduleparqueMariaLuisa1"/>
@@ -281,9 +285,10 @@
 		<property name="duration" value="15" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule3"/>
 				<ref bean="schedule7"/>		
 			</list>
 		</property>
@@ -305,9 +310,10 @@
 		<property name="duration" value="10" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule2"/>
 				<ref bean="schedule8"/>		
 			</list>
 		</property>
@@ -329,6 +335,8 @@
 		<property name="duration" value="60" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule4"/>
@@ -353,9 +361,10 @@
 		<property name="duration" value="20" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule1"/>
 				<ref bean="schedule10"/>		
 			</list>
 		</property>
@@ -377,6 +386,8 @@
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule7"/>
@@ -402,6 +413,8 @@
 		<property name="duration" value="45" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule4"/>
@@ -426,6 +439,8 @@
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule7"/>
@@ -450,6 +465,8 @@
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule6"/>
@@ -474,6 +491,8 @@
 		<property name="duration" value="40" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
 			<list>
 				<ref bean="schedule9"/>
@@ -499,9 +518,10 @@
 		<property name="duration" value="15" />
 		<property name="company" ref="company1" />
 		<property name="route" ref="route1" />
+		<property name="startingDate" value="01/01/2016" />
+		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
 			<list>
-				<ref bean="schedule3"/>
 				<ref bean="schedule16"/>		
 			</list>
 		</property>
