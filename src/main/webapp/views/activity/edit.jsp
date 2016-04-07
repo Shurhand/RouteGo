@@ -9,6 +9,39 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+
+       <script type="text/javascript">
+            $(function () {
+                $('#datepicker1').datepicker({
+           	     format: "dd/mm/yyyy",
+           	     clearBtn: true,
+           	     startDate: "0",
+           	     todayHighlight: true,
+           	     daysOfWeekHighlighted: "0",
+                })});
+       </script>
+       
+       <script type="text/javascript">
+            $(function () {
+                $('#datepicker2').datepicker({
+           	     format: "dd/mm/yyyy",
+           	     clearBtn: true,
+           	     todayHighlight: true,
+           	     daysOfWeekHighlighted: "0",
+                })});
+       </script>
+      
+       <script type="text/javascript">
+       $(function () {
+    	   $('.input-daterange').datepicker({
+         	     format: "dd/mm/yyyy",
+           	     clearBtn: true,
+           	     startDate: "0",
+           	     todayHighlight: true,
+           	     daysOfWeekHighlighted: "0"
+    	   });
+			});
+       </script>
   
   
 <div class="container">
@@ -126,6 +159,26 @@
 		</div>
 	</div>
 	
+	<form:label path="startingDate" class="col-sm-5 control-label">
+		<spring:message code="activity.dateRange" />:
+	</form:label>
+	
+<div class="form-group">
+                        
+   	<div class="col-xs-6">
+		<div class="input-daterange input-group" id="datepicker">
+			<form:input path="startingDate" class="form-control" />
+			<span class="input-group-addon">to</span>
+			<form:input path="endingDate" class="form-control" />
+			<span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+           <form:errors cssClass="error" path="startingDate" />
+		</div>
+	</div>
+		
+	<!--  
 	<div class="form-group" >
 	
 	<form:label path="startingDate" class="col-sm-5 control-label">
@@ -133,8 +186,14 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="startingDate" class="form-control" />
-	<form:errors cssClass="error" path="startingDate" />
+		<div class='input-group date' id='datepicker1'>
+			<form:input path="startingDate" class="form-control" />
+			
+			<span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+           </div>
+           <form:errors cssClass="error" path="startingDate" />
 		</div>
 	</div>
 	
@@ -144,12 +203,17 @@
 		<spring:message code="activity.endingDate" />:
 	</form:label>
 	
-	<div class="col-xs-6">
-	<form:input path="endingDate" class="form-control" />
-	<form:errors cssClass="error" path="endingDate" />
+		<div class="col-xs-6">
+		<div class='input-group date' id='datepicker2'>
+			<form:input path="endingDate" class="form-control" />
+			<span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+           </div>
+           <form:errors cssClass="error" path="endingDate" />
 		</div>
 	</div>
-	
+	-->
 	<div class="form-group" >
 	
 	<form:label  path="categories" class="col-sm-5 control-label">

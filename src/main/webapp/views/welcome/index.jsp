@@ -36,7 +36,7 @@
               <div class="carousel-p">
                 <h1><spring:message code="index.banner2_1"/></h1>
                 <p><spring:message code="index.banner2_2"/></p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button"><spring:message code="index.button_banner2"/></a></p>
+                <p><a class="btn btn-lg btn-primary" href="activity/list.do" role="button"><spring:message code="index.button_banner2"/></a></p>
               </div>
             </div>
           </div>

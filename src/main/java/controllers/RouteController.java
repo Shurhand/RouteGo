@@ -122,7 +122,8 @@ public class RouteController extends AbstractController {
 	
 	// 	Save Route
 	@RequestMapping(value = "/list" , method = RequestMethod.POST, params="save")
-	public void save(@Valid Route route, BindingResult binding){
+	public void save(){
+		Route route = ROUTE_CREATED;
 		
 		routeService.save(route);
 		

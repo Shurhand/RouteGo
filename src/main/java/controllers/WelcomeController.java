@@ -57,6 +57,26 @@ public class WelcomeController extends AbstractController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/about")
+	public ModelAndView about() {
+		ModelAndView result;
+		SimpleDateFormat formatter;
+		String moment;
+			
+		formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		moment = formatter.format(new Date());
+			
+		result = new ModelAndView("welcome/index/about");
+		result.addObject("moment", moment);
+
+
+		return result;
+	}
+	
+	
+	
+}
+	
 //	@RequestMapping("/index")
 //	public ModelAndView login(
 //			@Valid @ModelAttribute Credentials credentials,
@@ -84,4 +104,4 @@ public class WelcomeController extends AbstractController {
 //
 //		return result;
 //	}
-}
+//}

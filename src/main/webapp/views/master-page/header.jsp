@@ -30,9 +30,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#"><spring:message code="master.page.home"/></a></li>
-            <li><a href="#about"><spring:message code="master.page.about"/></a></li>
-            <li><a href="#contact"><spring:message code="master.page.contact"/></a></li>
+            <li><a href="/RouteGo"><spring:message code="master.page.home"/></a></li>
+            <li><a href="about.do"><spring:message code="master.page.about"/></a></li>
+            <li><a href="contact.do"><spring:message code="master.page.contact"/></a></li>
             
             <security:authorize access="hasAuthority('CUSTOMER')">
             <li class="dropdown">
@@ -118,7 +118,7 @@
 			 <div id="navbar" class="navbar-collapse collapse">
 			 <form:form class="navbar-form navbar-right">
 			<div class="form-group">
-				<p class="navbar-text navbar-right2"><spring:message code="master.page.salute" /><br>  <security:authentication property="principal.username" /></p> 
+				<p class="navbar-text navbar-right2"><spring:message code="master.page.salute" />&nbsp&nbsp  <security:authentication property="principal.username" /></p> 
 			 	<a class="btn btn-primary" href="logout" ><spring:message code="master.page.logout"/></a>
 			</div>
 	</form:form>

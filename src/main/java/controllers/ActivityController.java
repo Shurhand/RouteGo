@@ -43,8 +43,7 @@ public class ActivityController extends AbstractController {
 
 		result = new ModelAndView("activity/list");
 		result.addObject("activities", activities);
-		result.addObject("requestURI", "activity/list.do");
-
+		
 		return result;
 
 	}

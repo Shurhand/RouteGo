@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -65,6 +66,9 @@ public class ActivityService {
 
 	public void save(Activity activity) {
 		Assert.notNull(activity);
+		
+		DateUtils.addSeconds(activity.getStartingDate(), 1);
+		DateUtils.addSeconds(activity.getEndingDate(), 1);
 
 		activityRepository.save(activity);
 

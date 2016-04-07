@@ -25,11 +25,11 @@ body {
 
 .navbar-right2 {
   position: fixed;
-  right: 20%;
+  right: 16%;
   top: 0px;
    
   font-family: inherit;
-  line-height: 40px;
+  line-height: 133px;
   color: inherit;
   text-rendering: optimizelegibility;
 }

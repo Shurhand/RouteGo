@@ -117,9 +117,9 @@ public class Route extends DomainEntity {
 		this.comments = comments;
 	}
 
-	@Valid
+	
 	@NotNull
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
+	@OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
 	public Collection<Activity> getActivities() {
 		return activities;
 	}

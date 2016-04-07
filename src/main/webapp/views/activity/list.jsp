@@ -15,7 +15,7 @@
 <br><br><br><br><br><br><br>
 <div class="container-fluid">
 <div class="table-responsive">
-<display:table name="activities" id="row" requestURI="${RequestURI}"
+<display:table name="activities" id="row" requestURI="activity/list.do"
 	pagesize="5" class="table table-hover">
 	
 	<spring:message code="activity.picture" var="pictureHeader"/>
@@ -29,7 +29,7 @@
 	<display:column property="description" title="${descriptionHeader}" sortable="false"/>
 	
 	<spring:message code="activity.cost" var="costHeader"/>
-	<display:column property="cost" title="${costHeader}" sortable="false"/>
+	<display:column value="${row.cost} Euros" title="${costHeader}" sortable="false"/>
 	
 	<spring:message code="activity.postalAddress" var="postalAddressHeader"/>
 	<display:column property="postalAddress" title="${postalAddressHeader}" sortable="false"/>
