@@ -1,8 +1,6 @@
 package services;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Random;
@@ -128,13 +126,27 @@ public class RouteService {
 		// Activities
 
 		Collection<Activity> activities;
+		Collection<Activity> actividadesFiltradas;
 
+		// Filtrado por fecha
 		Date startingDate = tripForm.getStartingDate();
 		Date endingDate = tripForm.getEndDate();
 
 		activities = activityService.findInDateRange(startingDate, endingDate);
+		actividadesFiltradas = new ArrayList<>();
 
-		res.setActivities(activities);
+		// Filtrado por categoria
+
+		for (Activity a : activities) {
+			Collection<Category> cat = a.getCategories();
+			for (Category c : categories) {
+				if (cat.contains(c) && !actividadesFiltradas.contains(a)) {
+					actividadesFiltradas.add(a);
+				}
+			}
+		}
+
+		res.setActivities(actividadesFiltradas);
 		// res.setActivities(activityService.findAll());
 
 		return res;

@@ -669,7 +669,10 @@
 		<property name="name" value="Churches" />
 		<property name="activities" >
 			<list>
-				<ref bean="visitaCatedral"/>	
+				<ref bean="visitaCatedral"/>
+				<ref bean="parqueMariaLuisa"/>
+				<ref bean="basilicaMacarena"/>
+				<ref bean="basilicaGranPoder"/>	
 			</list>
 		</property>
 	</bean>
@@ -678,7 +681,10 @@
 		<property name="name" value="Museums" />
 		<property name="activities" >
 			<list>
-					
+				<ref bean="acuarioDeSevilla"/>
+				<ref bean="antiquarium"/>
+				<ref bean="archivoDeIndias"/>
+				<ref bean="museoArqueologico"/>
 			</list>
 		</property>
 	</bean>
@@ -696,7 +702,20 @@
 		<property name="name" value="Cultural" />
 		<property name="activities" >
 			<list>
-				<ref bean="visitaCatedral"/>	
+				<ref bean="visitaCatedral"/>
+				<ref bean="torreDelOro"/>
+				<ref bean="parqueMariaLuisa"/>
+				<ref bean="acuarioDeSevilla"/>
+				<ref bean="antiquarium"/>
+				<ref bean="archivoDeIndias"/>
+				<ref bean="casaPilatos"/>
+				<ref bean="jardinesMurillo"/>
+				<ref bean="museoArqueologico"/>
+				<ref bean="torrePerdigones"/>
+				<ref bean="teatroMaestranza"/>
+				<ref bean="teatroLopeDeVega"/>
+				<ref bean="alcazares"/>
+				<ref bean="plazaEspaña"/>
 			</list>
 		</property>
 	</bean>
@@ -705,7 +724,12 @@
 		<property name="name" value="Paintings" />
 		<property name="activities" >
 			<list>
-				<ref bean="visitaCatedral"/>	
+				<ref bean="visitaCatedral"/>
+				<ref bean="parqueMariaLuisa"/>
+				<ref bean="antiquarium"/>
+				<ref bean="archivoDeIndias"/>
+				<ref bean="alcazares"/>
+				<ref bean="plazaEspaña"/>	
 			</list>
 		</property>
 	</bean>
