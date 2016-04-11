@@ -112,6 +112,7 @@ public class RouteController extends AbstractController {
 		}
 		else {
 				Route route = routeService.reconstruct(tripForm);
+				route = routeService.filtraPrecio(route, tripForm.getCost());
 				ROUTE_CREATED = route;
 				
 				res = new ModelAndView("redirect:/route/list.do");

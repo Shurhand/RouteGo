@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -134,9 +135,51 @@ public class RouteService {
 		activities = activityService.findInDateRange(startingDate, endingDate);
 
 		res.setActivities(activities);
-		//res.setActivities(activityService.findAll());
+		// res.setActivities(activityService.findAll());
 
 		return res;
 
+	}
+
+	public Route filtraPrecio(Route route, double precio) {
+		Route res;
+		Collection<Activity> actividades;
+		ArrayList<Activity> aRestantes;
+		double p;
+
+		res = route;
+		actividades = new ArrayList<>();
+		aRestantes = new ArrayList<>();
+		p = precio;
+
+		for (Activity ac : route.getActivities()) {
+			aRestantes.add(ac);
+		}
+
+		while (p > 0 && aRestantes.size() > 0) {
+
+			Random rnd = new Random();
+			int i = rnd.nextInt(aRestantes.size());
+			Activity a = aRestantes.get(i);
+			aRestantes.remove(a);
+
+			if (a.getCost() <= p) {
+				actividades.add(a);
+				p = p - a.getCost();
+
+			}
+		}
+
+		// SIN RANDOM
+		// for (Activity a : route.getActivities()) {
+		// if (a.getCost() <= p) {
+		// actividades.add(a);
+		// p = p - a.getCost();
+		// }
+		// }
+
+		res.setActivities(actividades);
+
+		return res;
 	}
 }
