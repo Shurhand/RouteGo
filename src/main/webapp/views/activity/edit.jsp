@@ -110,7 +110,20 @@
 		</div>
 	</div>
 	
+	<div class="form-group" >
 	
+	<form:label path="picture" class="col-sm-5 control-label">
+		<spring:message code="activity.picture" />:
+	</form:label>
+	
+	<div class="col-xs-6">
+	<form:input path="picture" class="form-control" />
+	<form:errors cssClass="error" path="picture" />
+		</div>
+	</div>
+	
+</div>
+	<div class='col-md-6'>
 	<div class="form-group" >
 	
 	<form:label path="latitude" class="col-sm-5 control-label">
@@ -135,17 +148,6 @@
 		</div>
 	</div>
 	
-	<div class="form-group" >
-	
-	<form:label path="picture" class="col-sm-5 control-label">
-		<spring:message code="activity.picture" />:
-	</form:label>
-	
-	<div class="col-xs-6">
-	<form:input path="picture" class="form-control" />
-	<form:errors cssClass="error" path="picture" />
-		</div>
-	</div>
 	
 	<div class="form-group" >
 	
@@ -237,9 +239,10 @@
 <br>
 
 
+<br>
 
-<div class="form-group">
-<div class="col-xs-4"></div>
+<div class="form-group" align="center">
+
 
 	<input type="submit" name="save" class="btn btn-primary"
 		value="<spring:message code="activity.save" />" />

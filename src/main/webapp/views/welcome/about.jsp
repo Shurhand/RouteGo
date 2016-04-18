@@ -8,7 +8,7 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">¿Quiénes somos?
+                    <h2 class="intro-text text-center"><spring:message code="about.title"/>
                     </h2>
                     <hr>
                 </div>
@@ -16,10 +16,10 @@
                     <img class="img-responsive img-border-left" src="images/logo routeGo4.png" alt="">
                 </div>
                 <div class="col-md-6">
-                    <p>RouteGo es una aplicación bla bla.</p>
-                    <p>blabla</p>
-                    <p>blabla</p>
-                    <p>RouteGo fue creado en 2016 por un grupo de estudiantes de último curso de Ingeniería Informática- Ingeniería del softaware</p>
+                    <p><spring:message code="about.description"/></p>
+                    <p><spring:message code="about.description2"/></p>
+                    <p><spring:message code="about.description3"/></p>
+                    <p><spring:message code="about.description4"/></p>
                 </div>
                 <div class="clearfix"></div>
             </div>

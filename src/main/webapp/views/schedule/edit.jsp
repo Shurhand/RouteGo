@@ -25,7 +25,7 @@
 	<form:hidden path="version" />
 	
 	
-  <div class='col-md-6'>
+  <div class='col-md-5'>
 	<div class="form-group" >
 	
 	<form:label path="dayOfWeek" class="col-sm-5 control-label">
@@ -61,7 +61,8 @@
 	<form:errors cssClass="error" path="closingDate" />
 		</div>
 	</div>
-	
+	</div>
+	<div class='col-md-5'>
 	<div class="form-group" >
 	
 	<form:label  path="activity" class="col-sm-5 control-label">
