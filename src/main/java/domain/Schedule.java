@@ -26,8 +26,8 @@ public class Schedule extends DomainEntity {
 	private Date closingDate;
 
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "HH:mm")
+	@Temporal(TemporalType.TIME)
 	public Date getOpeningDate() {
 		return openingDate;
 	}
@@ -37,8 +37,8 @@ public class Schedule extends DomainEntity {
 	}
 
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "HH:mm")
+	@Temporal(TemporalType.TIME)
 	public Date getClosingDate() {
 		return closingDate;
 	}

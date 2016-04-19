@@ -40,7 +40,7 @@
 			</p>
 
 			<div class='col-md-6'>
-				<div id="map" style="width: 600px; height: 300px;"></div>
+				<div id="map" style="width: 100%; height: 300px;"></div>
 			</div>
 
 			<div class='col-md-6'>

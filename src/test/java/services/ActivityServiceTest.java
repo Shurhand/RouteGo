@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import domain.Activity;
+import domain.Schedule;
 import utilities.AbstractTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -73,5 +74,16 @@ public class ActivityServiceTest extends AbstractTest{
 		
 	}
 	
+	
+	@Test
+	public void probar(){
+		
+		for(Activity a : activityService.findAll()){
+			for(Schedule s : a.getSchedules()){
+				System.out.println(s.getOpeningDate());
+			}
+		}
+		
+	}
 	
 }
