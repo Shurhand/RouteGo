@@ -13,6 +13,9 @@ public interface RouteRepository extends JpaRepository<Route, Integer> {
 	
 	@Query("select r from Route r where r.customer.id = ?1")
 	Collection<Route> findByCustomerId(int customerId);
+	
+	@Query("select r from Route r where r.isRandom=false")
+	Collection<Route> findAllCustom();
 
 
 }

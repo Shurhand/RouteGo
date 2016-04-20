@@ -63,7 +63,7 @@
               <ul class="dropdown-menu">
                 <li><a href="route/customer/create.do"><spring:message code="master.page.custom.route.create"/></a></li>
                 <li><a href="route/customer/list2.do"><spring:message code="master.page.route.list"/></a></li>
-                <li><a href="route/customer/list2.do"><spring:message code="master.page.custom.route.list"/></a></li>
+                <li><a href="route/customer/listCustom.do"><spring:message code="master.page.custom.route.list"/></a></li>
                 
               </ul>
             </li>

@@ -95,6 +95,7 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="673923829" />
 		<property name="rating" value="4" />
+		<property name="isRandom" value="false" />
 		<property name="activities" >
 			<list>
 				<ref bean="visitaCatedral"/>

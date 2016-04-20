@@ -29,6 +29,15 @@
 	
 	<spring:message code="route.endDate" var="endingDateHeader"/>
 	<display:column property="endDate" title="${endingDateDateHeader}" sortable="false"/>
+	
+	<spring:message code="route.purchase" var="purchaseHeader"/>
+	<display:column title="${purchaseHeader}" sortable="false">
+	<jstl:if test="${row.isRandom==false && row.customer==principal}">					
+	<a href="COMPRAR.do?orderId=<jstl:out value="${row.id}"/>"><spring:message code="route.purchase" /> </a>
+	</jstl:if>
+	</display:column>
+	
+	
 
 	
 </display:table>

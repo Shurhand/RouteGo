@@ -63,6 +63,22 @@ public class RouteCustomerController extends AbstractController {
 			return result;
 
 		}
+		
+		@RequestMapping(value = "/listCustom", method = RequestMethod.GET)
+		public ModelAndView listCustom() {
+
+			ModelAndView result;
+			Collection<Route> routes;
+
+			routes = routeService.findAllCustom();
+
+			result = new ModelAndView("route/list2");
+			result.addObject("routes", routes);
+			result.addObject("requestURI", "route/listCustom.do");
+
+			return result;
+
+		}
 
 	// =============== Creation ===================
 
@@ -102,6 +118,7 @@ public class RouteCustomerController extends AbstractController {
 			try {
 				Customer customer= customerService.findByPrincipal();
 				route.setCustomer(customer);
+				route.setIsRandom(false);
 				routeService.save(route);
 				result = new ModelAndView("redirect:/");
 			} catch (Throwable oops) {
@@ -141,13 +158,16 @@ public class RouteCustomerController extends AbstractController {
 		ModelAndView res;
 		Collection<Activity> activities;
 		Collection<Category> categories;
+		Customer principal;
 
 		res = new ModelAndView("route/edit");
 		activities = activityService.findAll();
 		categories = categoryService.findAll();
+		principal= customerService.findByPrincipal();
 		res.addObject("route", route);
 		res.addObject("activities", activities);
 		res.addObject("categories", categories);
+		res.addObject("principal", principal);
 		res.addObject("message", message);
 
 		return res;

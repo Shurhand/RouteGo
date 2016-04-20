@@ -32,6 +32,7 @@ public class Route extends DomainEntity {
 	private Date endDate;
 	private String description;
 	private Double rating;
+	private boolean isRandom;
 
 	@NotEmpty
 	
@@ -80,6 +81,15 @@ public class Route extends DomainEntity {
 
 	public void setRating(Double rating) {
 		this.rating = rating;
+	}
+	
+	@NotNull
+	public boolean getIsRandom() {
+		return isRandom;
+	}
+
+	public void setIsRandom(boolean isRandom) {
+		this.isRandom = isRandom;
 	}
 
 	// ========================= Relationships ======================

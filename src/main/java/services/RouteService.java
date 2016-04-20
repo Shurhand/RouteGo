@@ -210,4 +210,13 @@ public class RouteService {
 
 		return res;
 	}
+	
+	public Collection<Route> findAllCustom(){
+		
+		Collection<Route> res;
+		
+		res= routeRepository.findAllCustom();
+		
+		return res;
+	}
 }
