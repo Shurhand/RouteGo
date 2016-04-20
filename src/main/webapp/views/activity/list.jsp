@@ -33,13 +33,13 @@
 	
 	<spring:message code="activity.postalAddress" var="postalAddressHeader"/>
 	<display:column property="postalAddress" title="${postalAddressHeader}" sortable="false"/>
-	
+	<!--  
 	<spring:message code="activity.latitude" var="latitudeHeader"/>
 	<display:column property="latitude" title="${latitudeHeader}" sortable="false"/>
 	
 	<spring:message code="activity.longitude" var="longitudeHeader"/>
 	<display:column property="longitude" title="${longitudeHeader}" sortable="false"/>
-	
+	-->
 	
 	<spring:message code="activity.duration" var="durationHeader"/>
 	<display:column property="duration" title="${durationHeader}" sortable="false"/>
