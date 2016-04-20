@@ -71,8 +71,8 @@ public class RouteService {
 	public void save(Route route) {
 		Assert.notNull(route);
 		Customer customer;
-		
-		customer= customerService.findByPrincipal();
+
+		customer = customerService.findByPrincipal();
 		route.setCustomer(customer);
 
 		routeRepository.save(route);
@@ -198,6 +198,15 @@ public class RouteService {
 		// }
 
 		res.setActivities(actividades);
+
+		return res;
+	}
+
+	public Collection<Route> findByCustomerId(int customerId) {
+
+		Collection<Route> res;
+
+		res = routeRepository.findByCustomerId(customerId);
 
 		return res;
 	}

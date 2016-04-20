@@ -33,6 +33,7 @@
             <li><a href="/RouteGo"><spring:message code="master.page.home"/></a></li>
             <li><a href="about.do"><spring:message code="master.page.about"/></a></li>
             <li><a href="contact.do"><spring:message code="master.page.contact"/></a></li>
+            <li><a href="tips.do"><spring:message code="master.page.tips"/></a></li>
             
             <security:authorize access="hasAuthority('CUSTOMER')">
             <li class="dropdown">
@@ -61,7 +62,9 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.routes"/><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="route/customer/create.do"><spring:message code="master.page.custom.route.create"/></a></li>
-                <li><a href="activity/list.do"><spring:message code="master.page.route.list"/></a></li>
+                <li><a href="route/customer/list2.do"><spring:message code="master.page.route.list"/></a></li>
+                <li><a href="route/customer/list2.do"><spring:message code="master.page.custom.route.list"/></a></li>
+                
               </ul>
             </li>
             </security:authorize>

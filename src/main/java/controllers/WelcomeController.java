@@ -73,6 +73,22 @@ public class WelcomeController extends AbstractController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/tips")
+	public ModelAndView tips() {
+		ModelAndView result;
+		SimpleDateFormat formatter;
+		String moment;
+			
+		formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		moment = formatter.format(new Date());
+			
+		result = new ModelAndView("welcome/index/tips");
+		result.addObject("moment", moment);
+
+
+		return result;
+	}
+	
 	
 	
 }

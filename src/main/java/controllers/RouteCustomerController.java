@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import domain.Activity;
 import domain.Category;
+import domain.Company;
 import domain.Customer;
 import domain.Route;
 import services.ActivityService;
@@ -40,6 +41,28 @@ public class RouteCustomerController extends AbstractController {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	// Listing ---------------------------------------------------------
+
+		@RequestMapping(value = "/list2", method = RequestMethod.GET)
+		public ModelAndView list2() {
+
+			ModelAndView result;
+			Collection<Route> routes;
+			Customer principal;
+			int customerId;
+
+			principal = customerService.findByPrincipal();
+			customerId = principal.getId();
+			routes = routeService.findByCustomerId(customerId);
+
+			result = new ModelAndView("route/list2");
+			result.addObject("routes", routes);
+			result.addObject("requestURI", "route/list2.do");
+
+			return result;
+
+		}
 
 	// =============== Creation ===================
 
@@ -74,7 +97,7 @@ public class RouteCustomerController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			result = createEditModelAndView(route, binding.toString());
+			result = createEditModelAndView(route);
 		} else {
 			try {
 				Customer customer= customerService.findByPrincipal();

@@ -38,5 +38,16 @@ public class IndexController extends AbstractController {
 	
 		return result;
 	}
+	
+	@RequestMapping(value = "/tips")
+	public ModelAndView tips() {
+		ModelAndView result;
+		Credentials credentials = new Credentials();
+				
+		result = new ModelAndView("welcome/index/tips");
+		result.addObject("credentials", credentials);
+	
+		return result;
+	}
 
 }

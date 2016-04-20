@@ -674,6 +674,7 @@
 				<ref bean="basilicaMacarena"/>
 				<ref bean="basilicaGranPoder"/>	
 			</list>
+			
 		</property>
 	</bean>
 	
