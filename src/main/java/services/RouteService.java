@@ -12,6 +12,7 @@ import org.springframework.util.Assert;
 
 import domain.Activity;
 import domain.Category;
+import domain.Customer;
 import domain.Route;
 import forms.TripForm;
 import repositories.RouteRepository;
@@ -32,6 +33,8 @@ public class RouteService {
 	private ActivityService activityService;
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	private CustomerService customerService;
 
 	// ========== Supporting services ================
 
@@ -67,6 +70,10 @@ public class RouteService {
 
 	public void save(Route route) {
 		Assert.notNull(route);
+		Customer customer;
+		
+		customer= customerService.findByPrincipal();
+		route.setCustomer(customer);
 
 		routeRepository.save(route);
 	}

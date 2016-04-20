@@ -60,7 +60,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.routes"/><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><spring:message code="master.page.custom.route.create"/></a></li>
+                <li><a href="route/customer/create.do"><spring:message code="master.page.custom.route.create"/></a></li>
                 <li><a href="activity/list.do"><spring:message code="master.page.route.list"/></a></li>
               </ul>
             </li>

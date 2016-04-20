@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import domain.Company;
 import domain.Customer;
 import repositories.CustomerRepository;
 import security.Authority;
+import security.LoginService;
 import security.UserAccount;
 
 @Service
@@ -81,6 +83,29 @@ public class CustomerService {
 	}
 
 	// ========== Other Business Methods =============
+	
+	public Customer findByPrincipal() {
+		Customer result;
+		UserAccount userAccount;
+
+		userAccount = LoginService.getPrincipal();
+		result = findByUserAccount(userAccount);
+
+		Assert.notNull(result);
+
+		return result;
+	}
+	
+	public Customer findByUserAccount(UserAccount userAccount) {
+		assert userAccount != null;
+
+		Customer result;
+
+		result = customerRepository.findByUserAccountId(userAccount.getId());
+		assert result != null;
+
+		return result;
+	}
 
 	public UserAccount createCustomerAccount() {
 		UserAccount result;
