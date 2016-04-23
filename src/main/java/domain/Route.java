@@ -6,13 +6,12 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -35,7 +34,7 @@ public class Route extends DomainEntity {
 	private boolean isRandom;
 
 	@NotEmpty
-	
+
 	public String getName() {
 		return name;
 	}
@@ -82,7 +81,7 @@ public class Route extends DomainEntity {
 	public void setRating(Double rating) {
 		this.rating = rating;
 	}
-	
+
 	@NotNull
 	public boolean getIsRandom() {
 		return isRandom;
@@ -100,7 +99,7 @@ public class Route extends DomainEntity {
 	private Collection<Activity> activities;
 
 	@NotNull
-	@OneToMany(mappedBy = "route")
+	@ManyToMany(cascade = CascadeType.ALL)
 	public Collection<Category> getCategories() {
 		return categories;
 	}
@@ -127,9 +126,8 @@ public class Route extends DomainEntity {
 		this.comments = comments;
 	}
 
-	
 	@NotNull
-	@OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	public Collection<Activity> getActivities() {
 		return activities;
 	}

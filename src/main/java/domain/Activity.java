@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -135,7 +134,6 @@ public class Activity extends DomainEntity {
 
 	private Company company;
 	private Collection<Category> categories;
-	private Route route;
 	private Collection<Schedule> schedules;
 
 	@ManyToOne(optional = true)
@@ -155,16 +153,6 @@ public class Activity extends DomainEntity {
 
 	public void setCategories(Collection<Category> categories) {
 		this.categories = categories;
-	}
-
-	@Valid
-	@ManyToOne(optional = true)
-	public Route getRoute() {
-		return route;
-	}
-
-	public void setRoute(Route route) {
-		this.route = route;
 	}
 
 	@Valid

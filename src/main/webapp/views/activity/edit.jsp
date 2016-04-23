@@ -57,9 +57,7 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	<form:hidden path="schedules" />
-	<form:hidden path="company" />
-	<form:hidden path="route" />
-	
+	<form:hidden path="company" />	
 	
   <div class='col-md-6'>
 	<div class="form-group" >
@@ -223,7 +221,7 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:select multiple="true" path="categories" class="form-control">
+	<form:select multiple="multiple" path="categories" class="form-control">
 		<form:option value="0">----</form:option>
 		<form:options
 			items="${categories}"

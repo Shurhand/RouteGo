@@ -38,47 +38,47 @@ public class RouteCustomerController extends AbstractController {
 
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@Autowired
 	private CustomerService customerService;
-	
+
 	// Listing ---------------------------------------------------------
 
-		@RequestMapping(value = "/list2", method = RequestMethod.GET)
-		public ModelAndView list2() {
+	@RequestMapping(value = "/list2", method = RequestMethod.GET)
+	public ModelAndView list2() {
 
-			ModelAndView result;
-			Collection<Route> routes;
-			Customer principal;
-			int customerId;
+		ModelAndView result;
+		Collection<Route> routes;
+		Customer principal;
+		int customerId;
 
-			principal = customerService.findByPrincipal();
-			customerId = principal.getId();
-			routes = routeService.findByCustomerId(customerId);
+		principal = customerService.findByPrincipal();
+		customerId = principal.getId();
+		routes = routeService.findByCustomerId(customerId);
 
-			result = new ModelAndView("route/list2");
-			result.addObject("routes", routes);
-			result.addObject("requestURI", "route/list2.do");
+		result = new ModelAndView("route/list2");
+		result.addObject("routes", routes);
+		result.addObject("requestURI", "route/list2.do");
 
-			return result;
+		return result;
 
-		}
-		
-		@RequestMapping(value = "/listCustom", method = RequestMethod.GET)
-		public ModelAndView listCustom() {
+	}
 
-			ModelAndView result;
-			Collection<Route> routes;
+	@RequestMapping(value = "/listCustom", method = RequestMethod.GET)
+	public ModelAndView listCustom() {
 
-			routes = routeService.findAllCustom();
+		ModelAndView result;
+		Collection<Route> routes;
 
-			result = new ModelAndView("route/list2");
-			result.addObject("routes", routes);
-			result.addObject("requestURI", "route/listCustom.do");
+		routes = routeService.findAllCustom();
 
-			return result;
+		result = new ModelAndView("route/list2");
+		result.addObject("routes", routes);
+		result.addObject("requestURI", "route/listCustom.do");
 
-		}
+		return result;
+
+	}
 
 	// =============== Creation ===================
 
@@ -116,7 +116,7 @@ public class RouteCustomerController extends AbstractController {
 			result = createEditModelAndView(route);
 		} else {
 			try {
-				Customer customer= customerService.findByPrincipal();
+				Customer customer = customerService.findByPrincipal();
 				route.setCustomer(customer);
 				route.setIsRandom(false);
 				routeService.save(route);
@@ -163,7 +163,7 @@ public class RouteCustomerController extends AbstractController {
 		res = new ModelAndView("route/edit");
 		activities = activityService.findAll();
 		categories = categoryService.findAll();
-		principal= customerService.findByPrincipal();
+		principal = customerService.findByPrincipal();
 		res.addObject("route", route);
 		res.addObject("activities", activities);
 		res.addObject("categories", categories);

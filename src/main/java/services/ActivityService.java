@@ -13,6 +13,7 @@ import org.springframework.util.Assert;
 
 import domain.Activity;
 import domain.Category;
+import domain.Route;
 import domain.Schedule;
 import repositories.ActivityRepository;
 
@@ -66,7 +67,7 @@ public class ActivityService {
 
 	public void save(Activity activity) {
 		Assert.notNull(activity);
-		
+
 		DateUtils.addSeconds(activity.getStartingDate(), 1);
 		DateUtils.addSeconds(activity.getEndingDate(), 1);
 

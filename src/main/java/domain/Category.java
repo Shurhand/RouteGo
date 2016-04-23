@@ -7,8 +7,6 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -16,12 +14,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Access(AccessType.PROPERTY)
 public class Category extends DomainEntity {
 
-	public Category(){
+	public Category() {
 		super();
 	}
-	
+
 	private String name;
-	
+
 	@NotEmpty
 	@Column(unique = true)
 	public String getName() {
@@ -32,22 +30,9 @@ public class Category extends DomainEntity {
 		this.name = name;
 	}
 
-	//=============== Relaciones ==============
-	
-	private Route route;
+	// =============== Relaciones ==============
 	private Collection<Activity> activities;
 
-	
-	@ManyToOne(optional = true)
-	public Route getRoute() {
-		return route;
-	}
-
-	public void setRoute(Route route) {
-		this.route = route;
-	}
-
-	
 	@ManyToMany
 	public Collection<Activity> getActivities() {
 		return activities;
@@ -56,10 +41,5 @@ public class Category extends DomainEntity {
 	public void setActivities(Collection<Activity> activities) {
 		this.activities = activities;
 	}
-	
-	
-	
-	
-	
-	
+
 }

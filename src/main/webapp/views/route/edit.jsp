@@ -115,7 +115,7 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:select multiple="true" path="activities" class="form-control">
+	<form:select multiple="multiple" path="activities" class="form-control">
 		<form:option value="0">----</form:option>
 		<form:options
 			items="${activities}"
@@ -134,7 +134,7 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:select multiple="true" path="categories" class="form-control">
+	<form:select multiple="multiple" path="categories" class="form-control">
 		<form:option value="0">----</form:option>
 		<form:options
 			items="${categories}"

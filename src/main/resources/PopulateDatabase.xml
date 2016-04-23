@@ -87,30 +87,6 @@
 		</property>
 	</bean>
 	
-	<!-- Routes -->
-	
-	<bean id="route1" class="domain.Route">
-		<property name="name" value="Aitor" />
-		<property name="startingDate" value="10/10/2016 10:00" />
-		<property name="endDate" value="12/10/2016 13:00" />
-		<property name="description" value="673923829" />
-		<property name="rating" value="4" />
-		<property name="isRandom" value="false" />
-		<property name="activities" >
-			<list>
-				<ref bean="visitaCatedral"/>
-			</list>
-		</property>
-		<property name="categories" >
-			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Churches"/>
-			</list>
-		</property>
-	</bean>
-	
-	
 	<!-- Activities -->
 	
 	<bean id="visitaCatedral" class="domain.Activity">
@@ -123,7 +99,7 @@
 		<property name="picture" value="http://histmag.org/grafika/articles2015/katedry/sewilla.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -151,7 +127,7 @@
 		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Torre_del_Oro_flag_Seville_Spain.jpg/245px-Torre_del_Oro_flag_Seville_Spain.jpg" />
 		<property name="duration" value="10" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -177,7 +153,7 @@
 		<property name="picture" value="http://spainattractions.es/wp-content/uploads/2014/03/maria-luisa-park.jpg" />
 		<property name="duration" value="10" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="09/09/2016" />
 		<property name="schedules" >
@@ -204,7 +180,7 @@
 		<property name="picture" value="http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/andalucia/acuario-sevilla-PANORAMICA-ACUARIO-c.jpg_369272544.jpg" />
 		<property name="duration" value="45" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -230,7 +206,7 @@
 		<property name="picture" value="http://www.setasdesevilla.com/wp-content/uploads/2014/10/Para-Antiquarium-3.jpg?w=560" />
 		<property name="duration" value="30" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -257,7 +233,7 @@
 		<property name="picture" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrATzS4HteqnVS8e8S1g3wNQkstWvL9uYnzJe1SAMTR3YGP9pSsp3oOpe" />
 		<property name="duration" value="35" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -285,7 +261,7 @@
 		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Puerta_y_Bas%C3%ADlica_de_la_Macarena_(Sevilla).jpg/240px-Puerta_y_Bas%C3%ADlica_de_la_Macarena_(Sevilla).jpg" />
 		<property name="duration" value="15" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -310,7 +286,7 @@
 		<property name="picture" value="https://lh3.googleusercontent.com/-7gWEjlXTvUA/AAAAAAAAAAI/AAAAAAAAAC4/-cTiyMgtWt4/s0-c-k-no-ns/photo.jpg" />
 		<property name="duration" value="10" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -335,7 +311,7 @@
 		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Casa_Pilatos.JPG/220px-Casa_Pilatos.JPG" />
 		<property name="duration" value="60" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -361,7 +337,7 @@
 		<property name="picture" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUutXb_c0xb7dZAe5LZEmmvpAEW5YIFCeN8xnCZ0FYnf07akdAqMDv3Gg" />
 		<property name="duration" value="20" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -386,7 +362,7 @@
 		<property name="picture" value="https://www.sevilla5.com/monuments/mphotos/arqueologico1.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -413,7 +389,7 @@
 		<property name="picture" value="http://www.camaraoscuraworld.com/wp-content/uploads/2014/05/CO-Sevilla-3.jpg" />
 		<property name="duration" value="45" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
@@ -439,7 +415,7 @@
 		<property name="picture" value="http://static.guiaocio.com/var/guiadelocio.com/storage/images/conciertos/sevilla/sevilla/teatro-de-la-maestranza/galeria/teatro-de-la-maestranza/15212107-1-esl-ES/teatro-de-la-maestranza.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
@@ -465,7 +441,7 @@
 		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/19652552262_3434b70828_teatro_lope_de_vega.jpg/280px-19652552262_3434b70828_teatro_lope_de_vega.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
@@ -491,7 +467,7 @@
 		<property name="picture" value="http://farm5.static.flickr.com/4139/4926159409_c7cd42d7c7.jpg" />
 		<property name="duration" value="40" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
 		<property name="schedules" >
@@ -518,7 +494,7 @@
 		<property name="picture" value="http://www.escapadarural.com/blog/wp-content/uploads/2014/11/Plaza-Espa%C3%B1a-de-Sevilla.jpg" />
 		<property name="duration" value="15" />
 		<property name="company" ref="company1" />
-		<property name="route" ref="route1" />
+		
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
 		<property name="schedules" >
@@ -530,6 +506,29 @@
 			<list>
 				<ref bean="Cultural"/>
 				<ref bean="Paintings"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Routes -->
+	
+	<bean id="route1" class="domain.Route">
+		<property name="name" value="Aitor" />
+		<property name="startingDate" value="10/10/2016 10:00" />
+		<property name="endDate" value="12/10/2016 13:00" />
+		<property name="description" value="673923829" />
+		<property name="rating" value="4" />
+		<property name="isRandom" value="false" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>
+				<ref bean="Paintings"/>	
+				<ref bean="Churches"/>
 			</list>
 		</property>
 	</bean>
