@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.apache.commons.lang.time.DateUtils;
+import org.hibernate.dialect.Cache71Dialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,7 @@ import org.springframework.util.Assert;
 
 import domain.Activity;
 import domain.Category;
-import domain.Route;
+import domain.Company;
 import domain.Schedule;
 import repositories.ActivityRepository;
 
@@ -34,6 +35,12 @@ public class ActivityService {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private CompanyService companyService;
+	
+	@Autowired
+	private ScheduleService scheduleService;
 
 	// ========== Simple CRUD Methods ================
 
@@ -85,6 +92,24 @@ public class ActivityService {
 
 	public void delete(Activity activity) {
 		Assert.notNull(activity);
+		
+		if(activity.getCompany() != null){
+			Assert.isTrue(activity.getCompany().equals(companyService.findByPrincipal()));
+		}
+		
+		// Desasignamos la actividad de todas las categorias existentes.
+		for(Category c: activity.getCategories()){
+			if(c.getActivities().contains(activity)){
+				c.getActivities().remove(activity);
+				categoryService.save(c);
+			}
+		}
+		
+		// Borramos los schedules de la actividad.
+		for(Schedule s: activity.getSchedules()){
+			scheduleService.delete(s);
+		}
+		activity.setCategories(null);
 
 		activityRepository.delete(activity);
 	}
@@ -138,6 +163,15 @@ public class ActivityService {
 		res = activityRepository.findByCompanyId(companyId);
 
 		return res;
+	}
+	public void assignCompany(Activity activity, Company company){
+		Collection<Activity> companyActivities;
+		
+		companyActivities= company.getActivities();
+		
+		companyActivities.add(activity);
+		company.setActivities(companyActivities);
+		companyService.save(company);
 	}
 
 }

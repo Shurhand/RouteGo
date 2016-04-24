@@ -50,7 +50,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="master.page.activities"/><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="activity/create.do"><spring:message code="master.page.activity.create"/></a></li>
+                <li><a href="activity/company/create.do"><spring:message code="master.page.activity.create"/></a></li>
                 <li><a href="schedule/create.do"><spring:message code="master.page.schedule.create"/></a></li>
                 <li><a href="activity/company/list.do"><spring:message code="master.page.activity.list"/></a></li>
               </ul>

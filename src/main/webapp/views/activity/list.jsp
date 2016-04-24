@@ -15,7 +15,7 @@
 <br><br><br><br><br><br><br>
 <div class="container-fluid">
 <div class="table-responsive">
-<display:table name="activities" id="row" requestURI="activity/list.do"
+<display:table name="activities" id="row" requestURI="${requestURI}"
 	pagesize="5" class="table table-hover">
 	
 	<spring:message code="activity.picture" var="pictureHeader"/>
@@ -46,7 +46,7 @@
 	 
 	
 	<display:column> <a href="activity/edit.do?activityId=<jstl:out value="${row.id}"/>"><spring:message code="activity.edit"/></a></display:column>
-	<display:column> <a href="activity/deleteCategory.do?activityId=<jstl:out value="${row.id}"/>"><spring:message code="activity.delete"/></a></display:column>
+	<display:column> <a href="activity/deleteActivity.do?activityId=<jstl:out value="${row.id}"/>"><spring:message code="activity.delete"/></a></display:column>
 	
 </display:table>
 </div>

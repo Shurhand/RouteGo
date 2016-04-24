@@ -43,7 +43,8 @@ public class ActivityController extends AbstractController {
 
 		result = new ModelAndView("activity/list");
 		result.addObject("activities", activities);
-		
+		result.addObject("requestURI", "activity/list.do");
+
 		return result;
 
 	}
@@ -85,7 +86,7 @@ public class ActivityController extends AbstractController {
 		} else {
 			try {
 				activityService.save(activity);
-				result = new ModelAndView("redirect:/");
+				result = new ModelAndView("redirect:list.do");
 			} catch (Throwable oops) {
 				result = createEditModelAndView(activity, "activity.commit.error");
 			}
@@ -104,6 +105,24 @@ public class ActivityController extends AbstractController {
 			result = new ModelAndView("redirect:list.do");
 		} catch (Throwable oops) {
 			result = createEditModelAndView(activity, "activity.commit.error");
+		}
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/deleteActivity", method = RequestMethod.GET)
+	public ModelAndView deleteActivity(@RequestParam int activityId) {
+
+		ModelAndView result;
+		Activity activity;
+		
+		activity = activityService.findOne(activityId);
+
+		try {
+			activityService.delete(activity);
+			result = new ModelAndView("redirect:list.do");
+		} catch (Throwable oops) {
+			result = createEditModelAndView(activity, "activity.delete.error");
 		}
 		return result;
 
