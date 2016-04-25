@@ -32,23 +32,48 @@
 
 			<p align="center">${route.name}<br><br>
 
-				<jstl:out value="Start Date:${startingDate}" />
-				<br>
-				<jstl:out value="End Date:${endDate}" />
+				<b><jstl:out value="Start Date: " /></b>
+				<jstl:out value="${startingDate}  " />&nbsp;
+				<b><jstl:out value="End Date: " /></b>
+				<jstl:out value="${endDate}" />
 				<br> <br>
 				<br>
 			</p>
 
 			<div class='col-md-6'>
-				<div id="map" style="width: 100%; height: 300px;"></div>
+				<div id="map" style="width: 100%; height: 400px;"></div>
 			</div>
 
 			<div class='col-md-6'>
+				<% int i=9, j=10;%>
+				<table class="table table-striped table-bordered">
+				<thead class="thead-inverse">
+				    <tr>
+				      <th style="text-align:center">Picture</th>
+				      <th style="text-align:center">Duration</th>
+				      <th style="text-align:center">Name</th>
+				      <th style="text-align:center">Cost</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				 <c:set var="total" value="0" />
 				<jstl:forEach var="activity" items="${route.activities}">
-					<img var="p" height="80" width="120" src="${activity.picture}" />
-					<jstl:out value="${p} ${activity.name} ${activity.cost} Euros " />
-					<br>
+					<tr>
+					
+					<% i++; j++; %>
+					<td width="25%" align="center" style="vertical-align:middle;"><img var="p" width="60%" src="${activity.picture}" /></td>
+					<td width="25%" align="center" style="vertical-align:middle;"><% out.println(i + ":00 - "+ j +":00"); %></td>
+					<td width="30%" align="center" style="vertical-align:middle;"><jstl:out value="${p} ${activity.name}" /></td>
+					<td width="20%" align="center" style="vertical-align:middle;"><jstl:out value="${p} ${activity.cost} Euros " /></td>
+					<c:set var="total" value="${p} ${activity.cost + total}" />
+					</tr>
 				</jstl:forEach>
+					<tr>
+					<td width="25%" align="center" style="vertical-align:middle;">Total</td>
+					<td colspan="3" width="75%" align="right" style="vertical-align:middle;"> <b>	<c:out value="${total}"  /> Euros &nbsp; </b></td>
+					</tr>
+ 				 </tbody>
+				</table>
 			</div>
 
 		</div>
@@ -95,7 +120,7 @@ $(function() {
    
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
+      zoom: 14,
       center: new google.maps.LatLng(37.3824, -5.9965),
       mapTypeId: google.maps.MapTypeId.ROADMAP
       

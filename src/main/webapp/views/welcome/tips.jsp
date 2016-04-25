@@ -70,7 +70,7 @@
               <img src="http://www.tussam.es/fileadmin/uploads/pics/TARIFAS/ANO_2015/tarjeta_sin_transbordo.jpg"  width="100%" />
               </div>
               <div class='col-md-7'>
-                 <p>Rides cost 1.40€ each way when you pay on the bus. Bonobus ticket blocks are no longer sold, but you can buy a pass.  One day, 3 day, refillable, and monthly passes are available. The refillable pass is called the Tarjeta Multiviaje. It costs 1.50€ for the card (this is a refundable deposit) and a minimum fill-up of 7€. Refills are also 7€ minimum. There are two types: Con Transbordo (with transfer) or Sin Transbordo (without transfer) this allows transfer for 1 hour at different line from any source.  You pass the card over a meter in the bus, 0.69€ is deducted from your card. When you transfer, if you have the Con Transbordo pass, another 0.10€ is deducted. If you have the Sin Transbordo pass, another full 0.69€ is deducted. So you might as well get the Con Transbordo pass to begin with!</p>
+                 <p>Rides cost 1.40&euro; each way when you pay on the bus. Bonobus ticket blocks are no longer sold, but you can buy a pass.  One day, 3 day, refillable, and monthly passes are available. The refillable pass is called the Tarjeta Multiviaje. It costs 1.50&euro; for the card (this is a refundable deposit) and a minimum fill-up of 7&euro;. Refills are also 7&euro; minimum. There are two types: Con Transbordo (with transfer) or Sin Transbordo (without transfer) this allows transfer for 1 hour at different line from any source.  You pass the card over a meter in the bus, 0.69&euro; is deducted from your card. When you transfer, if you have the Con Transbordo pass, another 0.10&euro; is deducted. If you have the Sin Transbordo pass, another full 0.69&euro; is deducted. So you might as well get the Con Transbordo pass to begin with!</p>
                </div>
               </div>
             </div>
@@ -85,8 +85,8 @@
             </div>
             <div id="collapseOneThree" class="panel-collapse collapse">
               <div class="panel-body">
-              <p>The bus provides a cheap and fast transportation to the airport. If you want to go to the airport and you don’t live too far from the centre the bus is your best option. </p>
-              <p>From Seville airport drives an airport bus every 30 minutes to the city center. There is only one bus (white) and the stop is on the left as you walk out of the arrival hall. You can buy a ticket on the bus for 4€ a person and in less than twenty minutes you are in the center. Do not buy a return ticket because you have to return the same day.</p>
+              <p>The bus provides a cheap and fast transportation to the airport. If you want to go to the airport and you don't live too far from the centre the bus is your best option. </p>
+              <p>From Seville airport drives an airport bus every 30 minutes to the city center. There is only one bus (white) and the stop is on the left as you walk out of the arrival hall. You can buy a ticket on the bus for 4&euro; a person and in less than twenty minutes you are in the center. Do not buy a return ticket because you have to return the same day.</p>
               <p>This special bus also allows you to go from the airport to the center of Seville. This service is much cheaper than that offered by taxi drivers.</p>
               
               <p> <a href="http://www.tussam.es/fileadmin/uploads/pdf/LINEA_AEROPUERTO.pdf">Download all information pamphlet, Routes Timetables and fares</a></p>
@@ -113,7 +113,7 @@
           <img src="http://www.pensandoelterritorio.com/wp-content/uploads/2013/05/SEVICI.jpg"  width="100%" />
           </div>
           <div class='col-md-7'>
-          <p>A bicycle is just as convenient to get around the city center. Seville has a large network of (green paved) cycle paths. Rent a bike or use <a href="http://www.sevici.es" >Sevici</a>. These are bikes that you can take and park on different places (at least 250 bike stations) in the city. You only pay the rate of 13.30€ for 7 days. The first half hour is free after that a small fee will be charged.</p>
+          <p>A bicycle is just as convenient to get around the city center. Seville has a large network of (green paved) cycle paths. Rent a bike or use <a href="http://www.sevici.es" >Sevici</a>. These are bikes that you can take and park on different places (at least 250 bike stations) in the city. You only pay the rate of 13.30&euro; for 7 days. The first half hour is free after that a small fee will be charged.</p>
           
           <p>You can see a the map with the stations <a href="http://www.sevici.es/Estaciones/Mapa">here</a></p>
 
@@ -168,7 +168,7 @@
         </div>
         <div class='col-md-7'>
         <p>Most people prefer to use <a href="http://www.radiotaxidesevilla.es/index.php">taxis</a> at night for speed and convenience. They are available any time, any day of the year, and are white with the city crest, a yellow stripe and their licence number on the side. You can hail them in the street when they have the green light on. They can also be found at taxi ranks in central streets and squares, or ordered using the radio taxi service. The fares are displayed inside the taxis and comprise the minimum rate, flag-down charge, kilometre charge and other extras such as night service, public holidays, and station or airport service. </p>
-        <p>Count on about 25€ per taxi from airport to the center (one way and daytime). Evenings, nights and weekends are a more expensive.</p>
+        <p>Count on about 25&euro; per taxi from airport to the center (one way and daytime). Evenings, nights and weekends are a more expensive.</p>
         </div>
       </div>
     </div>
