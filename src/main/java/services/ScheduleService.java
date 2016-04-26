@@ -23,6 +23,9 @@ public class ScheduleService {
 
 	@Autowired
 	private ScheduleRepository scheduleRepository;
+	
+	@Autowired
+	private CompanyService companyService;
 
 	// ========== Supporting services ================
 
@@ -61,7 +64,9 @@ public class ScheduleService {
 
 	public void save(Schedule schedule) {
 		Assert.notNull(schedule);
-
+		if(companyService.findByPrincipal() != null){
+		Assert.isTrue(schedule.getActivity().getCompany().equals(companyService.findByPrincipal()));
+		}
 		scheduleRepository.save(schedule);
 
 		Activity activity;

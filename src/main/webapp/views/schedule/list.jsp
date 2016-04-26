@@ -26,8 +26,13 @@
 	
 	<spring:message code="schedule.closingDate" var="closingDateHeader"/>
 	<display:column value="closingDate" title="${closingDateHeader}" sortable="false"/>
+	
 		
-	<display:column> <a href="schedule/edit.do?scheduleId=<jstl:out value="${row.id}"/>"><spring:message code="schedule.edit"/></a></display:column>
+	<display:column> 
+	<jstl:if test="${row.activity.company == null || row.activity.company.id == principalId}">
+	<a href="schedule/edit.do?scheduleId=<jstl:out value="${row.id}"/>"><spring:message code="schedule.edit"/></a>
+	</jstl:if>
+	</display:column>
 	
 </display:table>
 </div>

@@ -97,6 +97,13 @@ public class RouteController extends AbstractController {
 	public ModelAndView create(@Valid TripForm tripForm, BindingResult binding){
 		ModelAndView res;
 		Credentials credentials = new Credentials();
+		Double cost;
+		
+		if(tripForm.getCost() != null){
+			cost= tripForm.getCost();
+		}else{
+			cost= 10000.0;
+		}
 				
 		if (binding.hasErrors()) {
 			for(ObjectError a : binding.getAllErrors()){
@@ -105,8 +112,9 @@ public class RouteController extends AbstractController {
 			res = createEditModelAndView(tripForm);
 		}
 		else {
+			
 				Route route = routeService.reconstruct(tripForm);
-				route = routeService.filtraPrecio(route, tripForm.getCost());
+				route = routeService.filtraPrecio(route, cost);
 				route.setIsRandom(true);
 				ROUTE_CREATED = route;
 				

@@ -91,8 +91,6 @@ public class CompanyService {
 		userAccount = LoginService.getPrincipal();
 		result = findByUserAccount(userAccount);
 
-		Assert.notNull(result);
-
 		return result;
 	}
 	

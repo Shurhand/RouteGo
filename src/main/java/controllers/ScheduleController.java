@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import domain.Activity;
 import domain.Schedule;
 import services.ActivityService;
+import services.CompanyService;
 import services.ScheduleService;
 
 @Controller
@@ -31,6 +32,9 @@ public class ScheduleController extends AbstractController {
 	@Autowired
 	private ActivityService activityService;
 	
+	@Autowired
+	private CompanyService companyService;
+	
 	// Listing ---------------------------------------------------------
 
 		@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -40,9 +44,13 @@ public class ScheduleController extends AbstractController {
 			Collection<Schedule> schedules;
 
 			schedules = scheduleService.findByActivityId(activityId);
-
+			
 			result = new ModelAndView("schedule/list");
 			result.addObject("schedules", schedules);
+			if(companyService.findByPrincipal() != null){
+				 int principalId= companyService.findByPrincipal().getId();
+				 result.addObject("principalId", principalId);
+			}
 			result.addObject("requestURI", "schedules/list.do");
 
 			return result;

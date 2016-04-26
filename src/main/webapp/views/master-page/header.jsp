@@ -121,7 +121,7 @@
 			 <div id="navbar" class="navbar-collapse collapse">
 			 <form:form class="navbar-form navbar-right">
 			<div class="form-group">
-				<p class="navbar-text navbar-right2"><spring:message code="master.page.salute" />&nbsp&nbsp  <security:authentication property="principal.username" /></p> 
+				<p class="navbar-text navbar-top"><spring:message code="master.page.salute" />&nbsp&nbsp  <security:authentication property="principal.username" /></p> 
 			 	<a class="btn btn-primary" href="logout" ><spring:message code="master.page.logout"/></a>
 			</div>
 	</form:form>
