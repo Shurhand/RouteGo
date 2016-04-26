@@ -30,6 +30,24 @@ public class ScheduleController extends AbstractController {
 
 	@Autowired
 	private ActivityService activityService;
+	
+	// Listing ---------------------------------------------------------
+
+		@RequestMapping(value = "/list", method = RequestMethod.GET)
+		public ModelAndView list(@RequestParam int activityId) {
+
+			ModelAndView result;
+			Collection<Schedule> schedules;
+
+			schedules = scheduleService.findByActivityId(activityId);
+
+			result = new ModelAndView("schedule/list");
+			result.addObject("schedules", schedules);
+			result.addObject("requestURI", "schedules/list.do");
+
+			return result;
+
+		}
 
 	// =============== Creation ===================
 

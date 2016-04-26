@@ -47,6 +47,7 @@
 	
 	<display:column> <a href="activity/edit.do?activityId=<jstl:out value="${row.id}"/>"><spring:message code="activity.edit"/></a></display:column>
 	<display:column> <a href="activity/deleteActivity.do?activityId=<jstl:out value="${row.id}"/>"><spring:message code="activity.delete"/></a></display:column>
+	<display:column> <a href="schedule/list.do?activityId=<jstl:out value="${row.id}"/>"><spring:message code="activity.schedules"/></a></display:column>
 	
 </display:table>
 </div>

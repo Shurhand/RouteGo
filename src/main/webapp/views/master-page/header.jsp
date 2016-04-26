@@ -13,7 +13,7 @@
         <div class="navbar-header">
          
           
-          <a href="/RouteGo/"><img  src="images/logorouteGo5.png" width="90px"></a>
+          <a href="/RouteGo/"><img  src="images/routeGoletras.png" width="90px"></a>
           <a href="?language=en"><img src="images/icon_id_en.png"></a>
           <a href="?language=es"><img src="images/icon_id_es.png"></a>
         </div>

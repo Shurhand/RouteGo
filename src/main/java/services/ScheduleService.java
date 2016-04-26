@@ -82,4 +82,13 @@ public class ScheduleService {
 
 	// ========== Other Business Methods =============
 
+	public Collection<Schedule> findByActivityId(int activityId) {
+
+		Collection<Schedule> res;
+
+		res = scheduleRepository.findByActivityId(activityId);
+
+		return res;
+	}
+
 }
