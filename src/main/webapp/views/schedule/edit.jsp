@@ -33,8 +33,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek" class="form-control" />
-	<form:errors cssClass="error" path="dayOfWeek" />
+		<form:select path="dayOfWeek" class="form-control">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
