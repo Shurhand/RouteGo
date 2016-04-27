@@ -163,7 +163,7 @@
 		<input type="submit" name="delete" class="btn btn-primary"
 			value="<spring:message code="activity.delete"/>"
 			onclick="return confirm('<spring:message code="activity.confirm.delete" />')" />
-		&nbsp
+		&nbsp;
 	</jstl:if>
 	
 	<input type="button" name="cancel" class="btn btn-primary"

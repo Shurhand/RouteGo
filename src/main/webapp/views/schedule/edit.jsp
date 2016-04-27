@@ -52,8 +52,12 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate" class="form-control" />
-	<form:errors cssClass="error" path="openingDate" />
+	<div class="input-group bootstrap-timepicker timepicker">
+		<form:input path="openingDate" class="form-control input-small" id="timepicker1" />
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
+		<form:errors cssClass="error" path="openingDate" />
 		</div>
 	</div>
 	
@@ -64,11 +68,19 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate" class="form-control" />
-	<form:errors cssClass="error" path="closingDate" />
+	<div class="input-group bootstrap-timepicker timepicker">
+		<form:input path="closingDate" class="form-control input-small" id="timepicker2" />
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+		</div>
+		<form:errors cssClass="error" path="closingDate" />
 		</div>
 	</div>
+	
+	
 	</div>
+	
+	
 	<div class='col-md-5'>
 	<div class="form-group" >
 	
@@ -107,5 +119,41 @@
 	
 	</div>
 </form:form>
+
+	<jstl:if test="${message != null}">
+		<p align="center" class="error">
+		<spring:message code="schedule.commit.error" />
+		</p>
+	</jstl:if>
+	
 </div>
 </div>
+
+        <script type="text/javascript">
+            $('#timepicker1').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+        
+                <script type="text/javascript">
+            $('#timepicker2').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00'
+            });
+        </script>
+        
+        <script type="text/javascript">
+       	 function checkMyDateWithinRange(){
+       		
+       		var openingDate = document.getElementById(openingDate);
+       		var closingDate = document.getElementById(closingDate);
+       	 	if(openingDate > closingDate){
+       	 		alert("The time range is not valid");
+       	 	}
+       	 }
+        </script>
+        

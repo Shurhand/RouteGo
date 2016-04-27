@@ -60,6 +60,7 @@ public class Schedule extends DomainEntity {
 
 	private Activity activity;
 
+	@NotNull
 	@ManyToOne(optional = false)
 	public Activity getActivity() {
 		return activity;

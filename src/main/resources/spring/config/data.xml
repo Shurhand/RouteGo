@@ -21,15 +21,17 @@
 
 	<!-- Data source -->
 
+		
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/RouteGo" />
 		<property name="user" value="acme-user" />
 		<property name="password" value="ACME-Us3r-P@ssw0rd" />
-	</bean>
-	
-		<!-- Configuración de base de datos de Heroku 	
+		
+		</bean>
+	<!--
+		 Configuración de base de datos de Heroku 	
 	
 		<bean class="java.net.URI" id="dbUrl">
     <constructor-arg value="#{systemEnvironment['CLEARDB_DATABASE_URL']}"/>
@@ -40,7 +42,6 @@
 	    <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
 	    <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
 	</bean>
-	
 	-->
 
 	<!-- JPA -->

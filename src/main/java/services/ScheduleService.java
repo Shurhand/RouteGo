@@ -62,11 +62,16 @@ public class ScheduleService {
 		return result;
 	}
 
-	public void save(Schedule schedule) {
+	public void save(Schedule schedule) throws IllegalAccessException {
 		Assert.notNull(schedule);
-		if(companyService.findByPrincipal() != null){
-		Assert.isTrue(schedule.getActivity().getCompany().equals(companyService.findByPrincipal()));
+		
+		if(schedule.getOpeningDate().after(schedule.getClosingDate())){
+			throw new IllegalAccessException("The opening date must be before the closing date");
 		}
+		
+//		if(companyService.findByPrincipal() != null){
+//			Assert.isTrue(schedule.getActivity().getCompany().equals(companyService.findByPrincipal()));
+//		}
 		scheduleRepository.save(schedule);
 
 		Activity activity;

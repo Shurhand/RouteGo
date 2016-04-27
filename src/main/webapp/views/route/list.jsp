@@ -90,8 +90,14 @@
 		<div class="col-xs-5"></div>
 
 	<security:authorize access="isAnonymous()">
-	<button type="button" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?" class="btn btn-primary"
+	<button id="tooltip" type="button" data-toggle="tooltip" data-placement="bottom" title="<spring:message code="popover.content" />" class="btn btn-primary"
 		><spring:message code="route.save" /></button>
+		&nbsp;
+	</security:authorize>
+	
+	<security:authorize access="hasAuthority('CUSTOMER')">
+	<input type="submit" name="save" class="btn btn-primary"
+		value="<spring:message code="route.save" />" />
 		&nbsp;
 	</security:authorize>	
 		
@@ -103,6 +109,7 @@
 	
 	</div>
 </div>
+
 <script type="text/javascript">
 function reload() {
 	window.location.reload(true);
@@ -111,7 +118,7 @@ function reload() {
 
 <script type="text/javascript"> 
 $(function() {
-	$('#test').popover();
+	$('#tooltip').tooltip();
    });
  </script>
 

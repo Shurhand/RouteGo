@@ -29,6 +29,19 @@
            	     daysOfWeekHighlighted: "0",
                 })});
        </script>
+       
+              <script type="text/javascript">
+       $(function () {
+    	   $('.input-daterange').datepicker({
+         	     format: "dd/mm/yyyy",
+           	     clearBtn: true,
+           	     startDate: "0",
+           	     todayHighlight: true,
+           	     daysOfWeekHighlighted: "0"
+    	   });
+			});
+       </script>
+       
 <br><br>
    <div class="container">
 	
@@ -41,28 +54,20 @@
           <spring:message code="route.startingDate" var="start"/>
           <spring:message code="route.endDate" var="end"/>
           <div class="container">
-            <div class='col-md-5'>
+            <div class='col-md-10'>
                 <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <form:input path="startingDate" class="form-control" placeholder="${start}" />
-					    <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <form:errors cssClass="error" path="startingDate" />
-                </div>
-            </div>
-            <div class='col-md-5'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker2'>
-                        <form:input path="endDate" class="form-control" placeholder="${end}" />
-						<span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <form:errors cssClass="error" path="endDate" />
-                </div>
-            </div> 
+                       <div class="input-daterange input-group" id="datepicker">
+							<form:input path="startingDate" class="form-control" placeholder="${start}"/>
+							<span class="input-group-addon">to</span>
+							<form:input path="endDate" class="form-control" placeholder="${end}" />
+							<span class="input-group-addon">
+				            <span class="glyphicon glyphicon-calendar"></span>
+           				 </span>
+        </div>
+           <form:errors cssClass="error" path="startingDate" />
+		</div>
+	</div>
+            
             <div class='col-md-2'>
               <div class="input-group">
              

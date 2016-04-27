@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -90,7 +91,10 @@ public class ScheduleController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			result = createEditModelAndView(schedule, binding.toString());
+			for(ObjectError o : binding.getAllErrors()){
+				System.out.println(o);
+			}
+			result = createEditModelAndView(schedule);
 		} else {
 			try {
 				scheduleService.save(schedule);
