@@ -23,6 +23,7 @@
 		<value>/views/activity/messages</value>
 		<value>/views/schedule/messages</value>
 		<value>/views/category/messages</value>
+		<value>/views/admin/messages</value>
 	</util:list>
 
 </beans>

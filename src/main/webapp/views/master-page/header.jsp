@@ -89,6 +89,12 @@
             </li>
             </security:authorize>
             
+            <security:authorize access="hasAuthority('ADMIN')">
+            
+                <li><a href="admin/dashboard.do"><spring:message code="master.page.admin.dashboard"/></a></li>
+               
+            </security:authorize>
+            
             
           </ul>
           <security:authorize access="isAnonymous()">
