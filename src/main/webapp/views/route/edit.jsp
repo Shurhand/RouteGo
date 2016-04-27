@@ -9,6 +9,8 @@
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<link rel="stylesheet" type="text/css" href="styles/listswap.css" />
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
        <script type="text/javascript">
             $(function () {
@@ -108,24 +110,7 @@
 		</div>
 	</div>
 		
-	<div class="form-group" >
-	
-	<form:label  path="activities" class="col-sm-5 control-label">
-		<spring:message code="route.activities" />:
-	</form:label>
-	
-	<div class="col-xs-6">
-	<form:select multiple="multiple" path="activities" class="form-control">
-		<form:option value="0">----</form:option>
-		<form:options
-			items="${activities}"
-			itemLabel="name"
-			itemValue="id"
-		/>
-	</form:select>
-	<form:errors cssClass="error" path="activities" />
-		</div>
-	</div>
+
 	
 	<div class="form-group" >
 	
@@ -152,6 +137,28 @@
 
 <br>
 
+
+
+	<div class="form-group" align="center">
+        <form:label  path="activities" class="col-sm-1 control-label">
+		<spring:message code="route.activities" />:
+		</form:label>
+	
+	<div class="col-xs-12" align="center" styles="background-color:black;">
+            <form:select id="source" path="activities" data-text="Source list" data-search="Search for options">
+				<form:options
+					items="${activities}"
+					itemLabel="name"
+					itemValue="id"
+				/>
+            </form:select>
+            <form:select id="destination" path="activities" data-text="Destination list"  data-search="Search for options">
+            </form:select>
+            
+	</div>
+
+	</div>
+
 <div class="form-group" align="center">
 
 
@@ -163,7 +170,7 @@
 		<input type="submit" name="delete" class="btn btn-primary"
 			value="<spring:message code="activity.delete"/>"
 			onclick="return confirm('<spring:message code="activity.confirm.delete" />')" />
-		&nbsp;
+		&nbsp
 	</jstl:if>
 	
 	<input type="button" name="cancel" class="btn btn-primary"
@@ -174,3 +181,15 @@
 </form:form>
 </div>
 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="scripts/jquery.listswap.js"></script>
+<script>
+$('#source, #destination').listswap({
+	truncate:true, 
+	height:135, 
+	is_scroll:true, 
+    label_add:'>', 
+    label_remove:'<', 
+});
+</script>
