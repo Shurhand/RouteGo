@@ -134,8 +134,7 @@ public class ActivityService {
 		c.setTime(startingDate);
 		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 
-		System.out.println(dayOfWeek);
-
+		
 		// Primero filtra por fecha.
 		for (Activity a : all) {
 			if (a.getStartingDate().before(startingDate) && a.getEndingDate().after(endingDate)) {

@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import domain.Customer;
 import domain.Route;
 import forms.TripForm;
 import security.Credentials;
+import services.CustomerService;
 import services.RouteService;
 
 @Controller
@@ -24,6 +26,8 @@ public class RouteController extends AbstractController {
 	
 	@Autowired
 	private RouteService routeService;
+	@Autowired
+	private CustomerService customerService;
 	
 	private static Route ROUTE_CREATED = null;
 	
@@ -126,10 +130,15 @@ public class RouteController extends AbstractController {
 	
 	// 	Save Route
 	@RequestMapping(value = "/list" , method = RequestMethod.POST, params="save")
-	public void save(){
+	public ModelAndView save(){
+		ModelAndView res;
+
 		Route route = ROUTE_CREATED;
-		
+				
 		routeService.save(route);
+		
+		res = new ModelAndView("redirect:/route/customer/list2.do");
+		return res;
 		
 	}
 	

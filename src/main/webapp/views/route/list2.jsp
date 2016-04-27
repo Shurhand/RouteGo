@@ -24,44 +24,52 @@
 	<spring:message code="route.description" var="descriptionHeader"/>
 	<display:column property="description" title="${descriptionHeader}" sortable="false"/>
 	
+	<fmt:formatDate var="startingDate" value="${row.startingDate}" pattern="dd/MM/yyyy" />
+	
 	<spring:message code="route.startingDate" var="startingDateHeader"/>
-	<display:column property="startingDate" title="${startingDateHeader}" sortable="false"/>
+	<display:column value="${startingDate}" title="${startingDateHeader}" sortable="false"/>
+	
+	<fmt:formatDate var="endDate" value="${row.endDate}" pattern="dd/MM/yyyy" />
 	
 	<spring:message code="route.endDate" var="endingDateHeader"/>
-	<display:column property="endDate" title="${endingDateDateHeader}" sortable="false"/>
+	<display:column value="${endDate}" title="${endingDateHeader}" sortable="false"/>
 	
+	<spring:message code="route.display" var="displayHeader"/>
+	<display:column title="${displayHeader}" sortable="false">
+					
+		<a href="route/customer/display.do?routeID=${row.id}"><spring:message code="route.display" /> </a>
+	
+	</display:column>
+	
+	<jstl:if test="${row.isRandom==false && row.customer==principal}">	
 	<spring:message code="route.purchase" var="purchaseHeader"/>
 	<display:column title="${purchaseHeader}" sortable="false">
-	<jstl:if test="${row.isRandom==false && row.customer==principal}">					
-	<a href="COMPRAR.do?orderId=<jstl:out value="${row.id}"/>"><spring:message code="route.purchase" /> </a>
-	</jstl:if>
-	</display:column>
+		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+	
+	  <!-- Identify your business so that you can collect the payments. -->
+	  	<input type="hidden" name="business" value="equecrates-facilitator@gmail.com">
+	
+	  <!-- Specify a Buy Now button. -->
+	 	 <input type="hidden" name="cmd" value="_xclick">
+	
+	  <!-- Specify details about the item that buyers will purchase. -->
+		  <input type="hidden" name="item_name" value="${row.name}">
+		  <input type="hidden" name="amount" value="1.95">
+		  <input type="hidden" name="currency_code" value="EUR">
 		
+		  <!-- Display the payment button. -->
+		  <input type="image" name="submit" border="0"
+		  src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+		  alt="PayPal - The safer, easier way to pay online">
+		  <img alt="" border="0" width="1" height="1"
+		  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+		
+		</form>
+	</display:column>	
+	</jstl:if>
 </display:table>
 	
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-		<input type="text" name="cmd" value="_s-xclick">
-		<input type="text" name="hosted_button_id" value="Q6TK64BQ8A4QL">
-		<input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal. La forma rápida y segura de pagar en Internet.">
-		<img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1">
-	</form>
-	
-	<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-	<input type="hidden" name="cmd" value="_s-xclick">
-	<input type="hidden" name="hosted_button_id" value="8GSQF4BXWF9X2">
-	<input type="image" src="https://www.sandbox.paypal.com/es_ES/ES/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal. La forma rápida y segura de pagar en Internet.">
-	<img alt="" border="0" src="https://www.sandbox.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-
-<br><br><br><br><br>
-<form action='expresscheckout.asp' METHOD='POST'>
-<input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
-</form>
-
-	
-
-
 <br>
 
+</div>
 </div>

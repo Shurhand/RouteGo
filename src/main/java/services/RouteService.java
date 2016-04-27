@@ -88,6 +88,8 @@ public class RouteService {
 
 	public Route reconstruct(TripForm tripForm) {
 
+		Customer cust = customerService.findByPrincipal();
+				
 		Route res = new Route();
 		res.setId(0);
 		res.setVersion(0);
@@ -95,9 +97,11 @@ public class RouteService {
 		res.setEndDate(tripForm.getEndDate());
 		res.setStartingDate(tripForm.getStartingDate());
 		res.setName("Viaje de prueba");
-		res.setCustomer(null);
+		res.setCustomer(cust);
 		res.setRating(null);
 		res.setComments(null);
+		
+		
 
 		// Categories
 

@@ -19,6 +19,7 @@ import domain.Category;
 import domain.Company;
 import domain.Customer;
 import domain.Route;
+import security.Credentials;
 import services.ActivityService;
 import services.CategoryService;
 import services.CustomerService;
@@ -51,6 +52,7 @@ public class RouteCustomerController extends AbstractController {
 		Collection<Route> routes;
 		Customer principal;
 		int customerId;
+		Credentials credentials = new Credentials();
 
 		principal = customerService.findByPrincipal();
 		customerId = principal.getId();
@@ -58,6 +60,7 @@ public class RouteCustomerController extends AbstractController {
 
 		result = new ModelAndView("route/list2");
 		result.addObject("routes", routes);
+		result.addObject("credentials", credentials);
 		result.addObject("requestURI", "route/list2.do");
 
 		return result;
@@ -69,13 +72,30 @@ public class RouteCustomerController extends AbstractController {
 
 		ModelAndView result;
 		Collection<Route> routes;
+		Credentials credentials = new Credentials();
 
 		routes = routeService.findAllCustom();
 
 		result = new ModelAndView("route/list2");
 		result.addObject("routes", routes);
+		result.addObject("credentials", credentials);
 		result.addObject("requestURI", "route/listCustom.do");
 
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	public ModelAndView display(@RequestParam int routeID) {
+
+		ModelAndView result;
+		Credentials credentials = new Credentials();
+		Route route = routeService.findOne(routeID);
+
+		result = new ModelAndView("route/list");
+		result.addObject("route", route);
+		result.addObject("credentials", credentials);
+		
 		return result;
 
 	}
@@ -159,6 +179,7 @@ public class RouteCustomerController extends AbstractController {
 		Collection<Activity> activities;
 		Collection<Category> categories;
 		Customer principal;
+		Credentials credentials = new Credentials();
 
 		res = new ModelAndView("route/edit");
 		activities = activityService.findAll();
@@ -167,7 +188,9 @@ public class RouteCustomerController extends AbstractController {
 		res.addObject("route", route);
 		res.addObject("activities", activities);
 		res.addObject("categories", categories);
+		res.addObject("credentials", credentials);
 		res.addObject("principal", principal);
+		
 		res.addObject("message", message);
 
 		return res;

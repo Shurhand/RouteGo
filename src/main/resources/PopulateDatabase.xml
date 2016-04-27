@@ -510,6 +510,106 @@
 		</property>
 	</bean>
 	
+	
+		<!-- Categories -->
+	
+	<bean id="Churches" class="domain.Category">
+		<property name="name" value="Churches" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>
+				<ref bean="parqueMariaLuisa"/>
+				<ref bean="basilicaMacarena"/>
+				<ref bean="basilicaGranPoder"/>	
+			</list>
+			
+		</property>
+	</bean>
+	
+	<bean id="Museums" class="domain.Category">
+		<property name="name" value="Museums" />
+		<property name="activities" >
+			<list>
+				<ref bean="acuarioDeSevilla"/>
+				<ref bean="antiquarium"/>
+				<ref bean="archivoDeIndias"/>
+				<ref bean="museoArqueologico"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Restaurants" class="domain.Category">
+		<property name="name" value="Restaurants" />
+		<property name="activities" >
+			<list>
+					
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Cultural" class="domain.Category">
+		<property name="name" value="Cultural" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>
+				<ref bean="torreDelOro"/>
+				<ref bean="parqueMariaLuisa"/>
+				<ref bean="acuarioDeSevilla"/>
+				<ref bean="antiquarium"/>
+				<ref bean="archivoDeIndias"/>
+				<ref bean="casaPilatos"/>
+				<ref bean="jardinesMurillo"/>
+				<ref bean="museoArqueologico"/>
+				<ref bean="torrePerdigones"/>
+				<ref bean="teatroMaestranza"/>
+				<ref bean="teatroLopeDeVega"/>
+				<ref bean="alcazares"/>
+				<ref bean="plazaEspaña"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Paintings" class="domain.Category">
+		<property name="name" value="Paintings" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>
+				<ref bean="parqueMariaLuisa"/>
+				<ref bean="antiquarium"/>
+				<ref bean="archivoDeIndias"/>
+				<ref bean="alcazares"/>
+				<ref bean="plazaEspaña"/>	
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Music" class="domain.Category">
+		<property name="name" value="Music" />
+		<property name="activities" >
+			<list>
+					
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Drinks" class="domain.Category">
+		<property name="name" value="Drinks" />
+		<property name="activities" >
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Shopping" class="domain.Category">
+		<property name="name" value="Shopping" />
+		<property name="activities" >
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+	
 	<!-- Routes -->
 	
 	<bean id="route1" class="domain.Route">
@@ -729,103 +829,6 @@
 		<property name="activity" ref="plazaEspaña" />	
 	</bean>
 	
-	<!-- Categories -->
-	
-	<bean id="Churches" class="domain.Category">
-		<property name="name" value="Churches" />
-		<property name="activities" >
-			<list>
-				<ref bean="visitaCatedral"/>
-				<ref bean="parqueMariaLuisa"/>
-				<ref bean="basilicaMacarena"/>
-				<ref bean="basilicaGranPoder"/>	
-			</list>
-			
-		</property>
-	</bean>
-	
-	<bean id="Museums" class="domain.Category">
-		<property name="name" value="Museums" />
-		<property name="activities" >
-			<list>
-				<ref bean="acuarioDeSevilla"/>
-				<ref bean="antiquarium"/>
-				<ref bean="archivoDeIndias"/>
-				<ref bean="museoArqueologico"/>
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Restaurants" class="domain.Category">
-		<property name="name" value="Restaurants" />
-		<property name="activities" >
-			<list>
-					
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Cultural" class="domain.Category">
-		<property name="name" value="Cultural" />
-		<property name="activities" >
-			<list>
-				<ref bean="visitaCatedral"/>
-				<ref bean="torreDelOro"/>
-				<ref bean="parqueMariaLuisa"/>
-				<ref bean="acuarioDeSevilla"/>
-				<ref bean="antiquarium"/>
-				<ref bean="archivoDeIndias"/>
-				<ref bean="casaPilatos"/>
-				<ref bean="jardinesMurillo"/>
-				<ref bean="museoArqueologico"/>
-				<ref bean="torrePerdigones"/>
-				<ref bean="teatroMaestranza"/>
-				<ref bean="teatroLopeDeVega"/>
-				<ref bean="alcazares"/>
-				<ref bean="plazaEspaña"/>
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Paintings" class="domain.Category">
-		<property name="name" value="Paintings" />
-		<property name="activities" >
-			<list>
-				<ref bean="visitaCatedral"/>
-				<ref bean="parqueMariaLuisa"/>
-				<ref bean="antiquarium"/>
-				<ref bean="archivoDeIndias"/>
-				<ref bean="alcazares"/>
-				<ref bean="plazaEspaña"/>	
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Music" class="domain.Category">
-		<property name="name" value="Music" />
-		<property name="activities" >
-			<list>
-					
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Drinks" class="domain.Category">
-		<property name="name" value="Drinks" />
-		<property name="activities" >
-			<list>
-				
-			</list>
-		</property>
-	</bean>
-	
-	<bean id="Shopping" class="domain.Category">
-		<property name="name" value="Shopping" />
-		<property name="activities" >
-			<list>
-				
-			</list>
-		</property>
-	</bean>
+
 			
 </beans>

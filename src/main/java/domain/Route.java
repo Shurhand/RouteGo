@@ -34,7 +34,6 @@ public class Route extends DomainEntity {
 	private boolean isRandom;
 
 	@NotEmpty
-
 	public String getName() {
 		return name;
 	}
@@ -99,7 +98,7 @@ public class Route extends DomainEntity {
 	private Collection<Activity> activities;
 
 	@NotNull
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
 	public Collection<Category> getCategories() {
 		return categories;
 	}
@@ -127,7 +126,7 @@ public class Route extends DomainEntity {
 	}
 
 	@NotNull
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
 	public Collection<Activity> getActivities() {
 		return activities;
 	}
