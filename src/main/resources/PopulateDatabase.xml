@@ -518,10 +518,76 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="673923829" />
 		<property name="rating" value="4" />
+		<property name="isRandom" value="true" />
+		<property name="activities" >
+			<list>
+				<ref bean="visitaCatedral"/>
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>
+				<ref bean="Paintings"/>	
+				<ref bean="Churches"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customRoute1" class="domain.Route">
+		<property name="name" value="customRoute1" />
+		<property name="startingDate" value="10/10/2016 10:00" />
+		<property name="endDate" value="12/10/2016 13:00" />
+		<property name="description" value="customRouteDescription1" />
+		<property name="rating" value="4" />
 		<property name="isRandom" value="false" />
 		<property name="activities" >
 			<list>
 				<ref bean="visitaCatedral"/>
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>
+				<ref bean="Paintings"/>	
+				<ref bean="Churches"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customRoute2" class="domain.Route">
+		<property name="name" value="customRoute2" />
+		<property name="startingDate" value="10/10/2016 10:00" />
+		<property name="endDate" value="12/10/2016 13:00" />
+		<property name="description" value="customRouteDescription2" />
+		<property name="rating" value="4" />
+		<property name="isRandom" value="false" />
+		<property name="activities" >
+			<list>
+				<ref bean="acuarioDeSevilla"/>
+				<ref bean="antiquarium"/>
+				<ref bean="parqueMariaLuisa"/>
+			</list>
+		</property>
+		<property name="categories" >
+			<list>
+				<ref bean="Cultural"/>
+				<ref bean="Paintings"/>	
+				<ref bean="Churches"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customRoute3" class="domain.Route">
+		<property name="name" value="customRoute3" />
+		<property name="startingDate" value="10/10/2016 10:00" />
+		<property name="endDate" value="12/10/2016 13:00" />
+		<property name="description" value="customRouteDescription3" />
+		<property name="rating" value="4" />
+		<property name="isRandom" value="false" />
+		<property name="activities" >
+			<list>
+				<ref bean="torreDelOro"/>
+				<ref bean="teatroMaestranza"/>
 			</list>
 		</property>
 		<property name="categories" >
