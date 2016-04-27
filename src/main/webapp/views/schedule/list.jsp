@@ -25,7 +25,7 @@
 	<display:column property="openingDate" title="${openingDateHeader}" sortable="false"/>
 	
 	<spring:message code="schedule.closingDate" var="closingDateHeader"/>
-	<display:column value="closingDate" title="${closingDateHeader}" sortable="false"/>
+	<display:column property="closingDate" title="${closingDateHeader}" sortable="false"/>
 	
 		
 	<display:column> 
