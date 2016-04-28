@@ -65,6 +65,7 @@
            				 </span>
         </div>
            <form:errors cssClass="error" path="startingDate" />
+           <form:errors cssClass="error" path="endDate" />
 		</div>
 	</div>
             

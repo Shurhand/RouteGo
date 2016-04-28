@@ -1,5 +1,6 @@
 package services;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -74,6 +75,10 @@ public class RouteService {
 
 		customer = customerService.findByPrincipal();
 		route.setCustomer(customer);
+		
+		if(route.getPrice() != null){
+			route.setPrice(0.);
+		}
 
 		routeRepository.save(route);
 	}
@@ -88,18 +93,29 @@ public class RouteService {
 
 	public Route reconstruct(TripForm tripForm) {
 
-		Customer cust = customerService.findByPrincipal();
-				
 		Route res = new Route();
+		String automaticName;
+		SimpleDateFormat formatter;
+		String startingDateString;
+		String endDateString;
+		
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
+		startingDateString = formatter.format(tripForm.getStartingDate());
+		endDateString = formatter.format(tripForm.getEndDate());
+			
+		automaticName = "AutomaticRoute " + startingDateString + "-" + endDateString;
+		
+		
 		res.setId(0);
 		res.setVersion(0);
-		res.setDescription("Descripción de prueba");
+		res.setDescription("Automatic Route");
 		res.setEndDate(tripForm.getEndDate());
 		res.setStartingDate(tripForm.getStartingDate());
-		res.setName("Viaje de prueba");
-		res.setCustomer(cust);
+		res.setName(automaticName);
+		res.setCustomer(null);
 		res.setRating(null);
 		res.setComments(null);
+		res.setPrice(null);
 		
 		
 

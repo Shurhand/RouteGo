@@ -26,6 +26,11 @@
 		<put-attribute name="body" value="/views/route/list2.jsp" />
 	</definition>
 	
+	<definition name="route/list3" extends="master.page">
+		<put-attribute name="title" value="List Custom Routes" />
+		<put-attribute name="body" value="/views/route/list3.jsp" />
+	</definition>
+	
 	<definition name="route/edit" extends="master.page">
 		<put-attribute name="title" value="Create Route" />
 		<put-attribute name="body" value="/views/route/edit.jsp" />

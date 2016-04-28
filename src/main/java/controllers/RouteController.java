@@ -134,7 +134,6 @@ public class RouteController extends AbstractController {
 		ModelAndView res;
 
 		Route route = ROUTE_CREATED;
-				
 		routeService.save(route);
 		
 		res = new ModelAndView("redirect:/route/customer/list2.do");

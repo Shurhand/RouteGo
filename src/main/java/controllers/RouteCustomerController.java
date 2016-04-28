@@ -1,6 +1,8 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import domain.Activity;
 import domain.Category;
-import domain.Company;
 import domain.Customer;
 import domain.Route;
 import security.Credentials;
@@ -76,7 +78,7 @@ public class RouteCustomerController extends AbstractController {
 
 		routes = routeService.findAllCustom();
 
-		result = new ModelAndView("route/list2");
+		result = new ModelAndView("route/list3");
 		result.addObject("routes", routes);
 		result.addObject("credentials", credentials);
 		result.addObject("requestURI", "route/listCustom.do");
@@ -91,9 +93,18 @@ public class RouteCustomerController extends AbstractController {
 		ModelAndView result;
 		Credentials credentials = new Credentials();
 		Route route = routeService.findOne(routeID);
+		String startingDate;
+		String endDate;
+		SimpleDateFormat formatter;
+	
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
+		startingDate = formatter.format(route.getStartingDate());
+		endDate = formatter.format(route.getEndDate());
 
 		result = new ModelAndView("route/list");
 		result.addObject("route", route);
+		result.addObject("startingDate", startingDate);
+		result.addObject("endDate", endDate);
 		result.addObject("credentials", credentials);
 		
 		return result;
@@ -133,6 +144,9 @@ public class RouteCustomerController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
+			for(ObjectError o :binding.getAllErrors()){
+				System.out.println(o);
+			}
 			result = createEditModelAndView(route);
 		} else {
 			try {
@@ -140,7 +154,7 @@ public class RouteCustomerController extends AbstractController {
 				route.setCustomer(customer);
 				route.setIsRandom(false);
 				routeService.save(route);
-				result = new ModelAndView("redirect:/");
+				result = new ModelAndView("redirect:/route/customer/list2.do");
 			} catch (Throwable oops) {
 				result = createEditModelAndView(route, "route.commit.error");
 			}

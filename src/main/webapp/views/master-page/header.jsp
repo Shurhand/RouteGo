@@ -102,11 +102,11 @@
           <form:form class="navbar-form navbar-right" action="login" modelAttribute="credentials">
             <div class="form-group">
              	<form:input path="username" class="form-control" />
-				<form:errors class="error" path="username" />
+				<form:errors class="error2" path="username" />
             </div>
             <div class="form-group">
              	<form:password path="password" class="form-control" />
-				<form:errors class="error" path="password" />
+				<form:errors class="error2" path="password" />
 			</div>
 			<div class="form-group">
 			<jstl:if test="${showError == true}">

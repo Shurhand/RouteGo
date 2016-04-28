@@ -23,8 +23,7 @@
 	type="text/javascript"></script>
 
 </head>
-<fmt:formatDate var="startingDate" value="${row.startingDate}" pattern="dd/MM/yyyy" />
-<fmt:formatDate var="endDate" value="${row.startingDate}" pattern="dd/MM/yyyy" />
+
 
 <div class="container-fluid">
 	<div class="jumbotron">
@@ -35,9 +34,9 @@
 		
 			<p align="center">${route.name}<br><br>
 
-				<b><jstl:out value="Start Date: " /></b>
+				<b><spring:message code="route.startingDate" /></b>
 				<jstl:out value="${startingDate}  " />&nbsp;
-				<b><jstl:out value="End Date: " /></b>
+				<b><spring:message code="route.endDate"  /></b>
 				<jstl:out value="${endDate}" />
 				<br> <br>
 				<br>
@@ -67,22 +66,28 @@
 					<tr>
 					<% i++; j++; %>
 					<c:set var="mt" value="${(hi*60)+mi}" />
-					<c:set var="mt" value="${p} ${mt + activity.duration}" />
-					<c:set var="hf" value="${p} ${mt / 60}" />
+					
+					<c:set var="mt" value="${mt + activity.duration}" />
+					
+					<c:set var="hf" value="${mt / 60}" />
 					<!--  Para quedarnos con la parte entera de hf y quedarnos que con las horas usamos la siguiente función 
 					hay que cambiar  value="${hi}" por value="${hf}" pero parece que el dato viene como si fuera un string (desde mt) y da fallo-->
 					
-					<fmt:parseNumber var="hf" integerOnly="true" type="number" value="${hi}" />
-					<c:set var="mf" value="${p} ${mt % 60}" />
+					<fmt:parseNumber var="hf" integerOnly="true" type="number" value="${hf}" />
+					
+					<c:set var="mf" value="${mt % 60}" />
 					<!-- Igual que el anterior caso hay que cambiar  value="${mi}" por value="${mf}"-->
 					
-					<fmt:parseNumber var="mf" integerOnly="true" type="number" value="${mi}" />
+					<fmt:parseNumber var="mf" integerOnly="true" type="number" value="${mf}" />
+					
+					
 					<td width="25%" align="center" style="vertical-align:middle;"><img var="p" width="60%" src="${activity.picture}" /></td>
+				
 					<!--<td width="25%" align="center" style="vertical-align:middle;"><% //out.println(i + ":00 - "+ j +":00"); %></td>-->
 					<td width="25%" align="center" style="vertical-align:middle;"><c:out value="${hi}"  />: <c:out value="${mi}"  />&nbsp;-&nbsp;<c:out value="${hf}"  />: <c:out value="${mf}"  /></td>
-					<td width="30%" align="center" style="vertical-align:middle;"><jstl:out value="${p} ${activity.name}" /></td>
-					<td width="20%" align="center" style="vertical-align:middle;"><jstl:out value="${p} ${activity.cost} Euros " /></td>
-					<c:set var="total" value="${p} ${activity.cost + total}" />
+					<td width="30%" align="center" style="vertical-align:middle;"><jstl:out value="${activity.name}" /></td>
+					<td width="20%" align="center" style="vertical-align:middle;"><jstl:out value="${activity.cost} Euros " /></td>
+					<c:set var="total" value="${activity.cost + total}" />
 					<c:set var="hi" value="${hf}" />
 					<c:set var="mi" value="${mf}" />
 					</tr>
