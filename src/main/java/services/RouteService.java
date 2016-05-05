@@ -76,11 +76,31 @@ public class RouteService {
 		customer = customerService.findByPrincipal();
 		route.setCustomer(customer);
 		
-		if(route.getPrice() != null){
+		if(route.getPrice() == null){
 			route.setPrice(0.);
 		}
+		System.out.println("pero entra en el save");
+		route = routeRepository.save(route);
+		
+		System.out.println(route);
+	}
+	
+	
+	public void saveOnly(Route route) {
+		Assert.notNull(route);
 
-		routeRepository.save(route);
+		System.out.println(this.findAll());
+		route = routeRepository.save(route);
+		System.out.println("mas mola" + this.findAll());
+		
+	}
+	
+	public Integer saveFlushed(Route route) {
+		Assert.notNull(route);
+								
+		route = routeRepository.save(route);
+		System.out.println(route);
+		return route.getId();
 	}
 
 	public void delete(Route route) {
@@ -222,20 +242,25 @@ public class RouteService {
 		return res;
 	}
 
-	public Collection<Route> findByCustomerId(int customerId) {
+	public Collection<Route> findRoutesByCustomer(Customer customer) {
 
 		Collection<Route> res;
 
-		res = routeRepository.findByCustomerId(customerId);
+		res = routeRepository.findRoutesByCustomer(customer);
 
 		return res;
 	}
 	
 	public Collection<Route> findAllCustom(){
+		Customer c = customerService.findByPrincipal();
+		Collection<Route> res = routeRepository.findAllCustom();
+		Collection<Route> todas = routeRepository.findAll();
 		
-		Collection<Route> res;
-		
-		res= routeRepository.findAllCustom();
+		for(Route r : todas){
+			if(r.getCustomer().equals(c)){
+				res.remove(r);
+			}
+		}
 		
 		return res;
 	}

@@ -1,10 +1,8 @@
 package controllers;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.Credentials;
@@ -17,7 +15,7 @@ public class IndexController extends AbstractController {
 		super();
 	}
 	
-	@RequestMapping(value = "/about")
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
 	public ModelAndView about() {
 		ModelAndView result;
 		Credentials credentials = new Credentials();
@@ -28,7 +26,7 @@ public class IndexController extends AbstractController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/contact")
+	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	public ModelAndView contact() {
 		ModelAndView result;
 		Credentials credentials = new Credentials();
@@ -39,7 +37,7 @@ public class IndexController extends AbstractController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/tips")
+	@RequestMapping(value = "/tips", method = RequestMethod.GET)
 	public ModelAndView tips() {
 		ModelAndView result;
 		Credentials credentials = new Credentials();
@@ -49,5 +47,6 @@ public class IndexController extends AbstractController {
 	
 		return result;
 	}
+	
 
 }

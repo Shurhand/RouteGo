@@ -36,6 +36,18 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="customer2" />
+		<property name="password" value="5ce4d191fd14ac85a1469fb8c29b7a7b" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 
 		
 	<bean id="userAccount3" class="security.UserAccount">
@@ -69,6 +81,26 @@
 		<property name="email" value="aitortilladepatatas@gmail.com" />
 		<property name="phone" value="673923829" />
 		<property name="userAccount" ref="userAccount2" />
+		<property name="routes" >
+			<list>
+				<ref bean="route1" />
+			</list>
+		</property>		
+	</bean>
+	
+	<bean id="customer2" class="domain.Customer">
+		<property name="name" value="Juntador de trocolas" />
+		<property name="surname" value="Trocador" />
+		<property name="email" value="juntatrocolas@gmail.com" />
+		<property name="phone" value="673923829" />
+		<property name="userAccount" ref="userAccount4" />
+		<property name="routes" >
+			<list>
+				<ref bean="customRoute1" />
+				<ref bean="customRoute2" />
+				<ref bean="customRoute3" />
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Companies -->
@@ -618,6 +650,7 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="673923829" />
 		<property name="rating" value="4" />
+		<property name="customer" ref="customer1" />
 		<property name="isRandom" value="true" />
 		<property name="activities" >
 			<list>
@@ -639,6 +672,7 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="customRouteDescription1" />
 		<property name="rating" value="4" />
+		<property name="customer" ref="customer2" />
 		<property name="isRandom" value="false" />
 		<property name="price" value="1.25" />
 		<property name="activities" >
@@ -661,6 +695,7 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="customRouteDescription2" />
 		<property name="rating" value="4" />
+		<property name="customer" ref="customer2" />
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.15" />
 		<property name="activities" >
@@ -685,6 +720,7 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="customRouteDescription3" />
 		<property name="rating" value="4" />
+		<property name="customer" ref="customer2" />
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.45" />
 		<property name="activities" >

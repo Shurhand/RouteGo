@@ -40,33 +40,7 @@
 		<a href="route/customer/display.do?routeID=${row.id}"><spring:message code="route.display" /> </a>
 	
 	</display:column>
-	
-	<jstl:if test="${row.isRandom==false && row.customer==principal}">	
-	<spring:message code="route.purchase" var="purchaseHeader"/>
-	<display:column title="${purchaseHeader}" sortable="false">
-		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-	
-	  <!-- Identify your business so that you can collect the payments. -->
-	  	<input type="hidden" name="business" value="equecrates-facilitator@gmail.com">
-	
-	  <!-- Specify a Buy Now button. -->
-	 	 <input type="hidden" name="cmd" value="_xclick">
-	
-	  <!-- Specify details about the item that buyers will purchase. -->
-		  <input type="hidden" name="item_name" value="${row.name}">
-		  <input type="hidden" name="amount" value="1.95">
-		  <input type="hidden" name="currency_code" value="EUR">
-		
-		  <!-- Display the payment button. -->
-		  <input type="image" name="submit" border="0"
-		  src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-		  alt="PayPal - The safer, easier way to pay online">
-		  <img alt="" border="0" width="1" height="1"
-		  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-		
-		</form>
-	</display:column>	
-	</jstl:if>
+
 </display:table>
 	
 <br>

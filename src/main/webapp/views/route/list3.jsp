@@ -15,7 +15,7 @@
 <br><br><br><br><br><br><br>
 <div class="container-fluid">
 <div class="table-responsive">
-<display:table name="routes" id="row" requestURI="route/customer/list2.do"
+<display:table name="routes" id="row" requestURI="route/customer/list3.do"
 	pagesize="5" class="table table-hover">
 	
 	<spring:message code="route.name" var="nameHeader"/>
@@ -48,33 +48,39 @@
 		</c:choose>	
 	</display:column>
 	
+	
+	
 	<spring:message code="route.display" var="displayHeader"/>
 	<display:column title="${displayHeader}" sortable="false">
-		<c:if test="${row.price == 0 || row.price == null}">			
+		<c:choose>	
+		<c:when test="${row.price == 0.}">
+				
 			<a href="route/customer/display.do?routeID=${row.id}"><spring:message code="route.display" /> </a>
-		</c:if>	
-	</display:column>			
+		</c:when>	
+		
+		
+		
+		<jstl:when test="${row.isRandom==false && row.customer != customer}">	
+		<spring:message code="route.purchase" var="purchaseHeader"/>
 	
-	<jstl:if test="${row.isRandom==false && row.customer==principal}">	
-	<spring:message code="route.purchase" var="purchaseHeader"/>
-	<display:column title="${purchaseHeader}" sortable="false">
 		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 	
 	  <!-- Identify your business so that you can collect the payments. -->
-	  	<input type="hidden" name="business" value="equecrates-facilitator@gmail.com">
+	  	<input type="hidden" name="business" value="equecrates-facilitator-1@gmail.com">
 	
 	  <!-- Specify a Buy Now button. -->
 	 	 <input type="hidden" name="cmd" value="_xclick">
 	
 	  <!-- Specify details about the item that buyers will purchase. -->
 		  <input type="hidden" name="item_name" value="${row.name}">
+		  <input type="hidden" name="item_number" value="${row.id}">
 		  <input type="hidden" name="amount" value="${row.price}">
+		  <input type="hidden" name="custom" value="${customer.id}">
 		  <input type="hidden" name="currency_code" value="EUR">
-		<!--  <input type="hidden" name="return" value="http://localhost:8100/RouteGo/route/customer/listCustom.do" />-->
-		<!--  <input type="hidden" name="rm" value="1" />-->
-		<!--  <input type="hidden" name="cancel_return" value="http://localhost:8100/RouteGo" />-->
-		<!--  <input type="hidden" name="notify_url" value="http://localhost:8100/RouteGo/contact.do" />-->
-		
+		  <input type="hidden" name="return" value="http://localhost:8100/RouteGo/route/customer/list2.do">
+		  <input type="hidden" name="cancel_return" value="http://localhost:8100/RouteGo/route/customer/listCustom.do">
+		   <input type="hidden" name="notify_url" value="http://d111a9e9.ngrok.io/RouteGo/paypal/get.do" />
+		  
 		  <!-- Display the payment button. -->
 		  <input type="image" name="submit" border="0"
 		  src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
@@ -83,8 +89,16 @@
 		  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
 		
 		</form>
-	</display:column>	
-	</jstl:if>
+	
+		</jstl:when>
+
+		
+		</c:choose>
+	</display:column>			
+	
+
+	
+	
 </display:table>
 	
 <br>

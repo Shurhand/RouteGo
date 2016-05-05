@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import domain.Company;
 import domain.Customer;
+import domain.Route;
 import repositories.CustomerRepository;
 import security.Authority;
 import security.LoginService;
@@ -36,9 +37,11 @@ public class CustomerService {
 
 		Customer result;
 		UserAccount userAccount;
+		Collection<Route> routes = new ArrayList<>();
 
 		result = new Customer();
 		userAccount = createCustomerAccount();
+		result.setRoutes(routes);
 
 		result.setUserAccount(userAccount);
 
@@ -66,6 +69,8 @@ public class CustomerService {
 
 	public void save(Customer customer) {
 		Assert.notNull(customer);
+//		Collection<Route> routes = new ArrayList<>();
+//		customer.setRoutes(routes);
 		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 		String password;
 		
@@ -76,6 +81,13 @@ public class CustomerService {
 		customerRepository.save(customer);
 	}
 
+	
+	public void saveOnly(Customer customer) {
+		Assert.notNull(customer);
+
+		customerRepository.save(customer);
+	}
+	
 	public void delete(Customer customer) {
 		Assert.notNull(customer);
 

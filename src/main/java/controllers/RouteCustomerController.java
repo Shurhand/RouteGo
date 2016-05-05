@@ -52,13 +52,13 @@ public class RouteCustomerController extends AbstractController {
 
 		ModelAndView result;
 		Collection<Route> routes;
-		Customer principal;
-		int customerId;
+		Customer customer;
+		
 		Credentials credentials = new Credentials();
 
-		principal = customerService.findByPrincipal();
-		customerId = principal.getId();
-		routes = routeService.findByCustomerId(customerId);
+		customer = customerService.findByPrincipal();
+		routes = customer.getRoutes();
+		
 
 		result = new ModelAndView("route/list2");
 		result.addObject("routes", routes);
@@ -75,13 +75,27 @@ public class RouteCustomerController extends AbstractController {
 		ModelAndView result;
 		Collection<Route> routes;
 		Credentials credentials = new Credentials();
+		Customer customer = customerService.findByPrincipal();
 
 		routes = routeService.findAllCustom();
 
 		result = new ModelAndView("route/list3");
 		result.addObject("routes", routes);
+		result.addObject("customer", customer);
 		result.addObject("credentials", credentials);
-		result.addObject("requestURI", "route/listCustom.do");
+		
+
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/list2", method = RequestMethod.POST)
+	public ModelAndView list2POST() {
+
+		ModelAndView result;
+		 
+		result = new ModelAndView("redirect:/route/customer/list2.do");
+		
 
 		return result;
 

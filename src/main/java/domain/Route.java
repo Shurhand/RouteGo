@@ -25,6 +25,21 @@ public class Route extends DomainEntity {
 	public Route() {
 		super();
 	}
+	
+	public Route(Route r){
+		this.name = r.getName();
+		this.description = r.getDescription();
+		this.startingDate = r.getStartingDate();
+		this.endDate = r.getEndDate();
+		this.isRandom = r.getIsRandom();
+		this.price = r.getPrice();
+		this.rating = r.getRating();
+		this.categories = r.getCategories();
+		this.activities = r.getActivities();
+		this.comments = r.getComments();
+		this.customer = r.getCustomer();
+		
+	}
 
 	private String name;
 	private Date startingDate;
@@ -117,7 +132,7 @@ public class Route extends DomainEntity {
 		this.categories = categories;
 	}
 
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = true, cascade = {CascadeType.MERGE,CascadeType.REFRESH})
 	public Customer getCustomer() {
 		return customer;
 	}

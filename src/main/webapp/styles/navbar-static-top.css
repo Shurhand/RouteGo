@@ -24,9 +24,9 @@ body {
 }
 
 .navbar-right2 {
-  position: fixed;
-  right: 22%;
-  top: 3.5%;
+  position: absolute;
+  right: 27%;
+  top: 30%;
    
   font-family: inherit;
   line-height: ;

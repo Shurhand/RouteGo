@@ -13,7 +13,7 @@
         <div class="navbar-header">
          
           
-          <a href="/RouteGo/"><img  src="images/routeGoletras.png" width="90px"></a>
+          <a href="${base}"><img  src="images/routeGoletras.png" width="90px"></a>
           <a href="?language=en"><img src="images/icon_id_en.png"></a>
           <a href="?language=es"><img src="images/icon_id_es.png"></a>
         </div>
@@ -30,7 +30,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/RouteGo"><spring:message code="master.page.home"/></a></li>
+            <li><a href="${base}"><spring:message code="master.page.home"/></a></li>
             <li><a href="about.do"><spring:message code="master.page.about"/></a></li>
             <li><a href="contact.do"><spring:message code="master.page.contact"/></a></li>
             <li><a href="tips.do"><spring:message code="master.page.tips"/></a></li>
