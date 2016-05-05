@@ -74,7 +74,7 @@ public class RouteService {
 		Customer customer;
 
 		customer = customerService.findByPrincipal();
-		route.setCustomer(customer);
+		route.getCustomers().add(customer);
 		
 		if(route.getPrice() == null){
 			route.setPrice(0.);
@@ -89,10 +89,9 @@ public class RouteService {
 	public void saveOnly(Route route) {
 		Assert.notNull(route);
 
-		System.out.println(this.findAll());
 		route = routeRepository.save(route);
-		System.out.println("mas mola" + this.findAll());
 		
+	
 	}
 	
 	public Integer saveFlushed(Route route) {
@@ -118,6 +117,7 @@ public class RouteService {
 		SimpleDateFormat formatter;
 		String startingDateString;
 		String endDateString;
+		Collection<Customer> customers = new ArrayList<>();
 		
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		startingDateString = formatter.format(tripForm.getStartingDate());
@@ -132,7 +132,7 @@ public class RouteService {
 		res.setEndDate(tripForm.getEndDate());
 		res.setStartingDate(tripForm.getStartingDate());
 		res.setName(automaticName);
-		res.setCustomer(null);
+		res.setCustomers(customers);
 		res.setRating(null);
 		res.setComments(null);
 		res.setPrice(null);
@@ -257,7 +257,7 @@ public class RouteService {
 		Collection<Route> todas = routeRepository.findAll();
 		
 		for(Route r : todas){
-			if(r.getCustomer().equals(c)){
+			if(r.getCustomers().contains(c)){
 				res.remove(r);
 			}
 		}

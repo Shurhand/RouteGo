@@ -165,7 +165,7 @@ public class RouteCustomerController extends AbstractController {
 		} else {
 			try {
 				Customer customer = customerService.findByPrincipal();
-				route.setCustomer(customer);
+				route.getCustomers().add(customer);
 				route.setIsRandom(false);
 				routeService.save(route);
 				result = new ModelAndView("redirect:/route/customer/list2.do");

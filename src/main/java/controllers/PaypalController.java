@@ -63,34 +63,15 @@ public class PaypalController extends AbstractController {
 				
 				Route rutaComprada = routeService.findOne(Integer.parseInt(message.getItemNumber()));
 				Customer customer = customerService.findOne(Integer.parseInt(message.getCustom()));
-				Route nuevaRuta = new Route();
-				nuevaRuta.setId(0);
-				nuevaRuta.setVersion(0);
-				nuevaRuta.setActivities(rutaComprada.getActivities());
-				nuevaRuta.setCategories(rutaComprada.getCategories());
-				nuevaRuta.setComments(rutaComprada.getComments());
-				nuevaRuta.setCustomer(rutaComprada.getCustomer());
-				nuevaRuta.setDescription(rutaComprada.getDescription());
-				nuevaRuta.setEndDate(rutaComprada.getEndDate());
-				nuevaRuta.setIsRandom(rutaComprada.getIsRandom());
-				nuevaRuta.setName(rutaComprada.getName());
-				nuevaRuta.setPrice(rutaComprada.getPrice());
-				nuevaRuta.setRating(rutaComprada.getPrice());
-				nuevaRuta.setStartingDate(rutaComprada.getStartingDate());
-				
-				
-				
-				rutaComprada.setCustomer(customer);
-				
+				rutaComprada.getCustomers().add(customer);
+							
 				routeService.saveOnly(rutaComprada);
 				customer.getRoutes().add(rutaComprada);
 				customerService.saveOnly(customer);
 				System.out.println(customer.getRoutes());
 
 				System.out.println("Final");
-				
-				this.savePrueba(nuevaRuta);
-				System.out.println("he pasado");
+								
 			} else {
 				resp.sendError(204,"Positivo con el fin de que no lo reintente más");
 			}
@@ -119,15 +100,15 @@ public class PaypalController extends AbstractController {
 		return result;
 		
 	}
-	
-	@RequestMapping(value = "/process", method = RequestMethod.GET)
-	private void savePrueba(Route route){
-		
-		System.out.println("entro process");
-		routeService.saveOnly(route);
-		System.out.println("paso");
-		
-	}
+//	
+//	@RequestMapping(value = "/process", method = RequestMethod.GET)
+//	private void savePrueba(Route route){
+//		
+//		System.out.println("entro process");
+//		routeService.saveOnly(route);
+//		System.out.println("paso");
+//		
+//	}
 	
 	// Creación del map de contenidos
 	@SuppressWarnings("unchecked")

@@ -4,11 +4,9 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -35,7 +33,7 @@ public class Customer extends Actor {
 
 	private Collection<Route> routes;
 
-	@OneToMany(mappedBy = "customer")
+	@ManyToMany(mappedBy = "customers")
 	public Collection<Route> getRoutes() {
 		return routes;
 	}

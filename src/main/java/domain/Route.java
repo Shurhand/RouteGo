@@ -37,7 +37,7 @@ public class Route extends DomainEntity {
 		this.categories = r.getCategories();
 		this.activities = r.getActivities();
 		this.comments = r.getComments();
-		this.customer = r.getCustomer();
+		this.customers = r.getCustomers();
 		
 	}
 
@@ -118,7 +118,7 @@ public class Route extends DomainEntity {
 	// ========================= Relationships ======================
 
 	private Collection<Category> categories;
-	private Customer customer;
+	private Collection<Customer> customers;
 	private Collection<Comment> comments;
 	private Collection<Activity> activities;
 
@@ -132,13 +132,13 @@ public class Route extends DomainEntity {
 		this.categories = categories;
 	}
 
-	@ManyToOne(optional = true, cascade = {CascadeType.MERGE,CascadeType.REFRESH})
-	public Customer getCustomer() {
-		return customer;
+	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+	public Collection<Customer> getCustomers() {
+		return customers;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomers(Collection<Customer> customers) {
+		this.customers = customers;
 	}
 
 	@OneToMany(mappedBy = "route")

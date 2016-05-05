@@ -650,7 +650,11 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="673923829" />
 		<property name="rating" value="4" />
-		<property name="customer" ref="customer1" />
+		<property name="customers" >
+			<list>
+				<ref bean="customer1"/>
+			</list>
+		</property>
 		<property name="isRandom" value="true" />
 		<property name="activities" >
 			<list>
@@ -672,7 +676,11 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="customRouteDescription1" />
 		<property name="rating" value="4" />
-		<property name="customer" ref="customer2" />
+		<property name="customers" >
+			<list>
+				<ref bean="customer2"/>
+			</list>
+		</property>
 		<property name="isRandom" value="false" />
 		<property name="price" value="1.25" />
 		<property name="activities" >
@@ -695,7 +703,11 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="customRouteDescription2" />
 		<property name="rating" value="4" />
-		<property name="customer" ref="customer2" />
+		<property name="customers" >
+			<list>
+				<ref bean="customer2"/>
+			</list>
+		</property>
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.15" />
 		<property name="activities" >
@@ -720,7 +732,11 @@
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="customRouteDescription3" />
 		<property name="rating" value="4" />
-		<property name="customer" ref="customer2" />
+		<property name="customers" >
+			<list>
+				<ref bean="customer2"/>
+			</list>
+		</property>
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.45" />
 		<property name="activities" >

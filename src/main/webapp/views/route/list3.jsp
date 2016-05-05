@@ -60,7 +60,7 @@
 		
 		
 		
-		<jstl:when test="${row.isRandom==false && row.customer != customer}">	
+		<jstl:when test="${row.isRandom==false}">	
 		<spring:message code="route.purchase" var="purchaseHeader"/>
 	
 		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
