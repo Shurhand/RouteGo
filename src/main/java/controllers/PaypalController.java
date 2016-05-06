@@ -58,7 +58,7 @@ public class PaypalController extends AbstractController {
 				message.setValidated(true);
 					
 			}		
-			// Esto en realidad es un parche, en localhost va perfecto pero en heroku no se valida bien.					
+			// Esto en realidad es un parche, en localhost va perfecto pero en heroku no valida bien					
 			if(message.isValidated() == true || message.isValidated() == false){
 				
 				Route rutaComprada = routeService.findOne(Integer.parseInt(message.getItemNumber()));
