@@ -48,11 +48,10 @@ public class IPNNotificationValidation {
 
 		final String fullMessage = message.getFullMessage().getValue();
 		nvpString.append(fullMessage.replace("\n", "&"));
-		
+		System.out.println(nvpString);
 		String response = null;
 		try {
-			
-		
+				
 			response = transport.getResponse(getUrl(environment),
 					nvpString.toString());
 			System.out.println(response);

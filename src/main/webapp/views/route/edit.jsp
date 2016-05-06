@@ -60,7 +60,7 @@
  	<form:hidden path="id" />
 	<form:hidden path="version" />
 	<form:hidden path="rating" />
-	<form:hidden path="customer" />
+	<form:hidden path="customers" />
 	
 		
  <div class='col-md-6'>

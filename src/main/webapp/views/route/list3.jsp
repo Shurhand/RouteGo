@@ -77,9 +77,10 @@
 		  <input type="hidden" name="amount" value="${row.price}">
 		  <input type="hidden" name="custom" value="${customer.id}">
 		  <input type="hidden" name="currency_code" value="EUR">
-		  <input type="hidden" name="return" value="http://localhost:8100/RouteGo/route/customer/list2.do">
-		  <input type="hidden" name="cancel_return" value="http://localhost:8100/RouteGo/route/customer/listCustom.do">
-		   <input type="hidden" name="notify_url" value="http://d111a9e9.ngrok.io/RouteGo/paypal/get.do" />
+		  
+		  <input type="hidden" name="return" value="http://routego.herokuapp.com/route/customer/list2.do">
+		  <input type="hidden" name="cancel_return" value="http://routego.herokuapp.com/route/customer/listCustom.do">
+		  <input type="hidden" name="notify_url" value="http://routego.herokuapp.com/paypal/get.do" />
 		  
 		  <!-- Display the payment button. -->
 		  <input type="image" name="submit" border="0"
