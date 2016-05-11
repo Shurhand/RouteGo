@@ -49,8 +49,8 @@
     	   cont= cont +1;
     	   document.getElementById('div'+cont).style.display = "block";
     	   $("#dayOfWeek"+cont).removeAttr('disabled');
-    	   $("#clDatePicker"+cont).removeAttr('disabled');
-    	   $("#opDatePicker"+cont).removeAttr('disabled');
+    	   $("#clTimePicker"+cont).removeAttr('disabled');
+    	   $("#opTimePicker"+cont).removeAttr('disabled');
        }
 		</script>
   
@@ -270,7 +270,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="openingDate1" class="form-control input-small" id="opDatePicker1" disabled="true"/>
+	<form:input path="openingDate1" class="form-control input-small" id="opTimePicker1" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -286,7 +286,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="closingDate1" class="form-control input-small" id="clDatePicker1" disabled="true"/>
+	<form:input path="closingDate1" class="form-control input-small" id="clTimePicker1" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -322,7 +322,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="openingDate2" class="form-control input-small" id="opDatePicker2" disabled="true"/>
+	<form:input path="openingDate2" class="form-control input-small" id="opTimePicker2" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -338,7 +338,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="closingDate2" class="form-control input-small" id="clDatePicker2" disabled="true"/>
+	<form:input path="closingDate2" class="form-control input-small" id="clTimePicker2" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -375,7 +375,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="openingDate3" class="form-control input-small" id="opDatePicker3" disabled="true"/>
+	<form:input path="openingDate3" class="form-control input-small" id="opTimePicker3" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -391,7 +391,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="closingDate3" class="form-control input-small" id="clDatePicker3" disabled="true"/>
+	<form:input path="closingDate3" class="form-control input-small" id="clTimePicker3" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -428,7 +428,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="openingDate4" class="form-control input-small" id="opDatePicker4" disabled="true"/>
+	<form:input path="openingDate4" class="form-control input-small" id="opTimePicker4" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -444,7 +444,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="closingDate4" class="form-control input-small" id="clDatePicker4" disabled="true"/>
+	<form:input path="closingDate4" class="form-control input-small" id="clTimePicker4" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -481,7 +481,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="openingDate5" class="form-control input-small" id="opDatePicker5" disabled="true"/>
+	<form:input path="openingDate5" class="form-control input-small" id="opTimePicker5" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -497,7 +497,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="closingDate5" class="form-control input-small" id="clDatePicker5" disabled="true"/>
+	<form:input path="closingDate5" class="form-control input-small" id="clTimePicker5" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -534,7 +534,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="openingDate6" class="form-control input-small" id="opDatePicker6" disabled="true"/>
+	<form:input path="openingDate6" class="form-control input-small" id="opTimePicker6" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -550,7 +550,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="closingDate6" class="form-control input-small" id="clDatePicker6" disabled="true"/>
+	<form:input path="closingDate6" class="form-control input-small" id="clTimePicker6" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -587,7 +587,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="openingDate7" class="form-control input-small" id="opDatePicker7" disabled="true"/>
+	<form:input path="openingDate7" class="form-control input-small" id="opTimePicker7" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -603,7 +603,7 @@
 	
 	<div class="col-xs-6">
 	<div class="input-group bootstrap-timepicker timepicker">
-	<form:input path="closingDate7" class="form-control input-small" id="clDatePicker7" disabled="true"/>
+	<form:input path="closingDate7" class="form-control input-small" id="clTimePicker7" disabled="true"/>
 		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 		
 	</div>
@@ -642,3 +642,128 @@
 </div>
 <input type="button" name="s1" value="Add Schedule" onclick="showDiv()" />
 </div>
+
+<script type="text/javascript">
+            $('#opTimePicker1').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#clTimePicker1').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00',
+            	
+            });
+        </script>
+        
+<script type="text/javascript">
+            $('#opTimePicker2').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#clTimePicker2').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00',
+            	
+            });
+        </script>
+<script type="text/javascript">
+            $('#opTimePicker3').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#clTimePicker3').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#opTimePicker4').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#clTimePicker4').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00',
+            	
+            });
+        </script>
+        
+<script type="text/javascript">
+            $('#opTimePicker5').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#clTimePicker5').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00',
+            	
+            });
+        </script>  
+        
+<script type="text/javascript">
+            $('#opTimePicker6').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#clTimePicker6').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00',
+            	
+            });
+        </script>
+        
+<script type="text/javascript">
+            $('#opTimePicker7').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '8:00',
+            	
+            });
+        </script>
+
+<script type="text/javascript">
+            $('#clTimePicker7').timepicker({
+            	showMeridian: false,
+            	minuteStep: 10,
+            	defaultTime: '18:00',
+            	
+            });
+        </script>                              
