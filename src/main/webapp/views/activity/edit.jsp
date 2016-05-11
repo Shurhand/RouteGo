@@ -346,7 +346,8 @@
 		</div>
 	</div>
 	</div>
-	
+</div>
+<div class='col-md-6'>	
 	<div id="div3"  style="display:none;">
 	<div class="form-group" >
 	<h4><jstl:out value="SCHEDULE3"></jstl:out></h4>
@@ -452,7 +453,8 @@
 		</div>
 	</div>
 	</div>
-	
+</div>
+<div class='col-md-6'>	
 	<div id="div5"  style="display:none;">
 	<div class="form-group" >
 	<h4><jstl:out value="SCHEDULE5"></jstl:out></h4>
@@ -558,7 +560,8 @@
 		</div>
 	</div>
 	</div>
-	
+</div>
+<div class='col-md-6'>	
 	<div id="div7"  style="display:none;">
 	<div class="form-group" >
 	<h4><jstl:out value="SCHEDULE7"></jstl:out></h4>
@@ -639,8 +642,10 @@
 	
 	</div>
 </form:form>
+
+<input type="button" name="s1" class="btn btn-info" value="Add Schedule" onclick="showDiv()" />
+
 </div>
-<input type="button" name="s1" value="Add Schedule" onclick="showDiv()" />
 </div>
 
 <script type="text/javascript">
