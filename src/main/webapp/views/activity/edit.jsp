@@ -244,7 +244,7 @@
 <div class='col-md-6' >
 	<div id="div1" style="display:none;">
 	<div class="form-group" >
-	<h4><jstl:out value="SCHEDULE1"></jstl:out></h4>
+	<h4 align="center" style="color:blue;"><jstl:out value="SCHEDULE1"></jstl:out></h4>
 	<form:label path="dayOfWeek1" class="col-sm-5 control-label">
 		<spring:message code="schedule.dayOfWeek" />:
 	</form:label>
@@ -294,9 +294,11 @@
 		</div>
 	</div>
 	</div>
+</div>
+<div class='col-md-6'>
 	<div id="div2" style="display:none;" >
 	<div class="form-group" >
-	<h4><jstl:out value="SCHEDULE2"></jstl:out></h4>
+	<h4 align="center" style="color:blue;"><jstl:out value="SCHEDULE2"></jstl:out></h4>
 	<form:label path="dayOfWeek2" class="col-sm-5 control-label">
 		<spring:message code="schedule.dayOfWeek" />:
 	</form:label>
@@ -350,7 +352,7 @@
 <div class='col-md-6'>	
 	<div id="div3"  style="display:none;">
 	<div class="form-group" >
-	<h4><jstl:out value="SCHEDULE3"></jstl:out></h4>
+	<h4 align="center" style="color:blue;"><jstl:out value="SCHEDULE3"></jstl:out></h4>
 	<form:label path="dayOfWeek3" class="col-sm-5 control-label">
 		<spring:message code="schedule.dayOfWeek" />:
 	</form:label>
@@ -400,10 +402,11 @@
 		</div>
 	</div>
 	</div>
-	
+</div>
+<div class='col-md-6'>
 	<div id="div4"  style="display:none;">
 	<div class="form-group" >
-	<h4><jstl:out value="SCHEDULE4"></jstl:out></h4>
+	<h4 align="center" style="color:blue;"><jstl:out value="SCHEDULE4"></jstl:out></h4>
 	<form:label path="dayOfWeek4" class="col-sm-5 control-label">
 		<spring:message code="schedule.dayOfWeek" />:
 	</form:label>
@@ -457,7 +460,7 @@
 <div class='col-md-6'>	
 	<div id="div5"  style="display:none;">
 	<div class="form-group" >
-	<h4><jstl:out value="SCHEDULE5"></jstl:out></h4>
+	<h4 align="center" style="color:blue;"><jstl:out value="SCHEDULE5"></jstl:out></h4>
 	<form:label path="dayOfWeek5" class="col-sm-5 control-label">
 		<spring:message code="schedule.dayOfWeek" />:
 	</form:label>
@@ -507,10 +510,11 @@
 		</div>
 	</div>
 	</div>
-	
+</div>
+<div class='col-md-6'>
 	<div id="div6"  style="display:none;">
 	<div class="form-group" >
-	<h4><jstl:out value="SCHEDULE6"></jstl:out></h4>
+	<h4 align="center" style="color:blue;"><jstl:out value="SCHEDULE6"></jstl:out></h4>
 	<form:label path="dayOfWeek6" class="col-sm-5 control-label">
 		<spring:message code="schedule.dayOfWeek" />:
 	</form:label>
@@ -564,7 +568,7 @@
 <div class='col-md-6'>	
 	<div id="div7"  style="display:none;">
 	<div class="form-group" >
-	<h4><jstl:out value="SCHEDULE7"></jstl:out></h4>
+	<h4 align="center" style="color:blue;"><jstl:out value="SCHEDULE7"></jstl:out></h4>
 	<form:label path="dayOfWeek7" class="col-sm-5 control-label">
 		<spring:message code="schedule.dayOfWeek" />:
 	</form:label>
@@ -624,7 +628,7 @@
 
 <div class="form-group" align="center">
 
-
+<div class='col-md-12'>
 	<input type="submit" name="save" class="btn btn-primary"
 		value="<spring:message code="activity.save" />" />
 		&nbsp;
@@ -639,12 +643,13 @@
 	<input type="button" name="cancel" class="btn btn-primary"
 		value="<spring:message code="activity.cancel" />"
 		onclick="javascript: window.location.replace('security/login.do');" /> 
+	</div>
 	
 	</div>
 </form:form>
-
+<div class='col-md-6'>
 <input type="button" name="s1" class="btn btn-info" value="Add Schedule" onclick="showDiv()" />
-
+</div>
 </div>
 </div>
 
