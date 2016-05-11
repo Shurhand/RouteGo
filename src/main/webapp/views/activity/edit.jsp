@@ -49,8 +49,8 @@
     	   cont= cont +1;
     	   document.getElementById('div'+cont).style.display = "block";
     	   $("#dayOfWeek"+cont).removeAttr('disabled');
-    	   $("#closingDate"+cont).removeAttr('disabled');
-    	   $("#openingDate"+cont).removeAttr('disabled');
+    	   $("#clDatePicker"+cont).removeAttr('disabled');
+    	   $("#opDatePicker"+cont).removeAttr('disabled');
        }
 		</script>
   
@@ -250,8 +250,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek1" class="form-control" />
-	<form:errors cssClass="error" path="dayOfWeek1" />
+	<form:select path="dayOfWeek1" class="form-control" disabled="true">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
@@ -262,7 +269,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate1" class="form-control" />
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="openingDate1" class="form-control input-small" id="opDatePicker1" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="openingDate1" />
 		</div>
 	</div>
@@ -274,7 +285,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate1" class="form-control" />
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="closingDate1" class="form-control input-small" id="clDatePicker1" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="closingDate1" />
 		</div>
 	</div>
@@ -287,8 +302,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek2" class="form-control" disabled="true"/>
-	<form:errors cssClass="error" path="dayOfWeek2" />
+	<form:select path="dayOfWeek2" class="form-control" disabled="true">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
@@ -299,7 +321,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate2" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="openingDate2" class="form-control input-small" id="opDatePicker2" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="openingDate2" />
 		</div>
 	</div>
@@ -311,7 +337,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate2" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="closingDate2" class="form-control input-small" id="clDatePicker2" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="closingDate2" />
 		</div>
 	</div>
@@ -325,8 +355,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek3" class="form-control" disabled="true"/>
-	<form:errors cssClass="error" path="dayOfWeek3" />
+	<form:select path="dayOfWeek3" class="form-control" disabled="true">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
@@ -337,7 +374,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate3" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="openingDate3" class="form-control input-small" id="opDatePicker3" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="openingDate3" />
 		</div>
 	</div>
@@ -349,7 +390,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate3" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="closingDate3" class="form-control input-small" id="clDatePicker3" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="closingDate3" />
 		</div>
 	</div>
@@ -363,8 +408,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek4" class="form-control" disabled="true"/>
-	<form:errors cssClass="error" path="dayOfWeek4" />
+	<form:select path="dayOfWeek4" class="form-control" disabled="true">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
@@ -375,7 +427,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate4" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="openingDate4" class="form-control input-small" id="opDatePicker4" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="openingDate4" />
 		</div>
 	</div>
@@ -387,7 +443,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate4" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="closingDate4" class="form-control input-small" id="clDatePicker4" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="closingDate4" />
 		</div>
 	</div>
@@ -401,8 +461,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek5" class="form-control" disabled="true"/>
-	<form:errors cssClass="error" path="dayOfWeek5" />
+	<form:select path="dayOfWeek5" class="form-control" disabled="true">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
@@ -413,7 +480,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate5" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="openingDate5" class="form-control input-small" id="opDatePicker5" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="openingDate5" />
 		</div>
 	</div>
@@ -425,7 +496,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate5" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="closingDate5" class="form-control input-small" id="clDatePicker5" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="closingDate5" />
 		</div>
 	</div>
@@ -439,8 +514,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek6" class="form-control" disabled="true"/>
-	<form:errors cssClass="error" path="dayOfWeek6" />
+	<form:select path="dayOfWeek6" class="form-control" disabled="true">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
@@ -451,7 +533,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate6" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="openingDate6" class="form-control input-small" id="opDatePicker6" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="openingDate6" />
 		</div>
 	</div>
@@ -463,7 +549,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate6" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="closingDate6" class="form-control input-small" id="clDatePicker6" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="closingDate6" />
 		</div>
 	</div>
@@ -477,8 +567,15 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="dayOfWeek7" class="form-control" disabled="true"/>
-	<form:errors cssClass="error" path="dayOfWeek7" />
+	<form:select path="dayOfWeek7" class="form-control" disabled="true">
+		<form:option value="MONDAY"><spring:message code="schedule.monday" /></form:option>
+		<form:option value="TUESDAY"><spring:message code="schedule.tuesday" /></form:option>
+		<form:option value="WEDNESDAY"><spring:message code="schedule.wednesday" /></form:option>
+		<form:option value="THURSDAY"><spring:message code="schedule.thursday" /></form:option>
+		<form:option value="FRIDAY"><spring:message code="schedule.friday" /></form:option>
+		<form:option value="SATURDAY"><spring:message code="schedule.saturday" /></form:option>
+		<form:option value="SUNDAY"><spring:message code="schedule.sunday" /></form:option>
+	</form:select>
 		</div>
 	</div>
 	
@@ -489,7 +586,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="openingDate7" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="openingDate7" class="form-control input-small" id="opDatePicker7" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="openingDate7" />
 		</div>
 	</div>
@@ -501,7 +602,11 @@
 	</form:label>
 	
 	<div class="col-xs-6">
-	<form:input path="closingDate7" class="form-control" disabled="true"/>
+	<div class="input-group bootstrap-timepicker timepicker">
+	<form:input path="closingDate7" class="form-control input-small" id="clDatePicker7" disabled="true"/>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		
+	</div>
 	<form:errors cssClass="error" path="closingDate7" />
 		</div>
 	</div>
