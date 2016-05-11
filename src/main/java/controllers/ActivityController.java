@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import domain.Activity;
 import domain.Category;
+import forms.ActivityForm;
+import forms.TripForm;
+import security.Credentials;
 import services.ActivityService;
 import services.CategoryService;
 
@@ -54,41 +58,32 @@ public class ActivityController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView res;
+		ActivityForm activityForm = new ActivityForm();
 
-		Activity activity = activityService.create();
-
-		res = createEditModelAndView(activity);
+		res = createEditModelAndView2(activityForm);
 		return res;
 	}
 
 	// =============== Edition ====================
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam int activityId) {
+	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid ActivityForm activityForm, BindingResult binding) {
 
 		ModelAndView result;
 		Activity activity;
 
-		activity = activityService.findOne(activityId);
-		Assert.notNull(activity);
-		result = createEditModelAndView(activity);
-
-		return result;
-	}
-
-	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid @ModelAttribute Activity activity, BindingResult binding) {
-
-		ModelAndView result;
-
 		if (binding.hasErrors()) {
-			result = createEditModelAndView(activity);
+			for (ObjectError a : binding.getAllErrors()) {
+				System.out.println(a);
+			}
+			result = createEditModelAndView2(activityForm);
 		} else {
 			try {
+				activity = activityService.reconstruct(activityForm);
 				activityService.save(activity);
 				result = new ModelAndView("redirect:list.do");
 			} catch (Throwable oops) {
-				result = createEditModelAndView(activity, "activity.commit.error");
+				result = createEditModelAndView2(activityForm, "activity.commit.error");
 			}
 		}
 		return result;
@@ -96,26 +91,28 @@ public class ActivityController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(Activity activity, BindingResult binding) {
+	public ModelAndView delete(ActivityForm activityForm, BindingResult binding) {
 
 		ModelAndView result;
+		Activity activity;
 
 		try {
+			activity = activityService.reconstruct(activityForm);
 			activityService.delete(activity);
 			result = new ModelAndView("redirect:list.do");
 		} catch (Throwable oops) {
-			result = createEditModelAndView(activity, "activity.commit.error");
+			result = createEditModelAndView2(activityForm, "activity.commit.error");
 		}
 		return result;
 
 	}
-	
+
 	@RequestMapping(value = "/deleteActivity", method = RequestMethod.GET)
 	public ModelAndView deleteActivity(@RequestParam int activityId) {
 
 		ModelAndView result;
 		Activity activity;
-		
+
 		activity = activityService.findOne(activityId);
 
 		try {
@@ -147,6 +144,27 @@ public class ActivityController extends AbstractController {
 		res = new ModelAndView("activity/edit");
 		res.addObject("activity", activity);
 		res.addObject("categories", categories);
+		res.addObject("message", message);
+
+		return res;
+	}
+
+	protected ModelAndView createEditModelAndView2(ActivityForm activityForm) {
+		ModelAndView res;
+
+		res = createEditModelAndView2(activityForm, null);
+
+		return res;
+	}
+
+	protected ModelAndView createEditModelAndView2(ActivityForm activityForm, String message) {
+		ModelAndView res;
+		Collection<Category> categories;
+
+		categories = categoryService.findAll();
+		res = new ModelAndView("activity/edit");
+		res.addObject("categories", categories);
+		res.addObject("activityForm", activityForm);
 		res.addObject("message", message);
 
 		return res;

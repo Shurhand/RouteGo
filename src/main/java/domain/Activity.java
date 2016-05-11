@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -156,7 +157,7 @@ public class Activity extends DomainEntity {
 	}
 
 	@Valid
-	@OneToMany(mappedBy = "activity")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "activity")
 	public Collection<Schedule> getSchedules() {
 		return schedules;
 	}

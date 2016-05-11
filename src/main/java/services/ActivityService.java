@@ -16,6 +16,7 @@ import domain.Activity;
 import domain.Category;
 import domain.Company;
 import domain.Schedule;
+import forms.ActivityForm;
 import repositories.ActivityRepository;
 
 @Service
@@ -35,10 +36,10 @@ public class ActivityService {
 
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@Autowired
 	private CompanyService companyService;
-	
+
 	@Autowired
 	private ScheduleService scheduleService;
 
@@ -92,21 +93,21 @@ public class ActivityService {
 
 	public void delete(Activity activity) {
 		Assert.notNull(activity);
-		
-		if(activity.getCompany() != null){
+
+		if (activity.getCompany() != null) {
 			Assert.isTrue(activity.getCompany().equals(companyService.findByPrincipal()));
 		}
-		
+
 		// Desasignamos la actividad de todas las categorias existentes.
-		for(Category c: activity.getCategories()){
-			if(c.getActivities().contains(activity)){
+		for (Category c : activity.getCategories()) {
+			if (c.getActivities().contains(activity)) {
 				c.getActivities().remove(activity);
 				categoryService.save(c);
 			}
 		}
-		
+
 		// Borramos los schedules de la actividad.
-		for(Schedule s: activity.getSchedules()){
+		for (Schedule s : activity.getSchedules()) {
 			scheduleService.delete(s);
 		}
 		activity.setCategories(null);
@@ -134,7 +135,6 @@ public class ActivityService {
 		c.setTime(startingDate);
 		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 
-		
 		// Primero filtra por fecha.
 		for (Activity a : all) {
 			if (a.getStartingDate().before(startingDate) && a.getEndingDate().after(endingDate)) {
@@ -163,14 +163,113 @@ public class ActivityService {
 
 		return res;
 	}
-	public void assignCompany(Activity activity, Company company){
+
+	public void assignCompany(Activity activity, Company company) {
 		Collection<Activity> companyActivities;
-		
-		companyActivities= company.getActivities();
-		
+
+		companyActivities = company.getActivities();
+
 		companyActivities.add(activity);
 		company.setActivities(companyActivities);
 		companyService.save(company);
+	}
+
+	public Activity reconstruct(ActivityForm activityForm) {
+
+		Activity res = new Activity();
+		Collection<Schedule> schedules = new ArrayList<>();
+		Schedule schedule1 = scheduleService.create();
+		Schedule schedule2 = scheduleService.create();
+		Schedule schedule3 = scheduleService.create();
+		Schedule schedule4 = scheduleService.create();
+		Schedule schedule5 = scheduleService.create();
+		Schedule schedule6 = scheduleService.create();
+		Schedule schedule7 = scheduleService.create();
+
+		if (activityForm.getDayOfWeek1() != null && activityForm.getClosingDate1() != null
+				&& activityForm.getOpeningDate1() != null) {
+			schedule1.setDayOfWeek(activityForm.getDayOfWeek1());
+			schedule1.setOpeningDate(activityForm.getOpeningDate1());
+			schedule1.setClosingDate(activityForm.getClosingDate1());
+			schedules.add(schedule1);
+			schedule1.setActivity(res);
+
+		}
+
+		if (activityForm.getDayOfWeek2() != null && activityForm.getClosingDate2() != null
+				&& activityForm.getOpeningDate2() != null) {
+			schedule2.setDayOfWeek(activityForm.getDayOfWeek2());
+			schedule2.setOpeningDate(activityForm.getOpeningDate2());
+			schedule2.setClosingDate(activityForm.getClosingDate2());
+			schedules.add(schedule2);
+			schedule2.setActivity(res);
+		}
+
+		if (activityForm.getDayOfWeek3() != null && activityForm.getClosingDate3() != null
+				&& activityForm.getOpeningDate3() != null) {
+			schedule3.setDayOfWeek(activityForm.getDayOfWeek3());
+			schedule3.setOpeningDate(activityForm.getOpeningDate3());
+			schedule3.setClosingDate(activityForm.getClosingDate3());
+			schedules.add(schedule3);
+			schedule3.setActivity(res);
+		}
+
+		if (activityForm.getDayOfWeek4() != null && activityForm.getClosingDate4() != null
+				&& activityForm.getOpeningDate4() != null) {
+			schedule4.setDayOfWeek(activityForm.getDayOfWeek4());
+			schedule4.setOpeningDate(activityForm.getOpeningDate4());
+			schedule4.setClosingDate(activityForm.getClosingDate4());
+			schedules.add(schedule4);
+			schedule4.setActivity(res);
+		}
+
+		if (activityForm.getDayOfWeek5() != null && activityForm.getClosingDate5() != null
+				&& activityForm.getOpeningDate5() != null) {
+			schedule5.setDayOfWeek(activityForm.getDayOfWeek5());
+			schedule5.setOpeningDate(activityForm.getOpeningDate5());
+			schedule5.setClosingDate(activityForm.getClosingDate5());
+			schedules.add(schedule5);
+			schedule5.setActivity(res);
+		}
+
+		if (activityForm.getDayOfWeek6() != null && activityForm.getClosingDate6() != null
+				&& activityForm.getOpeningDate6() != null) {
+			schedule6.setDayOfWeek(activityForm.getDayOfWeek6());
+			schedule6.setOpeningDate(activityForm.getOpeningDate6());
+			schedule6.setClosingDate(activityForm.getClosingDate6());
+			schedules.add(schedule6);
+			schedule6.setActivity(res);
+		}
+
+		if (activityForm.getDayOfWeek7() != null && activityForm.getClosingDate7() != null
+				&& activityForm.getOpeningDate7() != null) {
+			schedule7.setDayOfWeek(activityForm.getDayOfWeek7());
+			schedule7.setOpeningDate(activityForm.getOpeningDate7());
+			schedule7.setClosingDate(activityForm.getClosingDate7());
+			schedules.add(schedule7);
+			schedule7.setActivity(res);
+		}
+
+		res.setId(0);
+		res.setVersion(0);
+		res.setSchedules(schedules);
+		res.setCategories(activityForm.getCategories());
+		res.setName(activityForm.getName());
+		res.setDescription(activityForm.getDescription());
+		res.setCost(activityForm.getCost());
+		res.setPostalAddress(activityForm.getPostalAddress());
+		res.setDuration(activityForm.getDuration());
+		res.setLongitude(activityForm.getLongitude());
+		res.setLatitude(activityForm.getLatitude());
+		res.setPicture(activityForm.getPicture());
+		res.setStartingDate(activityForm.getStartingDate());
+		res.setEndingDate(activityForm.getEndingDate());
+
+		if (companyService.findByPrincipal() != null) {
+			res.setCompany(companyService.findByPrincipal());
+		}
+
+		return res;
 	}
 
 }

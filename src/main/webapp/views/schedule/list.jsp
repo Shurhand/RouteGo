@@ -16,7 +16,7 @@
 <div class="container-fluid">
 <div class="table-responsive">
 <display:table name="schedules" id="row" requestURI="${requestURI}"
-	pagesize="5" class="table table-hover">
+	pagesize="7" class="table table-hover">
 		
 	<spring:message code="schedule.dayOfWeek" var="dayOfWeekHeader"/>
 	<display:column property="dayOfWeek" title="${dayOfWeekHeader}" sortable="true"/>
