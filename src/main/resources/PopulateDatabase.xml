@@ -645,10 +645,10 @@
 	<!-- Routes -->
 	
 	<bean id="route1" class="domain.Route">
-		<property name="name" value="Aitor" />
+		<property name="name" value="route1" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
-		<property name="description" value="673923829" />
+		<property name="description" value="route1Description" />
 		<property name="rating" value="4" />
 		<property name="customers" >
 			<list>
@@ -671,10 +671,10 @@
 	</bean>
 	
 	<bean id="customRoute1" class="domain.Route">
-		<property name="name" value="customRoute1" />
+		<property name="name" value="Ruta céntrica" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
-		<property name="description" value="customRouteDescription1" />
+		<property name="description" value="Ruta céntrica por Sevilla" />
 		<property name="rating" value="4" />
 		<property name="customers" >
 			<list>
@@ -698,10 +698,10 @@
 	</bean>
 	
 	<bean id="customRoute2" class="domain.Route">
-		<property name="name" value="customRoute2" />
+		<property name="name" value="Ruta Nervión" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
-		<property name="description" value="customRouteDescription2" />
+		<property name="description" value="Ruta por el barrio de Nervión" />
 		<property name="rating" value="4" />
 		<property name="customers" >
 			<list>
@@ -727,10 +727,10 @@
 	</bean>
 	
 	<bean id="customRoute3" class="domain.Route">
-		<property name="name" value="customRoute3" />
+		<property name="name" value="Ruta Torneo" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
-		<property name="description" value="customRouteDescription3" />
+		<property name="description" value="Ruta por la avenida Torneo" />
 		<property name="rating" value="4" />
 		<property name="customers" >
 			<list>
