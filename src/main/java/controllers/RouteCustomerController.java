@@ -2,7 +2,6 @@ package controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -53,12 +52,11 @@ public class RouteCustomerController extends AbstractController {
 		ModelAndView result;
 		Collection<Route> routes;
 		Customer customer;
-		
+
 		Credentials credentials = new Credentials();
 
 		customer = customerService.findByPrincipal();
 		routes = customer.getRoutes();
-		
 
 		result = new ModelAndView("route/list2");
 		result.addObject("routes", routes);
@@ -83,24 +81,22 @@ public class RouteCustomerController extends AbstractController {
 		result.addObject("routes", routes);
 		result.addObject("customer", customer);
 		result.addObject("credentials", credentials);
-		
 
 		return result;
 
 	}
-	
+
 	@RequestMapping(value = "/list2", method = RequestMethod.POST)
 	public ModelAndView list2POST() {
 
 		ModelAndView result;
-		 
+
 		result = new ModelAndView("redirect:/route/customer/list2.do");
-		
 
 		return result;
 
 	}
-	
+
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam int routeID) {
 
@@ -110,7 +106,7 @@ public class RouteCustomerController extends AbstractController {
 		String startingDate;
 		String endDate;
 		SimpleDateFormat formatter;
-	
+
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		startingDate = formatter.format(route.getStartingDate());
 		endDate = formatter.format(route.getEndDate());
@@ -120,7 +116,7 @@ public class RouteCustomerController extends AbstractController {
 		result.addObject("startingDate", startingDate);
 		result.addObject("endDate", endDate);
 		result.addObject("credentials", credentials);
-		
+
 		return result;
 
 	}
@@ -158,7 +154,7 @@ public class RouteCustomerController extends AbstractController {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			for(ObjectError o :binding.getAllErrors()){
+			for (ObjectError o : binding.getAllErrors()) {
 				System.out.println(o);
 			}
 			result = createEditModelAndView(route);
@@ -192,6 +188,22 @@ public class RouteCustomerController extends AbstractController {
 
 	}
 
+	@RequestMapping(value = "/ratea", method = RequestMethod.POST)
+	public ModelAndView ratea(@RequestParam int rate, @RequestParam int routeId) {
+
+		ModelAndView result;
+		
+		try {
+			routeService.ratea(rate, routeId);
+			result = new ModelAndView("redirect:/route/customer/list2.do");
+			result.addObject("requestURI", "route/list2.do");
+		} catch (Throwable error) {
+			result = new ModelAndView("redirect:list2.do");
+		}
+		return result;
+
+	}
+
 	// =============== Ancillary Methods ==========
 
 	protected ModelAndView createEditModelAndView(Route route) {
@@ -218,7 +230,7 @@ public class RouteCustomerController extends AbstractController {
 		res.addObject("categories", categories);
 		res.addObject("credentials", credentials);
 		res.addObject("principal", principal);
-		
+
 		res.addObject("message", message);
 
 		return res;

@@ -23,8 +23,8 @@
 			</list>
 		</property>
 	</bean>
-	
-	
+
+
 	<bean id="userAccount2" class="security.UserAccount">
 		<property name="username" value="customer1" />
 		<property name="password" value="ffbc4675f864e0e9aab8bdf7a0437010" />
@@ -36,7 +36,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="userAccount4" class="security.UserAccount">
 		<property name="username" value="customer2" />
 		<property name="password" value="5ce4d191fd14ac85a1469fb8c29b7a7b" />
@@ -49,7 +49,7 @@
 		</property>
 	</bean>
 
-		
+
 	<bean id="userAccount3" class="security.UserAccount">
 		<property name="username" value="company1" />
 		<property name="password" value="df655f976f7c9d3263815bd981225cd9" />
@@ -61,7 +61,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Other domain beans come here -->
 
 	<!-- Admins -->
@@ -72,29 +72,35 @@
 		<property name="phone" value="673923829" />
 		<property name="userAccount" ref="userAccount1" />
 	</bean>
-	
+
 	<!-- Customers -->
-	
+
 	<bean id="customer1" class="domain.Customer">
 		<property name="name" value="Aitor" />
 		<property name="surname" value="Tilla" />
 		<property name="email" value="aitortilladepatatas@gmail.com" />
 		<property name="phone" value="673923829" />
 		<property name="userAccount" ref="userAccount2" />
-		<property name="routes" >
+		<property name="routes">
 			<list>
 				<ref bean="route1" />
 			</list>
-		</property>		
+		</property>
+		<property name="ratings">
+			<list>
+				<ref bean="rating1" />
+				<ref bean="rating2" />
+			</list>
+		</property>
 	</bean>
-	
+
 	<bean id="customer2" class="domain.Customer">
 		<property name="name" value="Juntador de trocolas" />
 		<property name="surname" value="Trocador" />
 		<property name="email" value="juntatrocolas@gmail.com" />
 		<property name="phone" value="673923829" />
 		<property name="userAccount" ref="userAccount4" />
-		<property name="routes" >
+		<property name="routes">
 			<list>
 				<ref bean="customRoute1" />
 				<ref bean="customRoute2" />
@@ -102,53 +108,55 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Companies -->
-	
+
 	<bean id="company1" class="domain.Company">
 		<property name="name" value="Aitor" />
 		<property name="surname" value="Tilla" />
 		<property name="email" value="aitortilladepatatas@gmail.com" />
 		<property name="phone" value="673923829" />
 		<property name="CIF" value="A58818501" />
-		<property name="userAccount" ref="userAccount3" />	
-		<property name="activities" >
+		<property name="userAccount" ref="userAccount3" />
+		<property name="activities">
 			<list>
 				<ref bean="visitaCatedral" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Activities -->
-	
+
 	<bean id="visitaCatedral" class="domain.Activity">
 		<property name="name" value="Visita Catedral Sevilla" />
-		<property name="description" value="Visita cultural por toda la catedral con guía, etc." />
+		<property name="description"
+			value="Visita cultural por toda la catedral con guía, etc." />
 		<property name="latitude" value="37.3769" />
 		<property name="longitude" value="-5.9867" />
 		<property name="cost" value="25" />
 		<property name="postalAddress" value="Av. de la Constitución, s/n, 41004 Sevilla" />
-		<property name="picture" value="http://histmag.org/grafika/articles2015/katedry/sewilla.jpg" />
+		<property name="picture"
+			value="http://histmag.org/grafika/articles2015/katedry/sewilla.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="scheduleCatedral1"/>
-				<ref bean="scheduleCatedral2"/>		
+				<ref bean="scheduleCatedral1" />
+				<ref bean="scheduleCatedral2" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Churches"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Churches" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="torreDelOro" class="domain.Activity">
 		<property name="name" value="Visita la Torre del Oro" />
 		<property name="description" value="Visita a la Torre del Oro" />
@@ -156,25 +164,26 @@
 		<property name="longitude" value="-5.9965" />
 		<property name="cost" value="5" />
 		<property name="postalAddress" value="Paseo de Cristóbal Colón, s/n, 41001 Sevilla" />
-		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Torre_del_Oro_flag_Seville_Spain.jpg/245px-Torre_del_Oro_flag_Seville_Spain.jpg" />
+		<property name="picture"
+			value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Torre_del_Oro_flag_Seville_Spain.jpg/245px-Torre_del_Oro_flag_Seville_Spain.jpg" />
 		<property name="duration" value="30" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="scheduleTorreDelOro1"/>
-				<ref bean="scheduleTorreDelOro2"/>		
+				<ref bean="scheduleTorreDelOro1" />
+				<ref bean="scheduleTorreDelOro2" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>	
+				<ref bean="Cultural" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="parqueMariaLuisa" class="domain.Activity">
 		<property name="name" value="Parque María Luisa" />
 		<property name="description" value="Parque María Luisa" />
@@ -182,208 +191,223 @@
 		<property name="longitude" value="-5.9882" />
 		<property name="cost" value="0" />
 		<property name="postalAddress" value="Av. de María Luisa, s/n, 41013 Sevilla" />
-		<property name="picture" value="http://spainattractions.es/wp-content/uploads/2014/03/maria-luisa-park.jpg" />
+		<property name="picture"
+			value="http://spainattractions.es/wp-content/uploads/2014/03/maria-luisa-park.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="09/09/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="scheduleparqueMariaLuisa1"/>
+				<ref bean="scheduleparqueMariaLuisa1" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Churches"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Churches" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="acuarioDeSevilla" class="domain.Activity">
 		<property name="name" value="Acuario de Sevilla" />
-		<property name="description" value="El Acuario de Sevilla es uno de los centros de este tipo con mayor biodiversidad de Europa." />
+		<property name="description"
+			value="El Acuario de Sevilla es uno de los centros de este tipo con mayor biodiversidad de Europa." />
 		<property name="latitude" value="37.3705" />
 		<property name="longitude" value="-5.9910" />
 		<property name="cost" value="15" />
 		<property name="postalAddress" value="Muelle de las delicias, s/n, 41012 Sevilla" />
-		<property name="picture" value="http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/andalucia/acuario-sevilla-PANORAMICA-ACUARIO-c.jpg_369272544.jpg" />
+		<property name="picture"
+			value="http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/andalucia/acuario-sevilla-PANORAMICA-ACUARIO-c.jpg_369272544.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule4"/>		
+				<ref bean="schedule4" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Museums"/>
-				<ref bean="Cultural"/>	
+				<ref bean="Museums" />
+				<ref bean="Cultural" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="antiquarium" class="domain.Activity">
 		<property name="name" value="Antiquarium" />
-		<property name="description" value="Museo arqueológico ubicado en el centro de Sevilla." />
+		<property name="description"
+			value="Museo arqueológico ubicado en el centro de Sevilla." />
 		<property name="latitude" value="37.3928" />
 		<property name="longitude" value="-5.9921" />
 		<property name="cost" value="2.10" />
 		<property name="postalAddress" value="Plaza de la Encarnación, s/n, 41004 Sevilla" />
-		<property name="picture" value="http://www.setasdesevilla.com/wp-content/uploads/2014/10/Para-Antiquarium-3.jpg?w=560" />
+		<property name="picture"
+			value="http://www.setasdesevilla.com/wp-content/uploads/2014/10/Para-Antiquarium-3.jpg?w=560" />
 		<property name="duration" value="60" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule5"/>		
+				<ref bean="schedule5" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Museums"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Museums" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="archivoDeIndias" class="domain.Activity">
 		<property name="name" value="Archivo de Indias" />
-		<property name="description" value="Lugar donde podemos encontrar la documentación referente a la administración de las colonias españolas." />
+		<property name="description"
+			value="Lugar donde podemos encontrar la documentación referente a la administración de las colonias españolas." />
 		<property name="latitude" value="37.3847" />
 		<property name="longitude" value="-5.9930" />
 		<property name="cost" value="0" />
 		<property name="postalAddress" value="Av. de la Constitución, s/n, 41004 Sevilla" />
-		<property name="picture" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrATzS4HteqnVS8e8S1g3wNQkstWvL9uYnzJe1SAMTR3YGP9pSsp3oOpe" />
+		<property name="picture"
+			value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrATzS4HteqnVS8e8S1g3wNQkstWvL9uYnzJe1SAMTR3YGP9pSsp3oOpe" />
 		<property name="duration" value="60" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="scheduleparqueMariaLuisa1"/>
+				<ref bean="scheduleparqueMariaLuisa1" />
 
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Museums"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Museums" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="basilicaMacarena" class="domain.Activity">
 		<property name="name" value="Basílica de la Macarena" />
-		<property name="description" value="Templo católico situado en el barrio de La Macarena" />
+		<property name="description"
+			value="Templo católico situado en el barrio de La Macarena" />
 		<property name="latitude" value="37.4023" />
 		<property name="longitude" value="-5.9897" />
 		<property name="cost" value="5" />
 		<property name="postalAddress" value="Calle de Bécquer, 1, 41002 Sevilla" />
-		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Puerta_y_Bas%C3%ADlica_de_la_Macarena_(Sevilla).jpg/240px-Puerta_y_Bas%C3%ADlica_de_la_Macarena_(Sevilla).jpg" />
+		<property name="picture"
+			value="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Puerta_y_Bas%C3%ADlica_de_la_Macarena_(Sevilla).jpg/240px-Puerta_y_Bas%C3%ADlica_de_la_Macarena_(Sevilla).jpg" />
 		<property name="duration" value="30" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule7"/>		
+				<ref bean="schedule7" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Churches"/>
+				<ref bean="Churches" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="basilicaGranPoder" class="domain.Activity">
 		<property name="name" value="Basílica del Gran Poder" />
-		<property name="description" value="Lugar donde se encuentra la imagen de Nuestro Padre Jesús del Gran Poder." />
+		<property name="description"
+			value="Lugar donde se encuentra la imagen de Nuestro Padre Jesús del Gran Poder." />
 		<property name="latitude" value="37.3974" />
 		<property name="longitude" value="-5.9966" />
 		<property name="cost" value="0" />
 		<property name="postalAddress" value="Plaza de San Lorenzo, 13, 41002 Sevilla" />
-		<property name="picture" value="https://lh3.googleusercontent.com/-7gWEjlXTvUA/AAAAAAAAAAI/AAAAAAAAAC4/-cTiyMgtWt4/s0-c-k-no-ns/photo.jpg" />
+		<property name="picture"
+			value="https://lh3.googleusercontent.com/-7gWEjlXTvUA/AAAAAAAAAAI/AAAAAAAAAC4/-cTiyMgtWt4/s0-c-k-no-ns/photo.jpg" />
 		<property name="duration" value="30" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule8"/>		
+				<ref bean="schedule8" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Churches"/>
+				<ref bean="Churches" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="casaPilatos" class="domain.Activity">
 		<property name="name" value="Casa de Pilatos" />
-		<property name="description" value="Casa con combinación de los estilos renacentista italiano y el mudéjar español." />
+		<property name="description"
+			value="Casa con combinación de los estilos renacentista italiano y el mudéjar español." />
 		<property name="latitude" value="37.3899" />
 		<property name="longitude" value="-5.9871" />
 		<property name="cost" value="8" />
 		<property name="postalAddress" value="Plaza de Pilatos, 1, 41003 Sevilla" />
-		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Casa_Pilatos.JPG/220px-Casa_Pilatos.JPG" />
+		<property name="picture"
+			value="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Casa_Pilatos.JPG/220px-Casa_Pilatos.JPG" />
 		<property name="duration" value="60" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule4"/>
-				<ref bean="schedule9"/>		
+				<ref bean="schedule4" />
+				<ref bean="schedule9" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
+				<ref bean="Cultural" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="jardinesMurillo" class="domain.Activity">
 		<property name="name" value="Jardines de Murillo" />
-		<property name="description" value="Situados en el distrito Casco Antiguo de Sevilla." />
+		<property name="description"
+			value="Situados en el distrito Casco Antiguo de Sevilla." />
 		<property name="latitude" value="37.3852" />
 		<property name="longitude" value="-5.9865" />
 		<property name="cost" value="0" />
 		<property name="postalAddress" value="Menéndez Pelayo, s/n, 41004 Sevilla" />
-		<property name="picture" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUutXb_c0xb7dZAe5LZEmmvpAEW5YIFCeN8xnCZ0FYnf07akdAqMDv3Gg" />
+		<property name="picture"
+			value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUutXb_c0xb7dZAe5LZEmmvpAEW5YIFCeN8xnCZ0FYnf07akdAqMDv3Gg" />
 		<property name="duration" value="20" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule10"/>		
+				<ref bean="schedule10" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
+				<ref bean="Cultural" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="museoArqueologico" class="domain.Activity">
 		<property name="name" value="Museo Arqueologico" />
 		<property name="description" value="Visita cultural por todo el museo." />
@@ -391,499 +415,528 @@
 		<property name="longitude" value="-5.9870" />
 		<property name="cost" value="1.5" />
 		<property name="postalAddress" value="Plaza de América, s/n, 41013 Sevilla" />
-		<property name="picture" value="https://www.sevilla5.com/monuments/mphotos/arqueologico1.jpg" />
+		<property name="picture"
+			value="https://www.sevilla5.com/monuments/mphotos/arqueologico1.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule7"/>
-				<ref bean="schedule11"/>		
+				<ref bean="schedule7" />
+				<ref bean="schedule11" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Museums"/>	
+				<ref bean="Cultural" />
+				<ref bean="Museums" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="torrePerdigones" class="domain.Activity">
 		<property name="name" value="Torre de los Perdigones" />
-		<property name="description" value="Es una torre que formaba parte de la antigua fábrica de San Francisco de Paula" />
+		<property name="description"
+			value="Es una torre que formaba parte de la antigua fábrica de San Francisco de Paula" />
 		<property name="latitude" value="37.4034" />
 		<property name="longitude" value="-5.9924" />
 		<property name="cost" value="4" />
 		<property name="postalAddress" value="Calle Resolana, s/n, 41009 Sevilla" />
-		<property name="picture" value="http://www.camaraoscuraworld.com/wp-content/uploads/2014/05/CO-Sevilla-3.jpg" />
+		<property name="picture"
+			value="http://www.camaraoscuraworld.com/wp-content/uploads/2014/05/CO-Sevilla-3.jpg" />
 		<property name="duration" value="45" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule4"/>
-				<ref bean="schedule12"/>		
+				<ref bean="schedule4" />
+				<ref bean="schedule12" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
+				<ref bean="Cultural" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="teatroMaestranza" class="domain.Activity">
 		<property name="name" value="Teatro de la Maestranza" />
-		<property name="description" value="Visita el teatro más importante de la ciudad." />
+		<property name="description"
+			value="Visita el teatro más importante de la ciudad." />
 		<property name="latitude" value="37.3836" />
 		<property name="longitude" value="-5.9971" />
 		<property name="cost" value="20" />
 		<property name="postalAddress" value="Paseo de Cristóbal Colón, 22, 41001 Sevilla" />
-		<property name="picture" value="http://static.guiaocio.com/var/guiadelocio.com/storage/images/conciertos/sevilla/sevilla/teatro-de-la-maestranza/galeria/teatro-de-la-maestranza/15212107-1-esl-ES/teatro-de-la-maestranza.jpg" />
+		<property name="picture"
+			value="http://static.guiaocio.com/var/guiadelocio.com/storage/images/conciertos/sevilla/sevilla/teatro-de-la-maestranza/galeria/teatro-de-la-maestranza/15212107-1-esl-ES/teatro-de-la-maestranza.jpg" />
 		<property name="duration" value="120" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule7"/>
-				<ref bean="schedule13"/>		
+				<ref bean="schedule7" />
+				<ref bean="schedule13" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
+				<ref bean="Cultural" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="teatroLopeDeVega" class="domain.Activity">
 		<property name="name" value="Teatro Lope de Vega" />
-		<property name="description" value="Teatro que acoge obras teatrales, música y danza." />
+		<property name="description"
+			value="Teatro que acoge obras teatrales, música y danza." />
 		<property name="latitude" value="37.3786" />
 		<property name="longitude" value="-5.9908" />
 		<property name="cost" value="25" />
 		<property name="postalAddress" value="Av. de María Luisa, s/n, 41013 Sevilla" />
-		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/19652552262_3434b70828_teatro_lope_de_vega.jpg/280px-19652552262_3434b70828_teatro_lope_de_vega.jpg" />
+		<property name="picture"
+			value="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/19652552262_3434b70828_teatro_lope_de_vega.jpg/280px-19652552262_3434b70828_teatro_lope_de_vega.jpg" />
 		<property name="duration" value="60" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule6"/>
-				<ref bean="schedule14"/>		
+				<ref bean="schedule6" />
+				<ref bean="schedule14" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
+				<ref bean="Cultural" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="alcazares" class="domain.Activity">
 		<property name="name" value="Reales Alcazares" />
-		<property name="description" value="Declarados Patrimonio de la Humanidad por la UNESCO." />
+		<property name="description"
+			value="Declarados Patrimonio de la Humanidad por la UNESCO." />
 		<property name="latitude" value="37.3837" />
 		<property name="longitude" value="-5.9910" />
 		<property name="cost" value="9.50" />
 		<property name="postalAddress" value="Patio de Banderas, s/n, 41004 Sevilla" />
-		<property name="picture" value="http://farm5.static.flickr.com/4139/4926159409_c7cd42d7c7.jpg" />
+		<property name="picture"
+			value="http://farm5.static.flickr.com/4139/4926159409_c7cd42d7c7.jpg" />
 		<property name="duration" value="180" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/09/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule9"/>
-				<ref bean="schedule15"/>		
+				<ref bean="schedule9" />
+				<ref bean="schedule15" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="plazaEspaña" class="domain.Activity">
 		<property name="name" value="Visita Plaza España" />
 		<property name="description" value="Visita cultural por toda la plaza de España." />
 		<property name="latitude" value="37.3771" />
 		<property name="longitude" value="-5.9869" />
 		<property name="cost" value="0" />
-		<property name="postalAddress" value="Av. de Isabel la Católica , s/n, 41004 Sevilla" />
-		<property name="picture" value="http://www.escapadarural.com/blog/wp-content/uploads/2014/11/Plaza-Espa%C3%B1a-de-Sevilla.jpg" />
+		<property name="postalAddress"
+			value="Av. de Isabel la Católica , s/n, 41004 Sevilla" />
+		<property name="picture"
+			value="http://www.escapadarural.com/blog/wp-content/uploads/2014/11/Plaza-Espa%C3%B1a-de-Sevilla.jpg" />
 		<property name="duration" value="60" />
 		<property name="company" ref="company1" />
-		
+
 		<property name="startingDate" value="01/01/2016" />
 		<property name="endingDate" value="30/12/2016" />
-		<property name="schedules" >
+		<property name="schedules">
 			<list>
-				<ref bean="schedule16"/>		
+				<ref bean="schedule16" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
 			</list>
 		</property>
 	</bean>
-	
-	
-		<!-- Categories -->
-	
+
+
+	<!-- Categories -->
+
 	<bean id="Churches" class="domain.Category">
 		<property name="name" value="Churches" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="visitaCatedral"/>
-				<ref bean="parqueMariaLuisa"/>
-				<ref bean="basilicaMacarena"/>
-				<ref bean="basilicaGranPoder"/>	
+				<ref bean="visitaCatedral" />
+				<ref bean="parqueMariaLuisa" />
+				<ref bean="basilicaMacarena" />
+				<ref bean="basilicaGranPoder" />
 			</list>
-			
+
 		</property>
 	</bean>
-	
+
 	<bean id="Museums" class="domain.Category">
 		<property name="name" value="Museums" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="acuarioDeSevilla"/>
-				<ref bean="antiquarium"/>
-				<ref bean="archivoDeIndias"/>
-				<ref bean="museoArqueologico"/>
+				<ref bean="acuarioDeSevilla" />
+				<ref bean="antiquarium" />
+				<ref bean="archivoDeIndias" />
+				<ref bean="museoArqueologico" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="Restaurants" class="domain.Category">
 		<property name="name" value="Restaurants" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-					
+
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="Cultural" class="domain.Category">
 		<property name="name" value="Cultural" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="visitaCatedral"/>
-				<ref bean="torreDelOro"/>
-				<ref bean="parqueMariaLuisa"/>
-				<ref bean="acuarioDeSevilla"/>
-				<ref bean="antiquarium"/>
-				<ref bean="archivoDeIndias"/>
-				<ref bean="casaPilatos"/>
-				<ref bean="jardinesMurillo"/>
-				<ref bean="museoArqueologico"/>
-				<ref bean="torrePerdigones"/>
-				<ref bean="teatroMaestranza"/>
-				<ref bean="teatroLopeDeVega"/>
-				<ref bean="alcazares"/>
-				<ref bean="plazaEspaña"/>
+				<ref bean="visitaCatedral" />
+				<ref bean="torreDelOro" />
+				<ref bean="parqueMariaLuisa" />
+				<ref bean="acuarioDeSevilla" />
+				<ref bean="antiquarium" />
+				<ref bean="archivoDeIndias" />
+				<ref bean="casaPilatos" />
+				<ref bean="jardinesMurillo" />
+				<ref bean="museoArqueologico" />
+				<ref bean="torrePerdigones" />
+				<ref bean="teatroMaestranza" />
+				<ref bean="teatroLopeDeVega" />
+				<ref bean="alcazares" />
+				<ref bean="plazaEspaña" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="Paintings" class="domain.Category">
 		<property name="name" value="Paintings" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="visitaCatedral"/>
-				<ref bean="parqueMariaLuisa"/>
-				<ref bean="antiquarium"/>
-				<ref bean="archivoDeIndias"/>
-				<ref bean="alcazares"/>
-				<ref bean="plazaEspaña"/>	
+				<ref bean="visitaCatedral" />
+				<ref bean="parqueMariaLuisa" />
+				<ref bean="antiquarium" />
+				<ref bean="archivoDeIndias" />
+				<ref bean="alcazares" />
+				<ref bean="plazaEspaña" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="Music" class="domain.Category">
 		<property name="name" value="Music" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-					
+
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="Drinks" class="domain.Category">
 		<property name="name" value="Drinks" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				
+
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="Shopping" class="domain.Category">
 		<property name="name" value="Shopping" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				
+
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Routes -->
-	
+
 	<bean id="route1" class="domain.Route">
 		<property name="name" value="route1" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="route1Description" />
-		<property name="rating" value="4" />
-		<property name="customers" >
+		<property name="rating" value="3" />
+		<property name="customers">
 			<list>
-				<ref bean="customer1"/>
+				<ref bean="customer1" />
 			</list>
 		</property>
 		<property name="isRandom" value="true" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="visitaCatedral"/>
+				<ref bean="visitaCatedral" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Churches"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Churches" />
+			</list>
+		</property>
+		<property name="ratings">
+			<list>
+				<ref bean="rating1" />
+				<ref bean="rating2" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="customRoute1" class="domain.Route">
 		<property name="name" value="Ruta céntrica" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="Ruta céntrica por Sevilla" />
 		<property name="rating" value="4" />
-		<property name="customers" >
+		<property name="customers">
 			<list>
-				<ref bean="customer2"/>
+				<ref bean="customer2" />
 			</list>
 		</property>
 		<property name="isRandom" value="false" />
 		<property name="price" value="1.25" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="visitaCatedral"/>
+				<ref bean="visitaCatedral" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Churches"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Churches" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="customRoute2" class="domain.Route">
 		<property name="name" value="Ruta Nervión" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="Ruta por el barrio de Nervión" />
 		<property name="rating" value="4" />
-		<property name="customers" >
+		<property name="customers">
 			<list>
-				<ref bean="customer2"/>
+				<ref bean="customer2" />
 			</list>
 		</property>
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.15" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="acuarioDeSevilla"/>
-				<ref bean="antiquarium"/>
-				<ref bean="parqueMariaLuisa"/>
+				<ref bean="acuarioDeSevilla" />
+				<ref bean="antiquarium" />
+				<ref bean="parqueMariaLuisa" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Churches"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Churches" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="customRoute3" class="domain.Route">
 		<property name="name" value="Ruta Torneo" />
 		<property name="startingDate" value="10/10/2016 10:00" />
 		<property name="endDate" value="12/10/2016 13:00" />
 		<property name="description" value="Ruta por la avenida Torneo" />
 		<property name="rating" value="4" />
-		<property name="customers" >
+		<property name="customers">
 			<list>
-				<ref bean="customer2"/>
+				<ref bean="customer2" />
 			</list>
 		</property>
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.45" />
-		<property name="activities" >
+		<property name="activities">
 			<list>
-				<ref bean="torreDelOro"/>
-				<ref bean="teatroMaestranza"/>
+				<ref bean="torreDelOro" />
+				<ref bean="teatroMaestranza" />
 			</list>
 		</property>
-		<property name="categories" >
+		<property name="categories">
 			<list>
-				<ref bean="Cultural"/>
-				<ref bean="Paintings"/>	
-				<ref bean="Churches"/>
+				<ref bean="Cultural" />
+				<ref bean="Paintings" />
+				<ref bean="Churches" />
 			</list>
 		</property>
 	</bean>
-		
+
 	<!-- Schedules -->
-	
+
 	<bean id="scheduleCatedral1" class="domain.Schedule">
 		<property name="dayOfWeek" value="MONDAY" />
 		<property name="openingDate" value="11/10/2016 10:00" />
-		<property name="closingDate" value="11/10/2016 18:00" />	
+		<property name="closingDate" value="11/10/2016 18:00" />
 		<property name="activity" ref="visitaCatedral" />
-			
+
 	</bean>
-	
+
 	<bean id="scheduleCatedral2" class="domain.Schedule">
 		<property name="dayOfWeek" value="TUESDAY" />
 		<property name="openingDate" value="12/10/2016 10:00" />
-		<property name="closingDate" value="12/10/2016 18:00" />	
+		<property name="closingDate" value="12/10/2016 18:00" />
 		<property name="activity" ref="visitaCatedral" />
-			
+
 	</bean>
-	
+
 	<bean id="scheduleTorreDelOro1" class="domain.Schedule">
 		<property name="dayOfWeek" value="MONDAY" />
 		<property name="openingDate" value="11/10/2016 10:00" />
-		<property name="closingDate" value="11/10/2016 22:00" />	
-		<property name="activity" ref="torreDelOro" />	
+		<property name="closingDate" value="11/10/2016 22:00" />
+		<property name="activity" ref="torreDelOro" />
 	</bean>
-	
+
 	<bean id="scheduleTorreDelOro2" class="domain.Schedule">
 		<property name="dayOfWeek" value="TUESDAY" />
 		<property name="openingDate" value="12/10/2016 10:00" />
-		<property name="closingDate" value="12/10/2016 22:00" />	
-		<property name="activity" ref="torreDelOro" />	
+		<property name="closingDate" value="12/10/2016 22:00" />
+		<property name="activity" ref="torreDelOro" />
 	</bean>
-	
+
 	<bean id="scheduleparqueMariaLuisa1" class="domain.Schedule">
 		<property name="dayOfWeek" value="MONDAY" />
 		<property name="openingDate" value="11/10/2016 10:00" />
-		<property name="closingDate" value="11/10/2016 22:00" />	
-		<property name="activity" ref="parqueMariaLuisa" />	
+		<property name="closingDate" value="11/10/2016 22:00" />
+		<property name="activity" ref="parqueMariaLuisa" />
 	</bean>
-	
+
 	<bean id="schedule4" class="domain.Schedule">
 		<property name="dayOfWeek" value="THURSDAY" />
 		<property name="openingDate" value="13/10/2016 10:00" />
-		<property name="closingDate" value="13/10/2016 19:00" />	
-		<property name="activity" ref="acuarioDeSevilla" />	
+		<property name="closingDate" value="13/10/2016 19:00" />
+		<property name="activity" ref="acuarioDeSevilla" />
 	</bean>
-	
+
 	<bean id="schedule5" class="domain.Schedule">
 		<property name="dayOfWeek" value="FRIDAY" />
 		<property name="openingDate" value="14/10/2016 10:00" />
-		<property name="closingDate" value="14/10/2016 20:00" />	
-		<property name="activity" ref="antiquarium" />	
+		<property name="closingDate" value="14/10/2016 20:00" />
+		<property name="activity" ref="antiquarium" />
 	</bean>
-	
+
 	<bean id="schedule6" class="domain.Schedule">
 		<property name="dayOfWeek" value="SATURDAY" />
 		<property name="openingDate" value="15/10/2016 09:30" />
-		<property name="closingDate" value="15/10/2016 17:00" />	
-		<property name="activity" ref="archivoDeIndias" />	
+		<property name="closingDate" value="15/10/2016 17:00" />
+		<property name="activity" ref="archivoDeIndias" />
 	</bean>
-	
+
 	<bean id="schedule7" class="domain.Schedule">
 		<property name="dayOfWeek" value="SUNDAY" />
 		<property name="openingDate" value="16/10/2016 09:00" />
-		<property name="closingDate" value="16/10/2016 14:00" />	
-		<property name="activity" ref="basilicaMacarena" />	
+		<property name="closingDate" value="16/10/2016 14:00" />
+		<property name="activity" ref="basilicaMacarena" />
 	</bean>
-	
+
 	<bean id="schedule8" class="domain.Schedule">
 		<property name="dayOfWeek" value="MONDAY" />
 		<property name="openingDate" value="10/10/2016 08:00" />
-		<property name="closingDate" value="10/10/2016 13:30" />	
-		<property name="activity" ref="basilicaGranPoder" />	
+		<property name="closingDate" value="10/10/2016 13:30" />
+		<property name="activity" ref="basilicaGranPoder" />
 	</bean>
-	
+
 	<bean id="schedule9" class="domain.Schedule">
 		<property name="dayOfWeek" value="TUESDAY" />
 		<property name="openingDate" value="11/10/2016 09:00" />
-		<property name="closingDate" value="11/10/2016 18:00" />	
-		<property name="activity" ref="casaPilatos" />	
+		<property name="closingDate" value="11/10/2016 18:00" />
+		<property name="activity" ref="casaPilatos" />
 	</bean>
-	
+
 	<bean id="schedule10" class="domain.Schedule">
 		<property name="dayOfWeek" value="WEDNESDAY" />
 		<property name="openingDate" value="12/10/2016 09:00" />
-		<property name="closingDate" value="12/10/2016 24:00" />	
-		<property name="activity" ref="jardinesMurillo" />	
+		<property name="closingDate" value="12/10/2016 24:00" />
+		<property name="activity" ref="jardinesMurillo" />
 	</bean>
-	
+
 	<bean id="schedule11" class="domain.Schedule">
 		<property name="dayOfWeek" value="THURSDAY" />
 		<property name="openingDate" value="13/10/2016 09:00" />
-		<property name="closingDate" value="13/10/2016 19:30" />	
-		<property name="activity" ref="museoArqueologico" />	
+		<property name="closingDate" value="13/10/2016 19:30" />
+		<property name="activity" ref="museoArqueologico" />
 	</bean>
-	
+
 	<bean id="schedule12" class="domain.Schedule">
 		<property name="dayOfWeek" value="FRIDAY" />
 		<property name="openingDate" value="14/10/2016 11:30" />
-		<property name="closingDate" value="14/10/2016 17:00" />	
-		<property name="activity" ref="torrePerdigones" />	
+		<property name="closingDate" value="14/10/2016 17:00" />
+		<property name="activity" ref="torrePerdigones" />
 	</bean>
-	
+
 	<bean id="schedule13" class="domain.Schedule">
 		<property name="dayOfWeek" value="SATURDAY" />
 		<property name="openingDate" value="15/10/2016 20:00" />
-		<property name="closingDate" value="15/10/2016 24:00" />	
-		<property name="activity" ref="teatroMaestranza" />	
+		<property name="closingDate" value="15/10/2016 24:00" />
+		<property name="activity" ref="teatroMaestranza" />
 	</bean>
-	
+
 	<bean id="schedule14" class="domain.Schedule">
 		<property name="dayOfWeek" value="SUNDAY" />
 		<property name="openingDate" value="16/10/2016 20:30" />
-		<property name="closingDate" value="16/10/2016 23:30" />	
-		<property name="activity" ref="teatroLopeDeVega" />	
+		<property name="closingDate" value="16/10/2016 23:30" />
+		<property name="activity" ref="teatroLopeDeVega" />
 	</bean>
-	
+
 	<bean id="schedule15" class="domain.Schedule">
 		<property name="dayOfWeek" value="MONDAY" />
 		<property name="openingDate" value="10/10/2016 09:30" />
-		<property name="closingDate" value="10/10/2016 17:00" />	
-		<property name="activity" ref="alcazares" />	
+		<property name="closingDate" value="10/10/2016 17:00" />
+		<property name="activity" ref="alcazares" />
 	</bean>
-	
+
 	<bean id="schedule16" class="domain.Schedule">
 		<property name="dayOfWeek" value="TUESDAY" />
 		<property name="openingDate" value="11/10/2016 08:00" />
-		<property name="closingDate" value="11/10/2016 24:00" />	
-		<property name="activity" ref="plazaEspaña" />	
+		<property name="closingDate" value="11/10/2016 24:00" />
+		<property name="activity" ref="plazaEspaña" />
+	</bean>
+
+	<!-- Ratings -->
+
+	<bean id="rating1" class="domain.Rating">
+		<property name="rating" value="4" />
+		<property name="customer" ref="customer1" />
 	</bean>
 	
+	<bean id="rating2" class="domain.Rating">
+		<property name="rating" value="2" />
+		<property name="customer" ref="customer1" />
+	</bean>
 
-			
+
+
 </beans>

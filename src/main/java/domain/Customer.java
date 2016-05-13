@@ -6,6 +6,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 @Entity
@@ -19,7 +20,6 @@ public class Customer extends Actor {
 	// ==============Atributos==============
 	private CreditCard creditCard;
 
-	
 	@Valid
 	public CreditCard getCreditCard() {
 		return creditCard;
@@ -32,6 +32,7 @@ public class Customer extends Actor {
 	// =============== Relaciones ==============
 
 	private Collection<Route> routes;
+	private Collection<Rating> ratings;
 
 	@ManyToMany(mappedBy = "customers")
 	public Collection<Route> getRoutes() {
@@ -40,6 +41,16 @@ public class Customer extends Actor {
 
 	public void setRoutes(Collection<Route> routes) {
 		this.routes = routes;
+	}
+
+	@Valid
+	@OneToMany(mappedBy = "customer")
+	public Collection<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(Collection<Rating> ratings) {
+		this.ratings = ratings;
 	}
 
 }

@@ -24,6 +24,9 @@
 	<spring:message code="route.description" var="descriptionHeader"/>
 	<display:column property="description" title="${descriptionHeader}" sortable="false"/>
 	
+	<spring:message code="route.rating" var="ratingHeader"/>
+	<display:column property="rating" title="${ratingHeader}" sortable="true"/>
+	
 	<fmt:formatDate var="startingDate" value="${row.startingDate}" pattern="dd/MM/yyyy" />
 	
 	<spring:message code="route.startingDate" var="startingDateHeader"/>

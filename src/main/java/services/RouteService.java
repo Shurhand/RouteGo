@@ -14,6 +14,7 @@ import org.springframework.util.Assert;
 import domain.Activity;
 import domain.Category;
 import domain.Customer;
+import domain.Rating;
 import domain.Route;
 import forms.TripForm;
 import repositories.RouteRepository;
@@ -36,6 +37,8 @@ public class RouteService {
 	private CategoryService categoryService;
 	@Autowired
 	private CustomerService customerService;
+	@Autowired
+	private RatingService ratingService;
 
 	// ========== Supporting services ================
 
@@ -75,28 +78,27 @@ public class RouteService {
 
 		customer = customerService.findByPrincipal();
 		route.getCustomers().add(customer);
-		
-		if(route.getPrice() == null){
+
+		if (route.getPrice() == null) {
 			route.setPrice(0.);
 		}
 		System.out.println("pero entra en el save");
+		route.setRating(0.0);
 		route = routeRepository.save(route);
-		
+
 		System.out.println(route);
 	}
-	
-	
+
 	public void saveOnly(Route route) {
 		Assert.notNull(route);
 
 		route = routeRepository.save(route);
-		
-	
+
 	}
-	
+
 	public Integer saveFlushed(Route route) {
 		Assert.notNull(route);
-								
+
 		route = routeRepository.save(route);
 		System.out.println(route);
 		return route.getId();
@@ -118,14 +120,13 @@ public class RouteService {
 		String startingDateString;
 		String endDateString;
 		Collection<Customer> customers = new ArrayList<>();
-		
+
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		startingDateString = formatter.format(tripForm.getStartingDate());
 		endDateString = formatter.format(tripForm.getEndDate());
-			
+
 		automaticName = "AutomaticRoute " + startingDateString + "-" + endDateString;
-		
-		
+
 		res.setId(0);
 		res.setVersion(0);
 		res.setDescription("Automatic Route");
@@ -136,8 +137,6 @@ public class RouteService {
 		res.setRating(null);
 		res.setComments(null);
 		res.setPrice(null);
-		
-		
 
 		// Categories
 
@@ -250,18 +249,53 @@ public class RouteService {
 
 		return res;
 	}
-	
-	public Collection<Route> findAllCustom(){
+
+	public Collection<Route> findAllCustom() {
 		Customer c = customerService.findByPrincipal();
 		Collection<Route> res = routeRepository.findAllCustom();
 		Collection<Route> todas = routeRepository.findAll();
-		
-		for(Route r : todas){
-			if(r.getCustomers().contains(c)){
+
+		for (Route r : todas) {
+			if (r.getCustomers().contains(c)) {
 				res.remove(r);
 			}
 		}
-		
+
 		return res;
+	}
+
+	public void calculaRating(Route route) {
+		Double rating;
+		Collection<Rating> ratings;
+		int numRatings;
+
+		ratings = route.getRatings();
+		numRatings = ratings.size();
+
+		if (route.getRatings() == null) {
+			rating = 0.0;
+		} else {
+			rating = (double) ( Math.round(ratingService.sumRatings(route.getId()) / numRatings));
+			
+		}
+
+		route.setRating(rating);
+
+	}
+	
+	public void ratea(int rate, int routeId){
+		Collection<Rating> ratings;
+		Route route;
+		Rating rating;
+		
+		route = findOne(routeId);
+		Assert.isTrue(customerService.findByPrincipal().getRoutes().contains(route));
+		ratings = route.getRatings();
+		rating = ratingService.create();
+		rating.setRating(rate);
+		ratingService.save(rating);
+		ratings.add(rating);
+		route.setRatings(ratings);
+		calculaRating(route);
 	}
 }

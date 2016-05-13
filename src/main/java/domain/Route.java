@@ -8,10 +8,10 @@ import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -25,8 +25,8 @@ public class Route extends DomainEntity {
 	public Route() {
 		super();
 	}
-	
-	public Route(Route r){
+
+	public Route(Route r) {
 		this.name = r.getName();
 		this.description = r.getDescription();
 		this.startingDate = r.getStartingDate();
@@ -38,7 +38,7 @@ public class Route extends DomainEntity {
 		this.activities = r.getActivities();
 		this.comments = r.getComments();
 		this.customers = r.getCustomers();
-		
+
 	}
 
 	private String name;
@@ -105,8 +105,7 @@ public class Route extends DomainEntity {
 	public void setIsRandom(boolean isRandom) {
 		this.isRandom = isRandom;
 	}
-	
-	
+
 	public Double getPrice() {
 		return price;
 	}
@@ -121,9 +120,10 @@ public class Route extends DomainEntity {
 	private Collection<Customer> customers;
 	private Collection<Comment> comments;
 	private Collection<Activity> activities;
+	private Collection<Rating> ratings;
 
 	@NotNull
-	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	public Collection<Category> getCategories() {
 		return categories;
 	}
@@ -132,7 +132,7 @@ public class Route extends DomainEntity {
 		this.categories = categories;
 	}
 
-	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	public Collection<Customer> getCustomers() {
 		return customers;
 	}
@@ -151,13 +151,23 @@ public class Route extends DomainEntity {
 	}
 
 	@NotNull
-	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	public Collection<Activity> getActivities() {
 		return activities;
 	}
 
 	public void setActivities(Collection<Activity> activities) {
 		this.activities = activities;
+	}
+
+	@Valid
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(Collection<Rating> ratings) {
+		this.ratings = ratings;
 	}
 
 }
