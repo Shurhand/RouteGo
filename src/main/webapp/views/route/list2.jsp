@@ -34,7 +34,7 @@
 	<form:form action="route/customer/ratea.do" modelAttribute="route" class="form-horizontal">
 	
 	<div class="pull-left">
-	<input id="input-id" name="rate" type="number" class="rating" min=1 max=5 step=1 data-size="xs" data-rtl="false">
+	<input id="input-id" name="rate" type="number" class="rating" min=0 max=5 step=1 data-size="xs" data-rtl="false">
   	</div>
   	<input type="hidden" name="routeId" value="${row.id}">
   	&nbsp &nbsp

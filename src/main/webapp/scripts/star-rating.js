@@ -514,15 +514,10 @@
         showClear: true,
         showCaption: true,
         starCaptionClasses: {
-            0.5: 'label label-danger',
             1: 'label label-danger',
-            1.5: 'label label-warning',
             2: 'label label-warning',
-            2.5: 'label label-info',
             3: 'label label-info',
-            3.5: 'label label-primary',
             4: 'label label-primary',
-            4.5: 'label label-success',
             5: 'label label-success'
         },
         clearButton: '<i class="glyphicon glyphicon-minus-sign"></i>',
@@ -541,15 +536,10 @@
     $.fn.ratingLocales.en = {
         defaultCaption: '{rating} Stars',
         starCaptions: {
-            0.5: 'Half Star',
             1: 'One Star',
-            1.5: 'One & Half Star',
             2: 'Two Stars',
-            2.5: 'Two & Half Stars',
             3: 'Three Stars',
-            3.5: 'Three & Half Stars',
             4: 'Four Stars',
-            4.5: 'Four & Half Stars',
             5: 'Five Stars'
         },
         clearButtonTitle: 'Clear',
