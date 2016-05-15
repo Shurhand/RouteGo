@@ -234,5 +234,40 @@ $(function() {
       
 </script>
 
+<div class="container">
+  <div class="jumbotron">
+  <br><br><br>
+<h2 class="text-center">
+<spring:message code="route.comments" />
+</h2>
 
+<form:form action="route/customer/comment.do" modelAttribute="route" class="form-horizontal">
+	
+	<input id="input-id" name="text" type="text" size="35"/>
+  	<input type="hidden" name="routeId" value="<%= request.getParameter("routeID") %>"/>
+  	<input type="submit" name="comment" class="btn btn-primary" value="<spring:message code="route.comment" />" />
+
+</form:form>
+
+<br>
+
+<div class="container-fluid">
+<div class="table-responsive">
+<display:table name="comments" id="row" requestURI="${requestURI}"
+	pagesize="5" class="table table-hover">
+	
+	<spring:message code="comment.text" var="textHeader"/>
+	<display:column property="text" title="${textHeader}" sortable="false"/>
+	
+	<spring:message code="comment.customer" var="customerHeader"/>
+	<display:column property="customer.name" title="${customerHeader}" sortable="false"/>
+	
+	<spring:message code="comment.moment" var="momentHeader"/>
+	<display:column property="moment" title="${momentHeader}" sortable="true"/>
+	
+</display:table>
+</div>
+</div>
+</div>
+</div>
 

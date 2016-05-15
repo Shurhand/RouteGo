@@ -141,15 +141,6 @@ public class Route extends DomainEntity {
 		this.customers = customers;
 	}
 
-	@OneToMany(mappedBy = "route")
-	public Collection<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(Collection<Comment> comments) {
-		this.comments = comments;
-	}
-
 	@NotNull
 	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	public Collection<Activity> getActivities() {
@@ -158,6 +149,16 @@ public class Route extends DomainEntity {
 
 	public void setActivities(Collection<Activity> activities) {
 		this.activities = activities;
+	}
+	
+	@Valid
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Collection<Comment> comments) {
+		this.comments = comments;
 	}
 
 	@Valid

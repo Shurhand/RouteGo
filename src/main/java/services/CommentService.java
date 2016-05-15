@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import domain.Comment;
+import domain.Route;
 import repositories.CommentRepository;
 
 @Service
@@ -24,6 +26,12 @@ public class CommentService {
 	private CommentRepository commentRepository;
 
 	// ========== Supporting services ================
+
+	@Autowired
+	private CustomerService customerService;
+
+	@Autowired
+	private RouteService routeService;
 
 	// ========== Simple CRUD Methods ================
 
@@ -57,7 +65,11 @@ public class CommentService {
 
 	public void save(Comment comment) {
 		Assert.notNull(comment);
+		Date moment;
 
+		moment = new Date();
+		comment.setCustomer(customerService.findByPrincipal());
+		comment.setMoment(moment);
 		commentRepository.save(comment);
 	}
 
@@ -68,5 +80,20 @@ public class CommentService {
 	}
 
 	// ========== Other Business Methods =============
+
+	public void comenta(String text, int routeId) {
+		Comment comment;
+		Route route;
+		Collection<Comment> comments;
+
+		comment = create();
+		route = routeService.findOne(routeId);
+		comments = route.getComments();
+
+		comment.setText(text);
+		save(comment);
+		comments.add(comment);
+		route.setComments(comments);
+	}
 
 }

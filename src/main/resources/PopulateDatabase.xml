@@ -92,6 +92,12 @@
 				<ref bean="rating2" />
 			</list>
 		</property>
+		<property name="comments">
+			<list>
+				<ref bean="comment1" />
+				<ref bean="comment2" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="customer2" class="domain.Customer">
@@ -709,6 +715,12 @@
 				<ref bean="rating2" />
 			</list>
 		</property>
+		<property name="comments">
+			<list>
+				<ref bean="comment1" />
+				<ref bean="comment2" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="customRoute1" class="domain.Route">
@@ -923,6 +935,20 @@
 		<property name="openingDate" value="11/10/2016 08:00" />
 		<property name="closingDate" value="11/10/2016 24:00" />
 		<property name="activity" ref="plazaEspaña" />
+	</bean>
+	
+	<!-- Ratings -->
+
+	<bean id="comment1" class="domain.Comment">
+		<property name="text" value="comment1Text" />
+		<property name="moment" value="15/05/2016" />
+		<property name="customer" ref="customer1" />
+	</bean>
+	
+	<bean id="comment2" class="domain.Comment">
+		<property name="text" value="comment2Text" />
+		<property name="moment" value="14/05/2016" />
+		<property name="customer" ref="customer1" />
 	</bean>
 
 	<!-- Ratings -->

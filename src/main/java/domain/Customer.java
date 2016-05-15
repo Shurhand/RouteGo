@@ -33,6 +33,7 @@ public class Customer extends Actor {
 
 	private Collection<Route> routes;
 	private Collection<Rating> ratings;
+	private Collection<Comment> comments;
 
 	@ManyToMany(mappedBy = "customers")
 	public Collection<Route> getRoutes() {
@@ -51,6 +52,16 @@ public class Customer extends Actor {
 
 	public void setRatings(Collection<Rating> ratings) {
 		this.ratings = ratings;
+	}
+
+	@Valid
+	@OneToMany(mappedBy = "customer")
+	public Collection<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Collection<Comment> comments) {
+		this.comments = comments;
 	}
 
 }

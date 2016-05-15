@@ -275,27 +275,44 @@ public class RouteService {
 		if (route.getRatings() == null) {
 			rating = 0.0;
 		} else {
-			rating = (double) ( Math.round(ratingService.sumRatings(route.getId()) / numRatings));
-			
+			rating = (double) (Math.round(ratingService.sumRatings(route.getId()) / numRatings));
+
 		}
 
 		route.setRating(rating);
 
 	}
-	
-	public void ratea(int rate, int routeId){
+
+	public void ratea(int rate, int routeId) {
 		Collection<Rating> ratings;
 		Route route;
 		Rating rating;
-		
+		Customer principal;
+		boolean puedePuntuar = true;
+
 		route = findOne(routeId);
-		Assert.isTrue(customerService.findByPrincipal().getRoutes().contains(route));
+		principal = customerService.findByPrincipal();
+		Assert.isTrue(principal.getRoutes().contains(route));
 		ratings = route.getRatings();
-		rating = ratingService.create();
-		rating.setRating(rate);
-		ratingService.save(rating);
-		ratings.add(rating);
-		route.setRatings(ratings);
-		calculaRating(route);
+		
+		// Comprueba que no haya ningún rating del principal entre los
+		// ratings de esa ruta, y si lo hay pone a false la variable puedePuntuar.
+		for (Rating r : ratings) {
+			if (r.getCustomer().equals(principal)) {
+				puedePuntuar = false;
+				break;
+			}
+		}
+		
+		// Si la variable puede puntuar es true el principal puede puntuar sino no.
+		// Con esto nos aseguramos que un customer no vote una ruta más de una vez.
+		if (puedePuntuar) {
+			rating = ratingService.create();
+			rating.setRating(rate);
+			ratingService.save(rating);
+			ratings.add(rating);
+			route.setRatings(ratings);
+			calculaRating(route);
+		}
 	}
 }

@@ -18,11 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import domain.Activity;
 import domain.Category;
+import domain.Comment;
 import domain.Customer;
 import domain.Route;
 import security.Credentials;
 import services.ActivityService;
 import services.CategoryService;
+import services.CommentService;
 import services.CustomerService;
 import services.RouteService;
 
@@ -43,6 +45,9 @@ public class RouteCustomerController extends AbstractController {
 
 	@Autowired
 	private CustomerService customerService;
+
+	@Autowired
+	private CommentService commentService;
 
 	// Listing ---------------------------------------------------------
 
@@ -106,16 +111,20 @@ public class RouteCustomerController extends AbstractController {
 		String startingDate;
 		String endDate;
 		SimpleDateFormat formatter;
+		Collection<Comment> comments;
 
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		startingDate = formatter.format(route.getStartingDate());
 		endDate = formatter.format(route.getEndDate());
+		comments = route.getComments();
 
 		result = new ModelAndView("route/list");
 		result.addObject("route", route);
 		result.addObject("startingDate", startingDate);
 		result.addObject("endDate", endDate);
+		result.addObject("comments", comments);
 		result.addObject("credentials", credentials);
+		result.addObject("requestURI", "route/customer/display.do");
 
 		return result;
 
@@ -192,11 +201,27 @@ public class RouteCustomerController extends AbstractController {
 	public ModelAndView ratea(@RequestParam int rate, @RequestParam int routeId) {
 
 		ModelAndView result;
-		
+
 		try {
 			routeService.ratea(rate, routeId);
 			result = new ModelAndView("redirect:/route/customer/list2.do");
 			result.addObject("requestURI", "route/list2.do");
+		} catch (Throwable error) {
+			result = new ModelAndView("redirect:list2.do");
+		}
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/comment", method = RequestMethod.POST)
+	public ModelAndView comment(@RequestParam String text, @RequestParam int routeId) {
+
+		ModelAndView result;
+
+		try {
+			commentService.comenta(text, routeId);
+			result = new ModelAndView("redirect:/route/customer/display.do?routeID=51");
+			result.addObject("requestURI", "route/list.do");
 		} catch (Throwable error) {
 			result = new ModelAndView("redirect:list2.do");
 		}

@@ -8,8 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Max;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,7 +25,6 @@ public class Comment extends DomainEntity {
 
 	private Date moment;
 	private String text;
-	private String user;
 
 	@NotNull
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
@@ -38,7 +38,7 @@ public class Comment extends DomainEntity {
 	}
 
 	@NotEmpty
-	@Max(200)
+	@Size(max = 200)
 	public String getText() {
 		return text;
 	}
@@ -47,27 +47,19 @@ public class Comment extends DomainEntity {
 		this.text = text;
 	}
 
-	@NotEmpty
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
 	// // =============== Relaciones ==============
 
-	private Route route;
+	private Customer customer;
 
 	@NotNull
+	@Valid
 	@ManyToOne(optional = false)
-	public Route getRoute() {
-		return route;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setRoute(Route route) {
-		this.route = route;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 }
