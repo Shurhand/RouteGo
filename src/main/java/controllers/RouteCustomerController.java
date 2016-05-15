@@ -220,7 +220,7 @@ public class RouteCustomerController extends AbstractController {
 
 		try {
 			commentService.comenta(text, routeId);
-			result = new ModelAndView("redirect:/route/customer/display.do?routeID=51");
+			result = new ModelAndView("redirect:/route/customer/display.do?routeID="+routeId);
 			result.addObject("requestURI", "route/list.do");
 		} catch (Throwable error) {
 			result = new ModelAndView("redirect:list2.do");

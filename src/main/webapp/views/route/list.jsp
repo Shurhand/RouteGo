@@ -10,6 +10,9 @@
 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<link href="styles/comment.css" media="all" rel="stylesheet" type="text/css" />
+
 <jsp:useBean id="date" class="java.util.Date" />
 
 <!DOCTYPE html>
@@ -234,40 +237,37 @@ $(function() {
       
 </script>
 
-<div class="container">
-  <div class="jumbotron">
-  <br><br><br>
-<h2 class="text-center">
-<spring:message code="route.comments" />
-</h2>
-
-<form:form action="route/customer/comment.do" modelAttribute="route" class="form-horizontal">
-	
-	<input id="input-id" name="text" type="text" size="35"/>
-  	<input type="hidden" name="routeId" value="<%= request.getParameter("routeID") %>"/>
-  	<input type="submit" name="comment" class="btn btn-primary" value="<spring:message code="route.comment" />" />
-
-</form:form>
-
-<br>
-
-<div class="container-fluid">
-<div class="table-responsive">
-<display:table name="comments" id="row" requestURI="${requestURI}"
-	pagesize="5" class="table table-hover">
-	
-	<spring:message code="comment.text" var="textHeader"/>
-	<display:column property="text" title="${textHeader}" sortable="false"/>
-	
-	<spring:message code="comment.customer" var="customerHeader"/>
-	<display:column property="customer.name" title="${customerHeader}" sortable="false"/>
-	
-	<spring:message code="comment.moment" var="momentHeader"/>
-	<display:column property="moment" title="${momentHeader}" sortable="true"/>
-	
-</display:table>
+<div class="detailBox">
+    <div class="titleBox">
+      <label><spring:message code="route.comment.box" /></label>
+    </div>
+    <div class="commentBox">
+        
+        <p class="taskDescription"> <jstl:out value="${route.name}"></jstl:out> </p>
+    </div>
+    <div class="actionBox">
+        <ul class="commentList">
+            <li>
+                <div class="commentText">
+                	<display:table name="comments" id="row">
+                	<display:column>
+                	<div class="commentBox">
+                	<span class="date sub-text"><jstl:out value="${row.customer.name}"></jstl:out></span>
+                    <p class="sub-texto"><jstl:out value="${row.text}"></jstl:out> </p> <span class="date sub-text"><jstl:out value="${row.moment}"></jstl:out></span>
+                    </div>
+					</display:column>
+					</display:table>
+                </div>
+            </li>
+        </ul>
+        <form:form action="route/customer/comment.do" modelAttribute="route" ss="form-inline">
+            <div class="form-group">
+            	<input class="form-control" type="text" placeholder="<spring:message code="route.your.comments" />" name="text"/>
+  				<input type="hidden" name="routeId" value="<%= request.getParameter("routeID") %>"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="comment" class="btn btn-default custom" value="<spring:message code="route.comment" />" />
+            </div>
+        </form:form>
+    </div>
 </div>
-</div>
-</div>
-</div>
-
