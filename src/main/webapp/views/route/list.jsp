@@ -68,6 +68,7 @@
 				<jstl:forEach var="activity" items="${route.activities}">
 					<tr>
 					<% i++; j++; %>
+					<c:if test="${hi <= 22}">
 					<c:set var="mt" value="${(hi*60)+mi}" />
 					
 					<c:set var="mt" value="${mt + activity.duration}" />
@@ -87,12 +88,34 @@
 					<td width="25%" align="center" style="vertical-align:middle;"><img var="p" width="60%" src="${activity.picture}" /></td>
 				
 					<!--<td width="25%" align="center" style="vertical-align:middle;"><% //out.println(i + ":00 - "+ j +":00"); %></td>-->
-					<td width="25%" align="center" style="vertical-align:middle;"><c:out value="${hi}"  />: <c:out value="${mi}"  />&nbsp;-&nbsp;<c:out value="${hf}"  />: <c:out value="${mf}"  /></td>
+					<td width="25%" align="center" style="vertical-align:middle;">
+					
+					<c:if test="${mi == 0}">
+					<c:out value="${hi}"  />:<c:out value="00"  />&nbsp; -&nbsp;
+					</c:if>
+					
+					<c:if test="${mi != 0}">
+					<c:out value="${hi}"  />:<c:out value="${mi}"  />&nbsp; -&nbsp;
+					</c:if>
+					
+					<c:if test="${mf == 0}">
+					<c:out value="${hf}"  />:<c:out value="00"  /></td>
+					</c:if>
+					
+					<c:if test="${mf != 0}">
+					<c:set var="aux" value="00"></c:set>
+					<c:out value="${hf}"  />:<c:out value="${mf}"  /></td>
+					</c:if>
+					
+					
 					<td width="30%" align="center" style="vertical-align:middle;"><jstl:out value="${activity.name}" /></td>
 					<td width="20%" align="center" style="vertical-align:middle;"><jstl:out value="${activity.cost} Euros " /></td>
 					<c:set var="total" value="${activity.cost + total}" />
+					
+					
 					<c:set var="hi" value="${hf}" />
 					<c:set var="mi" value="${mf}" />
+					</c:if>
 					</tr>
 				</jstl:forEach>
 					<tr>
