@@ -253,6 +253,7 @@ public class RouteCustomerController extends AbstractController {
 		categories = categoryService.findAll();
 		principal = customerService.findByPrincipal();
 		activities = activityService.findByCustomerId(principal.getId());
+		activityService.añadeTodas(activities);
 		res.addObject("route", route);
 		res.addObject("activities", activities);
 		res.addObject("categories", categories);

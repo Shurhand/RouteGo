@@ -129,7 +129,16 @@
 		</div>
 		
 	<br>
-	<!-- Formulario para guardar la ruta en la base de datos -->
+	
+	<jstl:if test="${route.details != null}">
+	<p align="center">
+		<b><spring:message code="route.details" /></b>
+	</p>
+			
+	<div class="panel panel-default">
+  		<div class="panel-body"><jstl:out value="${route.details}  " /></div>
+	</div>
+	</jstl:if>		
 		
 	<form:form action="route/list.do" modelAttribute="route">
 	

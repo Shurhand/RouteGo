@@ -180,6 +180,15 @@ public class ActivityService {
 		return res;
 	}
 
+	public void añadeTodas(Collection<Activity> activities) {
+
+		for (Activity a : findElegible()) {
+			if (!activities.contains(a)) {
+				activities.add(a);
+			}
+		}
+	}
+
 	public void assignCompany(Activity activity, Company company) {
 		Collection<Activity> companyActivities;
 

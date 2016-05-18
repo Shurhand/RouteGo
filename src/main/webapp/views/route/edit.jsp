@@ -143,6 +143,18 @@
 	
 		</div>
 	</div>
+	
+	<div class="form-group" >
+	
+	<form:label path="details" class="col-sm-5 control-label">
+		<spring:message code="route.details" />:
+	</form:label>
+	
+	<div class="col-xs-6">
+	<form:textarea path="details" class="form-control" />
+	<form:errors cssClass="error" path="details" />
+		</div>
+	</div>
 		
   </div>
 <br>
