@@ -34,6 +34,16 @@ public class Customer extends Actor {
 	private Collection<Route> routes;
 	private Collection<Rating> ratings;
 	private Collection<Comment> comments;
+	private Collection<Activity> activities;
+
+	@OneToMany(mappedBy = "customer")
+	public Collection<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(Collection<Activity> activities) {
+		this.activities = activities;
+	}
 
 	@ManyToMany(mappedBy = "customers")
 	public Collection<Route> getRoutes() {

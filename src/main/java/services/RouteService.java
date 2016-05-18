@@ -294,18 +294,21 @@ public class RouteService {
 		principal = customerService.findByPrincipal();
 		Assert.isTrue(principal.getRoutes().contains(route));
 		ratings = route.getRatings();
-		
+
 		// Comprueba que no haya ningún rating del principal entre los
-		// ratings de esa ruta, y si lo hay pone a false la variable puedePuntuar.
+		// ratings de esa ruta, y si lo hay pone a false la variable
+		// puedePuntuar.
 		for (Rating r : ratings) {
 			if (r.getCustomer().equals(principal)) {
 				puedePuntuar = false;
 				break;
 			}
 		}
-		
-		// Si la variable puede puntuar es true el principal puede puntuar sino no.
-		// Con esto nos aseguramos que un customer no vote una ruta más de una vez.
+
+		// Si la variable puede puntuar es true el principal puede puntuar sino
+		// no.
+		// Con esto nos aseguramos que un customer no vote una ruta más de una
+		// vez.
 		if (puedePuntuar) {
 			rating = ratingService.create();
 			rating.setRating(rate);
@@ -314,5 +317,19 @@ public class RouteService {
 			route.setRatings(ratings);
 			calculaRating(route);
 		}
+	}
+
+	public boolean estaAsignada(Route route) {
+		boolean res = false;
+		Customer principal = customerService.findByPrincipal();
+
+		for (Customer c : route.getCustomers()) {
+			if (c.equals(principal)) {
+				res = true;
+			}
+		}
+
+		return res;
+
 	}
 }

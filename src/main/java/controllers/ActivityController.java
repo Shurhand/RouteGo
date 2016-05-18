@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,11 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import domain.Activity;
 import domain.Category;
+import domain.Customer;
 import forms.ActivityForm;
-import forms.TripForm;
-import security.Credentials;
 import services.ActivityService;
 import services.CategoryService;
+import services.CustomerService;
 
 @Controller
 @RequestMapping("/activity")
@@ -35,6 +34,9 @@ public class ActivityController extends AbstractController {
 	@Autowired
 	private CategoryService categoryService;
 
+	@Autowired
+	private CustomerService customerService;
+
 	// Listing ---------------------------------------------------------
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -42,8 +44,10 @@ public class ActivityController extends AbstractController {
 
 		ModelAndView result;
 		Collection<Activity> activities;
+		Customer princpial;
 
-		activities = activityService.findAll();
+		princpial = customerService.findByPrincipal();
+		activities = activityService.findByCustomerId(princpial.getId());
 
 		result = new ModelAndView("activity/list");
 		result.addObject("activities", activities);
@@ -65,6 +69,21 @@ public class ActivityController extends AbstractController {
 	}
 
 	// =============== Edition ====================
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam int activityId) {
+
+		ModelAndView result;
+		Activity activity;
+		ActivityForm activityForm;
+
+		activity = activityService.findOne(activityId);
+		activityForm= activityService.transform(activity);
+		Assert.notNull(activity);
+		result = createEditModelAndView2(activityForm);
+
+		return result;
+	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid ActivityForm activityForm, BindingResult binding) {
@@ -79,7 +98,9 @@ public class ActivityController extends AbstractController {
 			result = createEditModelAndView2(activityForm);
 		} else {
 			try {
+				Customer customer = customerService.findByPrincipal();
 				activity = activityService.reconstruct(activityForm);
+				activity.setCustomer(customer);
 				activityService.save(activity);
 				result = new ModelAndView("redirect:list.do");
 			} catch (Throwable oops) {

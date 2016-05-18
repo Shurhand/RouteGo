@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.apache.commons.lang.time.DateUtils;
-import org.hibernate.dialect.Cache71Dialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -117,6 +116,14 @@ public class ActivityService {
 
 	// ========== Other Business Methods =============
 
+	public Collection<Activity> findElegible() {
+		Collection<Activity> res;
+
+		res = activityRepository.findElegible();
+
+		return res;
+	}
+
 	public Collection<Activity> findInDateRange(Date startingDate, Date endingDate) {
 		Assert.notNull(startingDate);
 		Assert.notNull(endingDate);
@@ -129,7 +136,7 @@ public class ActivityService {
 		res = new ArrayList<>();
 
 		// res = activityRepository.findInDateRange(startingDate, endingDate);
-		all = activityRepository.findAll();
+		all = activityRepository.findElegible();
 
 		Calendar c = Calendar.getInstance();
 		c.setTime(startingDate);
@@ -160,6 +167,15 @@ public class ActivityService {
 		Collection<Activity> res;
 
 		res = activityRepository.findByCompanyId(companyId);
+
+		return res;
+	}
+
+	public Collection<Activity> findByCustomerId(int customerId) {
+
+		Collection<Activity> res;
+
+		res = activityRepository.findByCustomerId(customerId);
 
 		return res;
 	}
@@ -270,6 +286,75 @@ public class ActivityService {
 		}
 
 		return res;
+	}
+
+	public ActivityForm transform(Activity activity) {
+
+		ActivityForm res = new ActivityForm();
+		ArrayList<Schedule> schedules;
+
+		schedules = new ArrayList<>();
+
+		for (Schedule s : activity.getSchedules()) {
+			schedules.add(s);
+		}
+
+		res.setCategories(activity.getCategories());
+		res.setName(activity.getName());
+		res.setDescription(activity.getDescription());
+		res.setCost(activity.getCost());
+		res.setPostalAddress(activity.getPostalAddress());
+		res.setDuration(activity.getDuration());
+		res.setLongitude(activity.getLongitude());
+		res.setLatitude(activity.getLatitude());
+		res.setPicture(activity.getPicture());
+		res.setStartingDate(activity.getStartingDate());
+		res.setEndingDate(activity.getEndingDate());
+
+		if (schedules.size() >= 1) {
+			res.setDayOfWeek1(schedules.get(0).getDayOfWeek());
+			res.setOpeningDate1(schedules.get(0).getOpeningDate());
+			res.setClosingDate1(schedules.get(0).getClosingDate());
+
+		}
+		if (schedules.size() >= 2) {
+			res.setDayOfWeek2(schedules.get(1).getDayOfWeek());
+			res.setOpeningDate2(schedules.get(1).getOpeningDate());
+			res.setClosingDate2(schedules.get(1).getClosingDate());
+		}
+
+		if (schedules.size() >= 3) {
+			res.setDayOfWeek3(schedules.get(2).getDayOfWeek());
+			res.setOpeningDate3(schedules.get(2).getOpeningDate());
+			res.setClosingDate3(schedules.get(2).getClosingDate());
+		}
+
+		if (schedules.size() >= 4) {
+			res.setDayOfWeek4(schedules.get(3).getDayOfWeek());
+			res.setOpeningDate4(schedules.get(3).getOpeningDate());
+			res.setClosingDate4(schedules.get(3).getClosingDate());
+		}
+
+		if (schedules.size() >= 5) {
+			res.setDayOfWeek5(schedules.get(4).getDayOfWeek());
+			res.setOpeningDate5(schedules.get(4).getOpeningDate());
+			res.setClosingDate5(schedules.get(4).getClosingDate());
+		}
+
+		if (schedules.size() >= 6) {
+			res.setDayOfWeek6(schedules.get(5).getDayOfWeek());
+			res.setOpeningDate6(schedules.get(5).getOpeningDate());
+			res.setClosingDate6(schedules.get(5).getClosingDate());
+		}
+
+		if (schedules.size() >= 7) {
+			res.setDayOfWeek7(schedules.get(6).getDayOfWeek());
+			res.setOpeningDate7(schedules.get(6).getOpeningDate());
+			res.setClosingDate7(schedules.get(6).getClosingDate());
+		}
+
+		return res;
+
 	}
 
 }

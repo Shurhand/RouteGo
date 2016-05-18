@@ -112,11 +112,13 @@ public class RouteCustomerController extends AbstractController {
 		String endDate;
 		SimpleDateFormat formatter;
 		Collection<Comment> comments;
+		boolean estaAsignada;
 
 		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		startingDate = formatter.format(route.getStartingDate());
 		endDate = formatter.format(route.getEndDate());
 		comments = route.getComments();
+		estaAsignada= routeService.estaAsignada(route);
 
 		result = new ModelAndView("route/list");
 		result.addObject("route", route);
@@ -124,6 +126,7 @@ public class RouteCustomerController extends AbstractController {
 		result.addObject("endDate", endDate);
 		result.addObject("comments", comments);
 		result.addObject("credentials", credentials);
+		result.addObject("estaAsignada", estaAsignada);
 		result.addObject("requestURI", "route/customer/display.do");
 
 		return result;
@@ -247,9 +250,9 @@ public class RouteCustomerController extends AbstractController {
 		Credentials credentials = new Credentials();
 
 		res = new ModelAndView("route/edit");
-		activities = activityService.findAll();
 		categories = categoryService.findAll();
 		principal = customerService.findByPrincipal();
+		activities = activityService.findByCustomerId(principal.getId());
 		res.addObject("route", route);
 		res.addObject("activities", activities);
 		res.addObject("categories", categories);

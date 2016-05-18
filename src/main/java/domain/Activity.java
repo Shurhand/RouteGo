@@ -134,6 +134,7 @@ public class Activity extends DomainEntity {
 	// ================ Relaciones ==================
 
 	private Company company;
+	private Customer customer;
 	private Collection<Category> categories;
 	private Collection<Schedule> schedules;
 
@@ -144,6 +145,15 @@ public class Activity extends DomainEntity {
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+
+	@ManyToOne(optional = true)
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	@NotNull
