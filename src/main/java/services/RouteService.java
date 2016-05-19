@@ -82,11 +82,8 @@ public class RouteService {
 		if (route.getPrice() == null) {
 			route.setPrice(0.);
 		}
-		System.out.println("pero entra en el save");
 		route.setRating(0.0);
 		route = routeRepository.save(route);
-
-		System.out.println(route);
 	}
 
 	public void saveOnly(Route route) {
@@ -331,5 +328,28 @@ public class RouteService {
 
 		return res;
 
+	}
+
+	public Collection<Route> findAllOwned() {
+		Collection<Route> res;
+		Customer principal;
+
+		principal = customerService.findByPrincipal();
+		res = routeRepository.findAllOwned(principal.getId());
+
+		return res;
+	}
+
+	public Collection<Route> findAllCustomerRoutes() {
+		Collection<Route> res;
+		Collection<Route> owned;
+		Customer principal;
+
+		principal = customerService.findByPrincipal();
+		owned = findAllOwned();
+		res = routeRepository.findRoutesByCustomer(principal);
+		res.addAll(owned);
+
+		return res;
 	}
 }

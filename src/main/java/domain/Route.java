@@ -8,6 +8,7 @@ import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -114,7 +115,7 @@ public class Route extends DomainEntity {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+
 	public String getDetails() {
 		return details;
 	}
@@ -130,6 +131,7 @@ public class Route extends DomainEntity {
 	private Collection<Comment> comments;
 	private Collection<Activity> activities;
 	private Collection<Rating> ratings;
+	private Customer owner;
 
 	@NotNull
 	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
@@ -159,7 +161,7 @@ public class Route extends DomainEntity {
 	public void setActivities(Collection<Activity> activities) {
 		this.activities = activities;
 	}
-	
+
 	@Valid
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Comment> getComments() {
@@ -178,6 +180,16 @@ public class Route extends DomainEntity {
 
 	public void setRatings(Collection<Rating> ratings) {
 		this.ratings = ratings;
+	}
+
+	@Valid
+	@ManyToOne(optional = true)
+	public Customer getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Customer owner) {
+		this.owner = owner;
 	}
 
 }

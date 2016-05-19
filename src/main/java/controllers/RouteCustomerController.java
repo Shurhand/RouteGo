@@ -56,12 +56,10 @@ public class RouteCustomerController extends AbstractController {
 
 		ModelAndView result;
 		Collection<Route> routes;
-		Customer customer;
 
 		Credentials credentials = new Credentials();
 
-		customer = customerService.findByPrincipal();
-		routes = customer.getRoutes();
+		routes = routeService.findAllCustomerRoutes();
 
 		result = new ModelAndView("route/list2");
 		result.addObject("routes", routes);
@@ -118,7 +116,7 @@ public class RouteCustomerController extends AbstractController {
 		startingDate = formatter.format(route.getStartingDate());
 		endDate = formatter.format(route.getEndDate());
 		comments = route.getComments();
-		estaAsignada= routeService.estaAsignada(route);
+		estaAsignada = routeService.estaAsignada(route);
 
 		result = new ModelAndView("route/list");
 		result.addObject("route", route);
@@ -174,6 +172,7 @@ public class RouteCustomerController extends AbstractController {
 			try {
 				Customer customer = customerService.findByPrincipal();
 				route.getCustomers().add(customer);
+				route.setOwner(customer);
 				route.setIsRandom(false);
 				routeService.save(route);
 				result = new ModelAndView("redirect:/route/customer/list2.do");
@@ -215,7 +214,7 @@ public class RouteCustomerController extends AbstractController {
 		return result;
 
 	}
-	
+
 	@RequestMapping(value = "/comment", method = RequestMethod.POST)
 	public ModelAndView comment(@RequestParam String text, @RequestParam int routeId) {
 
@@ -223,7 +222,7 @@ public class RouteCustomerController extends AbstractController {
 
 		try {
 			commentService.comenta(text, routeId);
-			result = new ModelAndView("redirect:/route/customer/display.do?routeID="+routeId);
+			result = new ModelAndView("redirect:/route/customer/display.do?routeID=" + routeId);
 			result.addObject("requestURI", "route/list.do");
 		} catch (Throwable error) {
 			result = new ModelAndView("redirect:list2.do");

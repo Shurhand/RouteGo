@@ -11,12 +11,14 @@ import domain.Route;
 
 @Repository
 public interface RouteRepository extends JpaRepository<Route, Integer> {
-	
+
 	@Query("select c.routes from Customer c where c = ?1")
 	Collection<Route> findRoutesByCustomer(Customer customer);
-	
+
 	@Query("select r from Route r where r.isRandom=false")
 	Collection<Route> findAllCustom();
 
+	@Query("select r from Route r where r.owner.id= ?1")
+	Collection<Route> findAllOwned(int customerId);
 
 }

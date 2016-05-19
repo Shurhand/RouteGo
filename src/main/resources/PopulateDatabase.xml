@@ -734,6 +734,7 @@
 				<ref bean="customer2" />
 			</list>
 		</property>
+		<property name="owner" ref="customer1" />
 		<property name="isRandom" value="false" />
 		<property name="price" value="1.25" />
 		<property name="activities">
@@ -761,6 +762,7 @@
 				<ref bean="customer2" />
 			</list>
 		</property>
+		<property name="owner" ref="customer1" />
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.15" />
 		<property name="activities">
@@ -787,9 +789,10 @@
 		<property name="rating" value="4" />
 		<property name="customers">
 			<list>
-				<ref bean="customer2" />
+				
 			</list>
 		</property>
+		<property name="owner" ref="customer2" />
 		<property name="isRandom" value="false" />
 		<property name="price" value="2.45" />
 		<property name="activities">
