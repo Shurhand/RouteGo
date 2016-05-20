@@ -284,8 +284,6 @@ public class ActivityService {
 		res.setCost(activityForm.getCost());
 		res.setPostalAddress(activityForm.getPostalAddress());
 		res.setDuration(activityForm.getDuration());
-		res.setLongitude(activityForm.getLongitude());
-		res.setLatitude(activityForm.getLatitude());
 		res.setPicture(activityForm.getPicture());
 		res.setStartingDate(activityForm.getStartingDate());
 		res.setEndingDate(activityForm.getEndingDate());
@@ -314,8 +312,6 @@ public class ActivityService {
 		res.setCost(activity.getCost());
 		res.setPostalAddress(activity.getPostalAddress());
 		res.setDuration(activity.getDuration());
-		res.setLongitude(activity.getLongitude());
-		res.setLatitude(activity.getLatitude());
 		res.setPicture(activity.getPicture());
 		res.setStartingDate(activity.getStartingDate());
 		res.setEndingDate(activity.getEndingDate());

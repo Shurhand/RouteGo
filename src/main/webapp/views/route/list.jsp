@@ -197,6 +197,15 @@ $(function() {
     var marker, i;
     var markersArrayPositions = new Array();
     var markersArray = new Array();
+    var geocoder = new google.maps.Geocoder();
+    var polys = new google.maps.Polyline({
+	    geodesic: true,
+	    strokeColor: '#4986E7',
+	    strokeOpacity: 1.0,
+	    strokeWeight: 5
+	  });
+  
+    var service = new google.maps.DirectionsService(),snap_path=[];    
 
     <c:forEach items="${route.activities}" var="n"> 
   
@@ -210,15 +219,20 @@ $(function() {
 //     	    // The anchor for this image is the base of the flagpole at (0, 32).
 //     	    anchor: new google.maps.Point(0, 32)
 //     	  };
-    
+    var address = "${n.postalAddress}";
+    if (geocoder) {
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+          map.setCenter(results[0].geometry.location);
     
     
       marker = new google.maps.Marker({
-        position: new google.maps.LatLng("${n.latitude}", "${n.longitude}"),
+        position:  results[0].geometry.location,
         map: map,
 //         icon: image
       });
-      markersArrayPositions.push(marker.getPosition());
+      markersArrayPositions.push(results[0].geometry.location);
       markersArray.push(marker);
       
       google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
@@ -227,33 +241,21 @@ $(function() {
          infowindow.open(map, marker);
         }
       })(marker, i));
-      </c:forEach>
       
-      
-      var polys = new google.maps.Polyline({
-    	    geodesic: true,
-    	    strokeColor: '#4986E7',
-    	    strokeOpacity: 1.0,
-    	    strokeWeight: 5
-    	  });
-      
-      var service = new google.maps.DirectionsService(),snap_path=[];               
-      
-        for(j=0; j < markersArray.length - 1; j++){            
-              service.route({
-            	  origin: markersArrayPositions[j],
-            	  destination: markersArrayPositions[j+1],
-            	  travelMode: google.maps.DirectionsTravelMode.WALKING},
-            	  		function(result, status) {                
-                  if(status == google.maps.DirectionsStatus.OK) {                 
-                        snap_path = snap_path.concat(result.routes[0].overview_path);
-                        polys.setPath(snap_path);
-                  }        
-              });
-      }
-        
-       	// ============= Unión del último punto y el primero. (NO SIEMPRE FUNCIONA) ================
-        service.route({
+      for(j=0; j < markersArray.length - 1; j++){            
+          service.route({
+        	  origin: markersArrayPositions[j],
+        	  destination: markersArrayPositions[j+1],
+        	  travelMode: google.maps.DirectionsTravelMode.WALKING},
+        	  		function(result, status) {                
+              if(status == google.maps.DirectionsStatus.OK) {                 
+                    snap_path = snap_path.concat(result.routes[0].overview_path);
+                    polys.setPath(snap_path);
+              }        
+          });
+  }
+   // ============= Unión del último punto y el primero. (NO SIEMPRE FUNCIONA) ================
+      service.route({
       	  origin: markersArrayPositions[0],
       	  destination: markersArrayPositions[markersArray.length - 1],
       	  travelMode: google.maps.DirectionsTravelMode.WALKING},
@@ -263,7 +265,21 @@ $(function() {
       		polys.push(result.routes[0].overview_path);
         }        
     });
-   
+      
+      
+        } else {
+            alert("No results found");
+          }
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+    
+    
+      
+      </c:forEach>
+  
       polys.setMap(map);
       
       

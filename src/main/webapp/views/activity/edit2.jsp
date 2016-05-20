@@ -122,30 +122,6 @@
 	
 </div>
 	<div class='col-md-6'>
-	<div class="form-group" >
-	
-	<form:label path="latitude" class="col-sm-5 control-label">
-		<spring:message code="activity.latitude" />:
-	</form:label>
-	
-	<div class="col-xs-6">
-	<form:input path="latitude" class="form-control" />
-	<form:errors cssClass="error" path="latitude" />
-		</div>
-	</div>
-	
-	<div class="form-group" >
-	
-	<form:label path="longitude" class="col-sm-5 control-label">
-		<spring:message code="activity.longitude" />:
-	</form:label>
-	
-	<div class="col-xs-6">
-	<form:input path="longitude" class="form-control" />
-	<form:errors cssClass="error" path="longitude" />
-		</div>
-	</div>
-	
 	
 	<div class="form-group" >
 	

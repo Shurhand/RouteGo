@@ -24,8 +24,6 @@ public class ActivityForm {
 	private String description;
 	private Double cost;
 	private String postalAddress;
-	private double latitude;
-	private double longitude;
 	private URL picture;
 	private Double duration;
 	private Date startingDate;
@@ -293,24 +291,6 @@ public class ActivityForm {
 
 	public void setPostalAddress(String postalAddress) {
 		this.postalAddress = postalAddress;
-	}
-
-	@NotNull
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	@NotNull
-	public double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
 	}
 
 	public URL getPicture() {
