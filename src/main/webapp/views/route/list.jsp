@@ -285,7 +285,7 @@ $(function() {
       
 </script>
 
-<jstl:if test="${estaAsignada}">
+
 <div class="detailBox">
     <div class="titleBox">
       <label><spring:message code="route.comment.box" /></label>
@@ -320,4 +320,3 @@ $(function() {
         </form:form>
     </div>
 </div>
-</jstl:if>
