@@ -348,8 +348,11 @@ public class RouteService {
 		principal = customerService.findByPrincipal();
 		owned = findAllOwned();
 		res = routeRepository.findRoutesByCustomer(principal);
-		res.addAll(owned);
-
+		for (Route r : owned) {
+			if (!res.contains(r)) {
+				res.add(r);
+			}
+		}
 		return res;
 	}
 }
