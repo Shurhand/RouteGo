@@ -14,7 +14,7 @@
 	<groupId>RouteGo</groupId>
 	<artifactId>RouteGo</artifactId>
 	<version>1.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
